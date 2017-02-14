@@ -1,0 +1,16 @@
+OX_4131255569({
+  "ads":{
+    "medium":"w",
+    "record_tmpl":"http://curse-d.openx.net/{medium}/1.0/{rtype}?bi=349e12be-762f-4e48-9720-55e6cf7dbbb6&ba=1486006224&ts={txn_state}",
+    "pixels":"http://us-u.openx.net/w/1.0/pd?plm=5&ph=5fce9188-5249-474b-8ded-348983623f92&bi=349e12be-762f-4e48-9720-55e6cf7dbbb6",
+    "adunits" : [
+      {
+        "auid":"538399541",
+        "chain_revenue":"",
+        "size":"300x250",
+        "chain":[
+        ]
+      }
+    ]
+  }
+});

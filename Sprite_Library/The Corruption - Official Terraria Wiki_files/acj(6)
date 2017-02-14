@@ -1,0 +1,30 @@
+oxc7015781784({
+  "ads":{
+    "medium":"w",
+    "record_tmpl":"http://sekindo-d.openx.net/{medium}/1.0/{rtype}?ef=db&ts={txn_state}",
+    "pixels":"http://eu-u.openx.net/w/1.0/pd?plm=5&ph=da23bca0-a3e6-4ba1-bb1d-b8e16095bb84",
+    "adunits" : [
+      {
+        "auid":"538231691",
+        "chain_revenue":"",
+        "size":"300x250",
+        "chain":[
+        ]
+      },
+      {
+        "auid":"538635935",
+        "chain_revenue":"",
+        "size":"300x250",
+        "chain":[
+        ]
+      },
+      {
+        "auid":"538635934",
+        "chain_revenue":"",
+        "size":"300x250",
+        "chain":[
+        ]
+      }
+    ]
+  }
+});
