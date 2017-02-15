@@ -1,0 +1,14 @@
+sv_callback({
+  "id" : "svCDM",
+  "seatbid" : [ {
+    "bid" : [ {
+      "id" : "a_300205_acc9acc3111541e9b1f81b814f360869",
+      "impid" : "3",
+      "price" : 1.0295043,
+      "nurl" : "http://vap2iad1.lijit.com/www/delivery/lg.php?bannerid=37826&campaignid=721&rtb_tid=08a4b733-78b2-46c3-9143-6c3be7280f6d&rpid=5&zoneid=300205&cb=34743289&tid=a_300205_acc9acc3111541e9b1f81b814f360869",
+      "adm" : "%3Ciframe%20src%3D'http%3A%2F%2Fad-e1.media6degrees.com%2Fadserv%2Fcsv2%3FtIdx3DD17905403585591433x7CDpricex3DD1.247884x7CDtpAuctIdx3DD08a4b733-78b2-46c3-9143-6c3be7280f6dx7CDdIdsx3DDChEIFhINMDNtaDBpbWFkajFreA%3D%3Dx7CDblInfox3DDCigIqqQBELY2GM26GCCoqcoBKg0I1ucGEgczMDB4MjUwMgdIb3VzdG9uEjgIrGYQJxjvGSCHPioNZ2FtZXBlZGlhLmNvbTINZ2FtZXBlZGlhLmNvbToAQgNXRUJKBmlmcmFtZRokChFhZXExMDQ4LmVxLnBsLnB2dBIEODA4MBoJMTYuNi4xMzE4Jbrooj8oAQ%3D%3Dx7CDctrackx3DDhttp%3A%2F%2Fvapden1.lijit.com%2Fwww%2Fdelivery%2Fck.php%3Foaparams%3D2__bannerid%3D37826__campaignid%3D721__zoneid%3D300205__cb%3D6f9a810__tid%3Da_300205_acc9acc3111541e9b1f81b814f360869__maxdest%3D'%20frameborder%3D'0'%20scrolling%3D'no'%20marginheight%3D'0'%20marginwidth%3D'0'%20topmargin%3D'0'%20leftmargin%3D'0'%20allowtransparency%3D'true'%20width%3D'300'%20height%3D'250'%3E%3C%2Fiframe%3E",
+      "h" : 250,
+      "w" : 300
+    } ]
+  } ]
+})
