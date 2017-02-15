@@ -1,2 +1,0 @@
-/* aax response */
-(function(){if (window.hasOwnProperty('amznads') && !window.amznads.hasOwnProperty('updateSlotBids')) {window.amznads.updateSlotBids = function(data) {return}}})();amznads.updateSlotBids({"slots":{"cdm-zone-02":{"amzniid":"ILH4Y4bIUkFTgoS_g_71m4MAAAFZ_OI25AYAAAxdognKNA","size":"300x250","amznbid":"0_20"},"cdm-zone-03":{"amzniid":"IM4tU0leNUVTmZeH_-mDTCEAAAFZ_OI25gYAAAxdB2RRmA","size":"300x250","amznbid":"0_45"}},"host":"http://aax-us-pdx.amazon-adsystem.com","ev":true,"cb":"6478372121486006397505","status":"ok"})
