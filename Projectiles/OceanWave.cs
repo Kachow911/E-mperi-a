@@ -27,7 +27,6 @@ namespace Emperia.Projectiles
         public override void AI()           //this make that the projectile will face the corect way
         {                                                           // |
             projectile.rotation = (float)Math.Atan2((double)projectile.velocity.Y, (double)projectile.velocity.X) + 1.57f;
-            Lighting.AddLight(projectile.Center, 67, 222, 249);
         }
 		public override void Kill(int timeLeft)
 		{

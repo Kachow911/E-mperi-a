@@ -29,5 +29,18 @@ namespace Emperia.Weapons   //where is located
             item.autoReuse = false;   //if it's capable of autoswing.
             item.useTurn = true;             //projectile speed                 
         }
+		public override void AddRecipes()
+		{
+			
+			ModRecipe recipe = new ModRecipe(mod);
+		    recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
+			recipe.AddIngredient(null, "OceanEssence", 10);
+			recipe.AddIngredient(ItemID.Seashell, 5);
+			recipe.AddIngredient(ItemID.Coral, 5);
+
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
     }
 }
