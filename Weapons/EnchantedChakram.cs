@@ -27,6 +27,7 @@ namespace Emperia.Weapons
             item.shoot = mod.ProjectileType ("EnchantedChakram");
             item.autoReuse = true;
         }
+
         public override void AddRecipes()
         {
                 ModRecipe recipe = new ModRecipe(mod);
