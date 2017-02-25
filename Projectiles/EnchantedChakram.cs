@@ -25,7 +25,8 @@ namespace Emperia.Projectiles
 
         public override void AI()
         {
-			
+			bool despawnCondition1 = false;
+			bool despawnCondition2 = true;
 			bool targetPlayer = false;
 			float ProjCenterX = projectile.Center.X;
 			float ProjCenterY = projectile.Center.Y;
@@ -64,7 +65,8 @@ namespace Emperia.Projectiles
 				  projectile.velocity.Y = (projectile.velocity.Y * 20f + num6) / 21f;
 				  return;
 			  }
-			  else {
+			  else 
+			  {
 				 
 				  
 				  
@@ -99,9 +101,32 @@ namespace Emperia.Projectiles
 				
 				
 			}
-			if (timerLeft > 240) {
+			if (timerLeft > 120) 
+			{
 				returnTo = true;
 			}
+			if (projectile.position.X > player.position.X - 20 && projectile.position.X < )player.position + 20) 
+			{
+				despawnCondition1 = true;
+			}
+			else 
+			{
+				despawnCondition1 = false;
+			}
+			if (projectile.position.Y > player.position.Y - 50 && projectile.position.X < player.position.Y + 50) 
+			{
+				despawnCondition2 = true;
+			}
+			else 
+			{
+				despawnCondition2 = false;
+			}
+			if (despawnCondition1 && despawnCondition2) 
+			{
+				if (returnTo)
+				projectile.Kill();
+			}
+			projectile.rotation += 0.25f;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
