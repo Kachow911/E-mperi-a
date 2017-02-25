@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace Emperia
 {
 	public class Emperia : Mod
@@ -18,7 +17,5 @@ namespace Emperia
                 AutoloadBackgrounds = true
             };
 		}
-
-
 	}
 }

@@ -12,15 +12,11 @@ namespace Emperia
 {
     public class MyPlayer : ModPlayer
     {
-	  public bool wSpirit = false;
-	  public override void ResetEffects()
-		{
-			wSpirit = false;
+        public bool wSpirit = false;
+        public override void ResetEffects()
+        {
+            wSpirit = false;
 
         }
-		
-		
-
-	  
     }
 }
