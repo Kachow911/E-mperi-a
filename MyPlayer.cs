@@ -27,7 +27,7 @@ namespace Emperia
         {
             if (enchanted)
             {
-                for (int i = 0; i < Main.rand.Next(enchantedStacks); i++)
+                for (int i = 0; i < Main.rand.Next(enchantedStacks) + 1; i++)
                 {
                     float x = Main.rand.NextFloat() * player.Hitbox.Width;
                     float y = Main.rand.NextFloat() * player.Hitbox.Height;

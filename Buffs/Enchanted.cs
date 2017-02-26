@@ -15,6 +15,7 @@ namespace Emperia.Buffs
     public class Enchanted : ModBuff
     {
         public const int stackDuration = 240;      //4 seconds
+        public const int stackMax = 6;
 
         private const string baseTip = "You feel stronger... ";
 
@@ -38,8 +39,16 @@ namespace Emperia.Buffs
 
         public override bool ReApply(Player player, int time, int buffIndex)
         {
-            player.buffTime[buffIndex] += time;
+            if (player.buffTime[buffIndex] + time <= stackDuration * stackMax)
+                player.buffTime[buffIndex] += time;
+            else player.buffTime[buffIndex] = stackDuration * stackMax;
             return true;
+        }
+
+        public override void ModifyBuffTip(ref string tip, ref int rare)
+        {
+            MyPlayer p = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod);
+            tip = baseTip +  " " + p.enchantedStacks + " times stronger, to be exact.";
         }
     }
 }
