@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using Emperia.Weapons.Enchanted;
 
 namespace Emperia.Projectiles
 {
@@ -29,17 +31,17 @@ namespace Emperia.Projectiles
             projectile.extraUpdates = 1;
             projectile.ignoreWater = true;
 
-            projectile.hide = true;
+            projectile.GetModInfo<EnchantedInfo>(mod).enchantedSpawned = true;
         }
 
         public override bool Autoload(ref string name, ref string texture)
-        {
+        {   //so I don't have to give a texture
             texture = "Terraria/MagicPixel";
             return true;
         }
 
         public override bool PreKill(int timeLeft)
-        {
+        {   //make dusts when dying
             for (int i = 0; i < Main.rand.Next(6, 12); i++)
             {
                 float x = Main.rand.NextFloat() * projectile.width;
@@ -52,7 +54,7 @@ namespace Emperia.Projectiles
         }
 
         public override void AI()
-        {
+        {   //make less dusts when just moving
             for (int i = 0; i < Main.rand.Next(4); i++)
             {
                 float x = Main.rand.NextFloat() * projectile.width;
@@ -88,6 +90,7 @@ namespace Emperia.Projectiles
 
                         if (!foundabove)
                             projectile.Kill();
+                        //else break; //we can safely break since if foundabove == true it'll already be above tiles.
                     }
                     else
                     {
@@ -97,16 +100,22 @@ namespace Emperia.Projectiles
                     }
                 }
             }
-            if (!foundbelow)
+            if (!foundbelow)    //this will only be the case if it's inside a tile.
                 projectile.Kill();
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        /*public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (target.life <= 0)
             {   //this might not work too well
                 Main.player[projectile.owner].AddBuff(mod.BuffType<Buffs.Enchanted>(), Buffs.Enchanted.stackDuration);
             }
+        }*/
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //TODO draw crystals
+            return false;
         }
     }
 }

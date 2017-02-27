@@ -7,6 +7,8 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Emperia.Weapons.Enchanted;
+using Emperia.Projectiles;
 
 namespace Emperia
 {
@@ -32,6 +34,18 @@ namespace Emperia
                     float x = Main.rand.NextFloat() * player.Hitbox.Width;
                     float y = Main.rand.NextFloat() * player.Hitbox.Height;
                     Dust.NewDust(new Vector2(player.Hitbox.Location.X + x, player.Hitbox.Location.Y + y), 4, 4, 20);
+                }
+            }
+        }
+
+        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
+        {
+            EnchantedInfo info = proj.GetModInfo<EnchantedInfo>(mod);
+            if (info.enchantedSpawned)
+            {
+                if (target.life <= 0)
+                {
+                    player.AddBuff(mod.BuffType<Buffs.Enchanted>(), Buffs.Enchanted.stackDuration);
                 }
             }
         }

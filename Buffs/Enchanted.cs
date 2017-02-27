@@ -17,6 +17,8 @@ namespace Emperia.Buffs
         public const int stackDuration = 240;      //4 seconds
         public const int stackMax = 6;
 
+        public const int damageIncreasePerStack = 6;   //total damage: 39 + 6 * 6 = 72
+
         private const string baseTip = "You feel stronger... ";
 
         public override void SetDefaults()

@@ -18,9 +18,7 @@ namespace Emperia.Weapons.Enchanted
     //Sword that fires a projectile similar to the beam sword or terra blade.
     //Like other enchanted weapons, damage of the weapon is increased each time the player kills an enemy.
     public class EnchantedSword : ModItem
-    {
-        private const int damageIncreasePerStack = 6;   //total damage: 39 + 6 * 6 = 72
-
+    { 
         public override void SetDefaults()
         {
             item.name = "Enchanted Sword";
@@ -29,17 +27,18 @@ namespace Emperia.Weapons.Enchanted
             item.ranged = true;
             item.width = 64;         
             item.height = 64;        
-            item.useTime = 30;       
-            item.useAnimation = 30;
-            item.useStyle = 1;       
-            item.knockBack = 3.5f;   
+            item.useTime = 42;       
+            item.useAnimation = 42;
+            item.useStyle = 1;
+            item.UseSound = SoundID.Item1; 
+            item.knockBack = 5f;   
             item.value = 100;
             item.rare = 3;
             item.scale = 1.2f;
             item.autoReuse = true;
             item.useTurn = true;    //turns the player to face mouse direction
 
-            item.shoot = mod.ProjectileType<EnchantedBall>();//mod.ProjectileType<>();  //TODO shoot thing
+            item.shoot = mod.ProjectileType<EnchantedBall>();
             item.shootSpeed = 4;
 
             projOnSwing = true; //see https://github.com/bluemagic123/tModLoader/wiki/ModItem#public-bool-projonswing
@@ -47,23 +46,23 @@ namespace Emperia.Weapons.Enchanted
 
         public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
         {   //increase weapon damage. Will have to do similar in projectile
-            damage += player.GetModPlayer<MyPlayer>(mod).enchantedStacks * damageIncreasePerStack;
+            damage += player.GetModPlayer<MyPlayer>(mod).enchantedStacks * Buffs.Enchanted.damageIncreasePerStack;
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            damage = item.damage + player.GetModPlayer<MyPlayer>(mod).enchantedStacks * damageIncreasePerStack;
+            damage = item.damage + player.GetModPlayer<MyPlayer>(mod).enchantedStacks * Buffs.Enchanted.damageIncreasePerStack;
             speedY = 0;
             return true;
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        /*public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         {
             if (target.life <= 0)
             {
                 player.AddBuff(mod.BuffType<Buffs.Enchanted>(), Buffs.Enchanted.stackDuration);
             }
-        }
+        }*/
 
         public override void AddRecipes()
         {   //Placeholder recipe
