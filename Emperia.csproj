@@ -45,6 +45,7 @@
     <Compile Include="Armor\SeashellLeggings.cs" />
     <Compile Include="Armor\SeashellVisor.cs" />
     <Compile Include="Bosses\AntBoss.cs" />
+    <Compile Include="Bosses\Mushor.cs" />
     <Compile Include="Buffs\Drowning.cs" />
     <Compile Include="Buffs\Enchanted.cs" />
     <Compile Include="Buffs\WoodSpiritBuff.cs" />
