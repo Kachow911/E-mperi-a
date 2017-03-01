@@ -31,7 +31,8 @@ namespace Emperia.Weapons.Enchanted
             item.knockBack = 3.5f;
             item.value = 100;
             item.rare = 3;
-            item.scale = 1.2f;
+            item.scale = 1f;
+            item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.useTurn = true;    //turns the player to face mouse direction
             item.noMelee = true;
@@ -46,7 +47,6 @@ namespace Emperia.Weapons.Enchanted
             damage = item.damage + player.GetModPlayer<MyPlayer>(mod).enchantedStacks * Buffs.Enchanted.damageIncreasePerStack;
             Projectile p = Main.projectile[Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack)];
             p.GetModInfo<EnchantedInfo>(mod).enchantedSpawned = true;
-            p.hostile = true;
             p.owner = player.whoAmI;
             return false;   //return false since we're spawning in manually
         }

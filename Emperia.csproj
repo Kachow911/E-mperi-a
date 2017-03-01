@@ -73,6 +73,7 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Projectiles\Cerith.cs" />
     <Compile Include="Projectiles\EnchantedBall.cs" />
+    <Compile Include="Projectiles\EnchantedBullet.cs" />
     <Compile Include="Projectiles\EnchantedChakram.cs" />
     <Compile Include="Projectiles\Flame.cs" />
     <Compile Include="Projectiles\FlamingScythe.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Weapons\DesertStaff.cs" />
     <Compile Include="Weapons\EbonflameRepeater.cs" />
     <Compile Include="Weapons\EnchantedChakram.cs" />
+    <Compile Include="Weapons\Enchanted\EnchantedBullet.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedGun.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedSword.cs" />
     <Compile Include="Weapons\FleshRenderer.cs" />
