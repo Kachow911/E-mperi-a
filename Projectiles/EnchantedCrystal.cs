@@ -19,6 +19,7 @@ namespace Emperia.Projectiles
             projectile.penetrate = -1;
             projectile.tileCollide = false;
             projectile.timeLeft = 180;
+			projectile.alpha = 255;
         }
 
         public override void AI()

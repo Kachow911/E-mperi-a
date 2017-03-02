@@ -50,6 +50,11 @@ namespace Emperia.Bosses
 
         public override void AI()
         {
+			/*
+			 About the ai for people editing it	
+			 the move patterns are stored in npc.ai[2]
+			add other stuff later
+			*/
             if (!hasSpawned)
             {
                 npc.ai[0] = 0;
@@ -59,7 +64,7 @@ namespace Emperia.Bosses
             bool speedBoost1 = (double)npc.life <= (double)npc.lifeMax * 0.8; // this'll be a minor speed increase
             bool speedBoost2 = (double)npc.life <= (double)npc.lifeMax * 0.5; //this is a medium increase
             bool phaseCheck2 = (double)npc.life <= (double)npc.lifeMax * 0.8; //check for phase 2.
-            float speed = 3f;
+            float speed = 4f;
 
             Player player = Main.player[npc.target];
             if (!player.active || player.dead)
@@ -67,9 +72,17 @@ namespace Emperia.Bosses
                 npc.TargetClosest(false);
                 player = Main.player[npc.target];
             }
-
-            double npcFlyToStage1Y = player.Center.Y - 100;
-            double npcFlyToStage1X = player.Center.X;
+            // sets targeting
+			double npcFlyToY = player.Center.Y - 100;
+            double npcFlyToX = player.Center.X;
+			if (npc.ai[2] == 1) {
+                npcFlyToY = player.Center.Y - 100;
+                npcFlyToX = player.Center.X;
+			}
+			if (npc.ai[2] == 2) {
+                npcFlyToY = player.Center.Y;
+                npcFlyToX = player.Center.X;
+			}
 
             int playerLife = player.statLifeMax2;
             //actual speed increase here
@@ -85,7 +98,11 @@ namespace Emperia.Bosses
             {
                 speed += 1f;
             }
-            //despawn
+			if (npc.ai[2] == 2) 
+			{
+			    speed += 2f;	
+			}
+            
             if (npc.ai[0] == 0)
             {
                 //reserved
@@ -94,26 +111,76 @@ namespace Emperia.Bosses
             }
             npc.velocity.X = 0f;
             npc.velocity.Y = 0f;
-
-            if (npc.ai[2] == 1)
+			// tests if its flown to the correct place
+            if ((double)npc.Center.X > (double)player.Center.Y - 50)
+			{
+				if ((double)npc.Center.X < (double)player.Center.Y + 50)
+			    {
+				    if ((double)npc.Center.Y < (double)player.Center.Y + 50)
+			        {
+				        if ((double)npc.Center.Y > (double)player.Center.Y - 150)
+			            {
+							if (npc.ai[2] == 1)
+							{
+					            npc.ai[2] = 2;
+							}
+							
+						}
+						if ((double)npc.Center.Y > (double)player.Center.Y - 50)
+			            {
+							if (npc.ai[2] == 1)
+							{
+					            npc.ai[2] = 2;
+							}
+							else if (npc.ai[2] == 2)
+							{
+							    npc.ai[2] = 3;
+							}
+			            }		
+			        }	
+			    }	
+			}
+				
+            if (npc.ai[2] == 1) //normal movement pattern
             {
-                if ((double)npc.Center.Y < npcFlyToStage1Y)
+                if ((double)npc.Center.Y < npcFlyToY)
                 {
                     npc.velocity.Y = speed;
                 }
-                if ((double)npc.Center.Y > npcFlyToStage1Y)
+                if ((double)npc.Center.Y > npcFlyToY)
                 {
                     npc.velocity.Y = -speed;
                 }
-                if ((double)npc.Center.X < npcFlyToStage1X)
+                if ((double)npc.Center.X < npcFlyToX)
                 {
                     npc.velocity.X = speed;
                 }
-                if ((double)npc.Center.X > npcFlyToStage1X)
+                if ((double)npc.Center.X > npcFlyToX)
                 {
                     npc.velocity.X = -speed;
                 }
             }
+			if (npc.ai[2] == 2) // speeds up and heads straight for you.
+			{
+				if ((double)npc.Center.Y < npcFlyToY)
+                {
+                    npc.velocity.Y = speed;
+                }
+                if ((double)npc.Center.Y > npcFlyToY)
+                {
+                    npc.velocity.Y = -speed;
+                }
+                if ((double)npc.Center.X < npcFlyToX)
+                {
+                    npc.velocity.X = speed;
+                }
+                if ((double)npc.Center.X > npcFlyToX)
+                {
+                    npc.velocity.X = -speed;
+                }
+				
+				
+			}
         }
     }
 }
