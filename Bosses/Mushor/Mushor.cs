@@ -13,7 +13,8 @@ namespace Emperia.Bosses.Mushor
         public bool hasSpawned = false;
 		public int timerP2 = 0;
 		public int timerP3 = 0;
-		public int minion1CountLeft = 3;
+		public int minion1CountLeft = 1;
+		public int minion2CountLeft = 2;
 
         public override void SetDefaults()
         {
@@ -111,37 +112,23 @@ namespace Emperia.Bosses.Mushor
             npc.velocity.X = 0f;
             npc.velocity.Y = 0f;
 			// tests if its flown to the correct place
-            if ((double)npc.Center.X > (double)player.Center.X - 50)
+            if ((double)npc.Center.X > (double)player.Center.X - 100)
 			{
-				if ((double)npc.Center.X < (double)player.Center.X + 50)
+				if ((double)npc.Center.X < (double)player.Center.X + 100)
 			    {
-				    if ((double)npc.Center.Y < (double)player.Center.Y + 50)
+				    if ((double)npc.Center.Y < (double)player.Center.Y + 100)
 			        {
 				        if ((double)npc.Center.Y > (double)player.Center.Y - 100)
 			            {
+							
 							if (npc.ai[2] == 1)
 							{
 					            npc.ai[2] = 2;
-								timerP2 = 0;
-							}
-							if (npc.ai[2] == 2)
-							{
-					            npc.ai[2] = 3;
-								minion1CountLeft = 3;
+								minion1CountLeft = 1;
+								minion2CountLeft = 2;
 							}
 							
 						}
-						if ((double)npc.Center.Y > (double)player.Center.Y - 50)
-			            {
-							if (npc.ai[2] == 1)
-							{
-					            npc.ai[2] = 2;
-							}
-							else if (npc.ai[2] == 4)
-							{
-							    npc.ai[2] = 5;
-							}
-			            }		
 			        }	
 			    }	
 			}
@@ -153,24 +140,14 @@ namespace Emperia.Bosses.Mushor
 			    npc.velocity.Y = direction.Y * speed;
 			    npc.velocity.X = direction.X * speed;
             }
-			if (npc.ai[2] == 2) // speeds up and heads up actually and does a move
-			{
-				Vector2 direction = Main.player[npc.target].Center - npc.Center;
-			    direction.Normalize();
-			    npc.velocity.Y = direction.Y * speed;
-			    npc.velocity.X = direction.X * speed;
-				if (timerP2 > 160)
-				{
-					npc.ai[2] = 3;
-					timerP2 = 0;
-				}
-				
-				
-			}
-			if (npc.ai[2] == 3) //a move
+			if (npc.ai[2] == 2) //a move
 		    {
 				while (minion1CountLeft > 0) {
-				NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushMinionShootNoExplosion"));
+				NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushMinionShootNoExplosionTest1"));
+				minion1CountLeft --;
+				}
+				while (minion2CountLeft > 0) {
+				NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushorMinionExplode"));
 				minion1CountLeft --;
 				}
 			}
