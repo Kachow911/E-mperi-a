@@ -12,6 +12,8 @@ namespace Emperia.Bosses.Mushor
     {
         public bool hasSpawned = false;
 		public int timerP2 = 0;
+		public int timerP3 = 0;
+		public int minion1CountLeft = 3;
 
         public override void SetDefaults()
         {
@@ -74,18 +76,13 @@ namespace Emperia.Bosses.Mushor
                 player = Main.player[npc.target];
             }
             // sets targeting
-			double npcFlyToY = player.Center.Y - 100;
-            double npcFlyToX = player.Center.X;
-			if (npc.ai[2] == 1) {
-                npcFlyToY = player.Center.Y - 100;
-                npcFlyToX = player.Center.X;
-			}
+			
 			if (npc.ai[2] == 2) {
 				timerP2++;
-                npcFlyToY = player.Center.Y - 250;
-                npcFlyToX = player.Center.X;
 			}
-
+            if (npc.ai[2] == 3) {
+				timerP3++;
+			}
             int playerLife = player.statLifeMax2;
             //actual speed increase here
             if (playerLife > 400)
@@ -120,12 +117,17 @@ namespace Emperia.Bosses.Mushor
 			    {
 				    if ((double)npc.Center.Y < (double)player.Center.Y + 50)
 			        {
-				        if ((double)npc.Center.Y > (double)player.Center.Y - 150)
+				        if ((double)npc.Center.Y > (double)player.Center.Y - 100)
 			            {
 							if (npc.ai[2] == 1)
 							{
 					            npc.ai[2] = 2;
 								timerP2 = 0;
+							}
+							if (npc.ai[2] == 2)
+							{
+					            npc.ai[2] = 3;
+								minion1CountLeft = 3;
 							}
 							
 						}
@@ -146,41 +148,17 @@ namespace Emperia.Bosses.Mushor
 				
             if (npc.ai[2] == 1) //normal movement pattern
             {
-                if ((double)npc.Center.Y < npcFlyToY)
-                {
-                    npc.velocity.Y = speed;
-                }
-                if ((double)npc.Center.Y > npcFlyToY)
-                {
-                    npc.velocity.Y = -speed;
-                }
-                if ((double)npc.Center.X < npcFlyToX)
-                {
-                    npc.velocity.X = speed;
-                }
-                if ((double)npc.Center.X > npcFlyToX)
-                {
-                    npc.velocity.X = -speed;
-                }
+                Vector2 direction = Main.player[npc.target].Center - npc.Center;
+			    direction.Normalize();
+			    npc.velocity.Y = direction.Y * speed;
+			    npc.velocity.X = direction.X * speed;
             }
 			if (npc.ai[2] == 2) // speeds up and heads up actually and does a move
 			{
-				if ((double)npc.Center.Y < npcFlyToY)
-                {
-                    npc.velocity.Y = speed;
-                }
-                if ((double)npc.Center.Y > npcFlyToY)
-                {
-                    npc.velocity.Y = -speed;
-                }
-                if ((double)npc.Center.X < npcFlyToX)
-                {
-                    npc.velocity.X = speed;
-                }
-                if ((double)npc.Center.X > npcFlyToX)
-                {
-                    npc.velocity.X = -speed;
-                }
+				Vector2 direction = Main.player[npc.target].Center - npc.Center;
+			    direction.Normalize();
+			    npc.velocity.Y = direction.Y * speed;
+			    npc.velocity.X = direction.X * speed;
 				if (timerP2 > 160)
 				{
 					npc.ai[2] = 3;
@@ -191,7 +169,10 @@ namespace Emperia.Bosses.Mushor
 			}
 			if (npc.ai[2] == 3) //a move
 		    {
-				
+				while (minion1CountLeft > 0) {
+				NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushMinionShootNoExplosion"));
+				minion1CountLeft --;
+				}
 			}
         }
     }

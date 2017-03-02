@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace Emperia.Bosses.Mushor
 {
-    public class MushMinionShootNoExplosion : ModNPC
+    public class MushMinionShootNoExplosionTest1 : ModNPC
     {
         public bool hasSpawned = false;
 		public int timerP2 = 0;
@@ -121,22 +121,11 @@ namespace Emperia.Bosses.Mushor
 				
             if (npc.ai[2] == 1) //normal movement pattern
             {
-                if ((double)npc.Center.Y < npcFlyToY)
-                {
-                    npc.velocity.Y = speed;
-                }
-                if ((double)npc.Center.Y > npcFlyToY)
-                {
-                    npc.velocity.Y = -speed;
-                }
-                if ((double)npc.Center.X < npcFlyToX)
-                {
-                    npc.velocity.X = speed;
-                }
-                if ((double)npc.Center.X > npcFlyToX)
-                {
-                    npc.velocity.X = -speed;
-                }
+              Vector2 direction = Main.player[npc.target].Center - npc.Center;
+			  direction.Normalize();
+			  npc.velocity.Y = direction.Y *5f;
+			  npc.velocity.X = direction.X *5f;
+			  
             }
 			if (timerthing > 120) {
 				npc.ai[2] = 2;
