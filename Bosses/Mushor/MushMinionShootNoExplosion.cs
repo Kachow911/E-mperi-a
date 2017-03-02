@@ -139,7 +139,7 @@ namespace Emperia.Bosses.Mushor
 				{
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, 329, 15, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("MushSpray"), 15, 1, Main.myPlayer, 0, 0);
 				}
 				if (timerP2 > 120)
 				{
