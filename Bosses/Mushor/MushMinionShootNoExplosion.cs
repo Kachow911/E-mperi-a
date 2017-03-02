@@ -77,6 +77,10 @@ namespace Emperia.Bosses.Mushor
                 npc.ai[0] = 1;
                 npc.ai[2] = 1; //attack pattern stuff
             }
+			 if (npc.ai[2] == 2)
+            {
+                timerP2++;
+            }
             npc.velocity.X = 0f;
             npc.velocity.Y = 0f;
 			// tests if its flown to the correct place
@@ -135,9 +139,9 @@ namespace Emperia.Bosses.Mushor
 				{
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, 22, 15, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("MushSpray"), 15, 1, Main.myPlayer, 0, 0);
 				}
-				if (timerP2 > 160)
+				if (timerP2 > 120)
 				{
 					npc.ai[2] = 1;
 					timerP2 = 0;
