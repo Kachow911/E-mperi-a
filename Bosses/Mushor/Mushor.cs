@@ -6,11 +6,12 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Emperia.Bosses
+namespace Emperia.Bosses.Mushor
 {
     public class Mushor : ModNPC
     {
         public bool hasSpawned = false;
+		public int timerP2 = 0;
 
         public override void SetDefaults()
         {
@@ -64,7 +65,7 @@ namespace Emperia.Bosses
             bool speedBoost1 = (double)npc.life <= (double)npc.lifeMax * 0.8; // this'll be a minor speed increase
             bool speedBoost2 = (double)npc.life <= (double)npc.lifeMax * 0.5; //this is a medium increase
             bool phaseCheck2 = (double)npc.life <= (double)npc.lifeMax * 0.8; //check for phase 2.
-            float speed = 4f;
+            float speed = 3f;
 
             Player player = Main.player[npc.target];
             if (!player.active || player.dead)
@@ -80,7 +81,8 @@ namespace Emperia.Bosses
                 npcFlyToX = player.Center.X;
 			}
 			if (npc.ai[2] == 2) {
-                npcFlyToY = player.Center.Y;
+				timerP2++;
+                npcFlyToY = player.Center.Y - 250;
                 npcFlyToX = player.Center.X;
 			}
 
@@ -112,9 +114,9 @@ namespace Emperia.Bosses
             npc.velocity.X = 0f;
             npc.velocity.Y = 0f;
 			// tests if its flown to the correct place
-            if ((double)npc.Center.X > (double)player.Center.Y - 50)
+            if ((double)npc.Center.X > (double)player.Center.X - 50)
 			{
-				if ((double)npc.Center.X < (double)player.Center.Y + 50)
+				if ((double)npc.Center.X < (double)player.Center.X + 50)
 			    {
 				    if ((double)npc.Center.Y < (double)player.Center.Y + 50)
 			        {
@@ -123,6 +125,7 @@ namespace Emperia.Bosses
 							if (npc.ai[2] == 1)
 							{
 					            npc.ai[2] = 2;
+								timerP2 = 0;
 							}
 							
 						}
@@ -132,9 +135,9 @@ namespace Emperia.Bosses
 							{
 					            npc.ai[2] = 2;
 							}
-							else if (npc.ai[2] == 2)
+							else if (npc.ai[2] == 4)
 							{
-							    npc.ai[2] = 3;
+							    npc.ai[2] = 5;
 							}
 			            }		
 			        }	
@@ -160,7 +163,7 @@ namespace Emperia.Bosses
                     npc.velocity.X = -speed;
                 }
             }
-			if (npc.ai[2] == 2) // speeds up and heads straight for you.
+			if (npc.ai[2] == 2) // speeds up and heads up actually and does a move
 			{
 				if ((double)npc.Center.Y < npcFlyToY)
                 {
@@ -178,7 +181,16 @@ namespace Emperia.Bosses
                 {
                     npc.velocity.X = -speed;
                 }
+				if (timerP2 > 160)
+				{
+					npc.ai[2] = 3;
+					timerP2 = 0;
+				}
 				
+				
+			}
+			if (npc.ai[2] == 3) //a move
+		    {
 				
 			}
         }
