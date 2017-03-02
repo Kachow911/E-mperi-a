@@ -46,6 +46,7 @@ namespace Emperia.Bosses.Mushor
 
         public override void AI()
         {
+			npc.TargetClosest(true);
 			/*
 			 About the ai for people editing it	
 			 the move patterns are stored in npc.ai[2]
@@ -63,10 +64,11 @@ namespace Emperia.Bosses.Mushor
             // sets targeting
 			double npcFlyToY = player.Center.Y - 150;
             double npcFlyToX = player.Center.X;
-			if (npc.ai[2] == 1) {
-                npcFlyToY = player.Center.Y - 150;
-                npcFlyToX = player.Center.X;
-			}
+	        if (!player.active || player.dead)
+            {
+               npc.TargetClosest(false);
+               player = Main.player[npc.target];
+            }
          
             
             if (npc.ai[0] == 0)
