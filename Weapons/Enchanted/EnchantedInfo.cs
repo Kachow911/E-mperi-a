@@ -15,6 +15,7 @@ namespace Emperia.Weapons.Enchanted
 {
     public class EnchantedInfo : ProjectileInfo
     {
-        public bool enchantedSpawned = false;
+        public bool givesEnchanted = false;
+        public bool givesMinorEnchanted = false;
     }
 }

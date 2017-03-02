@@ -15,13 +15,12 @@ using Emperia.Projectiles;
 
 namespace Emperia.Weapons.Enchanted
 {
-    public class EnchantedGun : ModItem
+    public class EnchantedBow : ModItem
     {
-
         public override void SetDefaults()
         {
-            item.name = "Enchanted Gun";
-            item.damage = 25; 
+            item.name = "Enchanted Bow";
+            item.damage = 25;
             item.ranged = true;
             item.width = 64;
             item.height = 64;
@@ -39,7 +38,7 @@ namespace Emperia.Weapons.Enchanted
 
             item.shoot = 10;
             item.shootSpeed = 16f;
-            item.useAmmo = AmmoID.Bullet;
+            item.useAmmo = AmmoID.Arrow;
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

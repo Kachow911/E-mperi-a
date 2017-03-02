@@ -38,7 +38,7 @@ namespace Emperia.Projectiles
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.Bullet;
 
-            projectile.GetModInfo<EnchantedInfo>(mod).enchantedSpawned = true;
+            projectile.GetModInfo<EnchantedInfo>(mod).givesMinorEnchanted = true;
 
             bounces = 3;
         }

@@ -31,7 +31,7 @@ namespace Emperia.Projectiles
             projectile.extraUpdates = 1;
             projectile.ignoreWater = true;
 
-            projectile.GetModInfo<EnchantedInfo>(mod).enchantedSpawned = true;
+            projectile.GetModInfo<EnchantedInfo>(mod).givesEnchanted = true;
         }
 
         public override bool Autoload(ref string name, ref string texture)

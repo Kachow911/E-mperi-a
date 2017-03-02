@@ -45,7 +45,10 @@
     <Compile Include="Armor\SeashellLeggings.cs" />
     <Compile Include="Armor\SeashellVisor.cs" />
     <Compile Include="Bosses\AntBoss.cs" />
-    <Compile Include="Bosses\Mushor.cs" />
+    <Compile Include="Bosses\Mushor\MushMinionShootNoExplosion.cs" />
+    <Compile Include="Bosses\Mushor\Mushor.cs" />
+    <Compile Include="Bosses\Mushor\MushorMinionExplode.cs" />
+    <Compile Include="Bosses\Mushor\MushorMinionExplodeDummy.cs" />
     <Compile Include="Buffs\Drowning.cs" />
     <Compile Include="Buffs\Enchanted.cs" />
     <Compile Include="Buffs\WoodSpiritBuff.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Weapons\DesertStaff.cs" />
     <Compile Include="Weapons\EbonflameRepeater.cs" />
     <Compile Include="Weapons\EnchantedChakram.cs" />
+    <Compile Include="Weapons\Enchanted\EnchantedBow.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedBullet.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedGun.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedSword.cs" />

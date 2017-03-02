@@ -41,11 +41,11 @@ namespace Emperia
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
             EnchantedInfo info = proj.GetModInfo<EnchantedInfo>(mod);
-            if (info.enchantedSpawned)
+            if (info.givesEnchanted || info.givesMinorEnchanted)
             {
-                if (target.life <= 0)
-                {
-                    player.AddBuff(mod.BuffType<Buffs.Enchanted>(), Buffs.Enchanted.stackDuration);
+                if (target.life <= 0)   //if we kill the target
+                {   //if minor enchanted, 1 sec of enchanted buff added. otherwise full 4 secs
+                    player.AddBuff(mod.BuffType<Buffs.Enchanted>(), info.givesMinorEnchanted ? Buffs.Enchanted.minorStackDuration : Buffs.Enchanted.stackDuration);
                 }
             }
         }

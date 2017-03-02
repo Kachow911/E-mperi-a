@@ -15,6 +15,7 @@ namespace Emperia.Buffs
     public class Enchanted : ModBuff
     {
         public const int stackDuration = 240;      //4 seconds
+        public const int minorStackDuration = 60;      //1 second
         public const int stackMax = 6;
 
         public const int damageIncreasePerStack = 6;   //total damage: 39 + 6 * 6 = 72
