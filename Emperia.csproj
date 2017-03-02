@@ -45,7 +45,7 @@
     <Compile Include="Armor\SeashellLeggings.cs" />
     <Compile Include="Armor\SeashellVisor.cs" />
     <Compile Include="Bosses\AntBoss.cs" />
-    <Compile Include="Bosses\Mushor\MushMinionShootNoExplosion.cs" />
+    <Compile Include="Bosses\Mushor\MushMinionShootNoExplosionTest1.cs" />
     <Compile Include="Bosses\Mushor\Mushor.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplode.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplodeDummy.cs" />

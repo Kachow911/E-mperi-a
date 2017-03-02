@@ -13,8 +13,8 @@ namespace Emperia.Bosses.Mushor
         public bool hasSpawned = false;
 		public int timerP2 = 0;
 		public int timerP3 = 0;
-		public int minion1CountLeft = 1;
-		public int minion2CountLeft = 2;
+		private const int minion1CountLeft = 1;
+		private const int minion2CountLeft = 2;
 
         public override void SetDefaults()
         {
@@ -124,8 +124,6 @@ namespace Emperia.Bosses.Mushor
 							if (npc.ai[2] == 1)
 							{
 					            npc.ai[2] = 2;
-								minion1CountLeft = 1;
-								minion2CountLeft = 2;
 							}
 							
 						}
@@ -142,14 +140,13 @@ namespace Emperia.Bosses.Mushor
             }
 			if (npc.ai[2] == 2) //a move
 		    {
-				while (minion1CountLeft > 0) {
-				NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushMinionShootNoExplosionTest1"));
-				minion1CountLeft --;
-				}
-				while (minion2CountLeft > 0) {
-				NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushorMinionExplode"));
-				minion1CountLeft --;
-				}
+                NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushMinionShootNoExplosionTest1"));
+                for (int i = 0; i < minion2CountLeft; i++)
+                {
+                    NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushorMinionExplode"));   //if you want this to spawn a different amount put in another for loop
+                }
+
+                npc.ai[2] = 1;
 			}
         }
     }
