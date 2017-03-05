@@ -13,8 +13,11 @@ namespace Emperia.Bosses.Mushor
         public bool hasSpawned = false;
 		public int timerP2 = 0;
 		public int timerP3 = 0;
+		public float rot = 0f;
 		private const int minion1CountLeft = 1;
 		private const int minion2CountLeft = 2;
+		public bool didADo = false;
+		public bool didADoRot = false;
 
         public override void SetDefaults()
         {
@@ -67,8 +70,8 @@ namespace Emperia.Bosses.Mushor
             //These are not 100% set yet, im defining variables.
             bool speedBoost1 = (double)npc.life <= (double)npc.lifeMax * 0.8; // this'll be a minor speed increase
             bool speedBoost2 = (double)npc.life <= (double)npc.lifeMax * 0.5; //this is a medium increase
-            bool phaseCheck2 = (double)npc.life <= (double)npc.lifeMax * 0.8; //check for phase 2.
-            float speed = 3f;
+            bool phaseCheck2 = (double)npc.life <= (double)npc.lifeMax * 0.4; //check for phase 2.
+            float speed = 5f;
 
             Player player = Main.player[npc.target];
             if (!player.active || player.dead)
@@ -126,6 +129,29 @@ namespace Emperia.Bosses.Mushor
 					            npc.ai[2] = 2;
 							}
 							
+							
+						}
+			        }	
+			    }	
+			}
+			 if ((double)npc.Center.X > (double)player.Center.X - 20)
+			{
+				if ((double)npc.Center.X < (double)player.Center.X + 20)
+			    {
+				    if ((double)npc.Center.Y < (double)player.Center.Y + 20)
+			        {
+				        if ((double)npc.Center.Y > (double)player.Center.Y - 20)
+			            {
+							
+							if (npc.ai[2] == 1)
+							{
+					            npc.ai[2] = 2;
+							}
+							if (npc.ai[2] == 4)
+							{
+					            npc.ai[2] = 5;
+							}
+							
 						}
 			        }	
 			    }	
@@ -138,15 +164,44 @@ namespace Emperia.Bosses.Mushor
 			    npc.velocity.Y = direction.Y * speed;
 			    npc.velocity.X = direction.X * speed;
             }
-			if (npc.ai[2] == 2) //a move
+			if (npc.ai[2] == 2) //spawns minions
 		    {
+				if(!didADo) {
                 NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushMinionShootNoExplosionTest1"));
                 for (int i = 0; i < minion2CountLeft; i++)
                 {
                     NPC.NewNPC((int)npc.position.X + Main.rand.Next(-200, 200), (int)npc.position.Y, mod.NPCType("MushorMinionExplode"));   //if you want this to spawn a different amount put in another for loop
                 }
-
-                npc.ai[2] = 1;
+				didADo = true;
+                }
+                npc.ai[2] = 3;
+				timerP3 = 0;
+			}
+			if (npc.ai[2] == 3) {
+				npc.alpha+=2;
+				if (npc.alpha == 180) 
+				{
+					npc.alpha = 0;
+					npc.position.Y -= 200;
+					npc.ai[2] = 4;
+				}
+			}
+			if (npc.ai[2] == 4) {
+				if(!didADoRot) 
+				{
+				rot = npc.rotation;
+				didADoRot = true;
+                }
+				 Vector2 direction = Main.player[npc.target].Center - npc.Center;
+			    direction.Normalize();
+			    npc.velocity.Y = direction.Y * speed * 2.5f;
+			    npc.velocity.X = direction.X * speed * 2.5f;
+				npc.rotation++;
+			}
+			if (npc.ai[2] == 5) {
+				 Vector2 direction = Main.player[npc.target].Center - npc.Center;
+			    direction.Normalize();
+				npc.rotation = rot;
 			}
         }
     }
