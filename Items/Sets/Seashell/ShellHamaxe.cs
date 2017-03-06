@@ -6,8 +6,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Emperia.Tools {
-public class Hamaxe : ModItem
+namespace Emperia.Items.Sets.Seashell {
+public class ShellHamaxe : ModItem
 {
     public override void SetDefaults()
     {

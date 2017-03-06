@@ -5,7 +5,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace Emperia.Weapons
+namespace Emperia.Items.Sets.Seashell
 {
     public class ShellBow : ModItem
     {

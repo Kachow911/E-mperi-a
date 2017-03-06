@@ -6,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Emperia.Tools {
+namespace Emperia.Items.Sets.Seashell {
 public class ShellPick : ModItem
 {
     public override void SetDefaults()

@@ -6,7 +6,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Emperia.Weapons   //where is located
+namespace Emperia.Items.Sets.Seashell  //where is located
 {
     public class SeashellBlade : ModItem
     {

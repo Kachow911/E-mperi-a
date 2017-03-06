@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace Emperia.Armor {
+namespace Emperia.Items.Sets.Seashell {
 public class SeashellChestplate : ModItem
 {
     public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
