@@ -10,7 +10,7 @@ namespace Emperia.Bosses.Mushor
 {
     public class MushorMinionExplodeDummy : ModNPC
     {
-        private const float frameTimer = 2.375f;
+        private const float frameTimer = 3.16666667f;
 
         private const float damageDistance = 64;
 
@@ -24,7 +24,7 @@ namespace Emperia.Bosses.Mushor
             npc.defense = 7;
             npc.knockBackResist = 0f;
             npc.width = 80;
-            npc.height = 80;
+            npc.height = 88;
             Main.npcFrameCount[npc.type] = 7;
             npc.value = Item.buyPrice(0, 0, 0, 0);
             npc.npcSlots = 0f;

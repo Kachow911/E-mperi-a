@@ -37,7 +37,7 @@ namespace Emperia.Weapons.Enchanted
             item.noMelee = true;
 
             item.shoot = 10;
-            item.shootSpeed = 16f;
+            item.shootSpeed = 8f;
             item.useAmmo = AmmoID.Arrow;
         }
 

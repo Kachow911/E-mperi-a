@@ -138,7 +138,7 @@ namespace Emperia.Bosses.Mushor
             phase = Phase.Exploding;
 
             npc.velocity = npc.velocity *= .15f;
-            NPC n = Main.npc[NPC.NewNPC(0, 0, mod.NPCType<MushorMinionExplodeDummy>(), ai0: 15, ai1: npc.velocity.X, ai2: npc.velocity.Y)];
+            NPC n = Main.npc[NPC.NewNPC(0, 0, mod.NPCType<MushorMinionExplodeDummy>(), ai0: 20, ai1: npc.velocity.X, ai2: npc.velocity.Y)];
 
             n.Center = npc.Center;
         }

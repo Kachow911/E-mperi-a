@@ -41,9 +41,6 @@
     <Compile Include="Armor\MarbleBreastplate.cs" />
     <Compile Include="Armor\MarbleGrieves.cs" />
     <Compile Include="Armor\MarbleHelmet.cs" />
-    <Compile Include="Armor\SeashellChestplate.cs" />
-    <Compile Include="Armor\SeashellLeggings.cs" />
-    <Compile Include="Armor\SeashellVisor.cs" />
     <Compile Include="Bosses\AntBoss.cs" />
     <Compile Include="Bosses\Mushor\MushMinionShootNoExplosionTest1.cs" />
     <Compile Include="Bosses\Mushor\Mushor.cs" />
@@ -76,6 +73,7 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Projectiles\Cerith.cs" />
+    <Compile Include="Projectiles\EnchantedArrow.cs" />
     <Compile Include="Projectiles\EnchantedBall.cs" />
     <Compile Include="Projectiles\EnchantedBullet.cs" />
     <Compile Include="Projectiles\EnchantedChakram.cs" />
@@ -94,10 +92,8 @@
     <Compile Include="Tiles\RuinedChest.cs" />
     <Compile Include="Tools\GraniteHamaxe.cs" />
     <Compile Include="Tools\GranitePickaxe.cs" />
-    <Compile Include="Tools\Hamaxe.cs" />
     <Compile Include="Tools\MarbleHamaxe.cs" />
     <Compile Include="Tools\MarblePickaxe.cs" />
-    <Compile Include="Tools\ShellPick.cs" />
     <Compile Include="Tools\SkyHamaxe.cs" />
     <Compile Include="Tools\SkyPick.cs" />
     <Compile Include="Weapons\AntlionBow.cs" />
@@ -107,6 +103,7 @@
     <Compile Include="Weapons\DesertStaff.cs" />
     <Compile Include="Weapons\EbonflameRepeater.cs" />
     <Compile Include="Weapons\EnchantedChakram.cs" />
+    <Compile Include="Weapons\Enchanted\EnchantedArrow.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedBow.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedBullet.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedGun.cs" />
@@ -118,9 +115,6 @@
     <Compile Include="Weapons\MarbleSword.cs" />
     <Compile Include="Weapons\MechaBlade.cs" />
     <Compile Include="Weapons\OceanicBlade.cs" />
-    <Compile Include="Weapons\SeashellBlade.cs" />
-    <Compile Include="Weapons\SeashellTome.cs" />
-    <Compile Include="Weapons\ShellBow.cs" />
     <Compile Include="Weapons\SkyBlade.cs" />
     <Compile Include="Weapons\TreeSpiritStaff.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedInfo.cs" />
