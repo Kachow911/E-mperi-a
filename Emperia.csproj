@@ -44,10 +44,12 @@
     <Compile Include="Bosses\AntBoss.cs" />
     <Compile Include="Bosses\Mushor\MushMinionShootNoExplosionTest1.cs" />
     <Compile Include="Bosses\Mushor\Mushor.cs" />
+    <Compile Include="Bosses\Mushor\Mushor2.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplode.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplodeDummy.cs" />
     <Compile Include="Buffs\Drowning.cs" />
     <Compile Include="Buffs\Enchanted.cs" />
+    <Compile Include="Buffs\Spored.cs" />
     <Compile Include="Buffs\WoodSpiritBuff.cs" />
     <Compile Include="Drops\EssenceDrop.cs" />
     <Compile Include="Dusts\CursedFlame.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Projectiles\EnchantedBall.cs" />
     <Compile Include="Projectiles\EnchantedBullet.cs" />
     <Compile Include="Projectiles\EnchantedChakram.cs" />
+    <Compile Include="Projectiles\ExplodeMushroom.cs" />
     <Compile Include="Projectiles\Flame.cs" />
     <Compile Include="Projectiles\FlamingScythe.cs" />
     <Compile Include="Projectiles\GoblinGlaive.cs" />

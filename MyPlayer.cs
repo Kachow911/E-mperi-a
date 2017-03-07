@@ -16,6 +16,7 @@ namespace Emperia
     {
         public bool wSpirit = false;
         public bool enchanted = false;
+        public bool spored = false;
         public int enchantedStacks;
 
         public override void ResetEffects()
@@ -23,6 +24,7 @@ namespace Emperia
             wSpirit = false;
             enchanted = false;
             enchantedStacks = 0;
+            spored = false;
         }
 
         public override void PostUpdate()
@@ -36,6 +38,11 @@ namespace Emperia
                     Dust.NewDust(new Vector2(player.Hitbox.Location.X + x, player.Hitbox.Location.Y + y), 4, 4, 20);
                 }
             }
+
+            if (spored)
+            {
+                player.velocity.Y = Math.Abs(player.velocity.Y);
+            }
         }
 
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
@@ -47,6 +54,19 @@ namespace Emperia
                 {   //if minor enchanted, 1 sec of enchanted buff added. otherwise full 4 secs
                     player.AddBuff(mod.BuffType<Buffs.Enchanted>(), info.givesMinorEnchanted ? Buffs.Enchanted.minorStackDuration : Buffs.Enchanted.stackDuration);
                 }
+            }
+        }
+
+        public override void UpdateBadLifeRegen()
+        {
+            if (spored)
+            {
+                if (player.lifeRegen > 0)
+                {
+                    player.lifeRegen = 0;
+                }
+                player.lifeRegenTime = 0;
+                player.lifeRegen -= 4;
             }
         }
     }
