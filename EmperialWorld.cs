@@ -78,9 +78,26 @@ namespace Emperia
         }));
 		
         }
-		
-		
-		
-	}
+
+        public override void PostWorldGen()
+        {   //mostly copied from examplemod
+            for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+            {
+                Chest chest = Main.chest[chestIndex];
+                if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 2 * 36) //2 * 36 == locked dungeon chest
+                {
+                    for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                    {
+                        if (chest.item[inventoryIndex].type == 0)
+                        {   //first empty inventory slot
+                            if (Main.rand.Next(4) == 0)
+                                chest.item[inventoryIndex].SetDefaults(mod.ItemType<Items.RottenMushroom>());
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }	

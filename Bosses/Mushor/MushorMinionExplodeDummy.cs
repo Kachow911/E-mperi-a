@@ -42,6 +42,30 @@ namespace Emperia.Bosses.Mushor
         {
             npc.velocity = new Vector2(npc.ai[1], npc.ai[2]);
 
+            if (npc.ai[0] == 0)
+            {
+                for (int i = 0; i < Main.npc.Length; i++)
+                {
+                    if (npc.Distance(Main.npc[i].Center) < damageDistance)
+                        Main.npc[i].StrikeNPC(npc.damage, 0, 0);
+                }
+
+                for (int i = 0; i < 360; i++)
+                {
+                    Vector2 vec = Vector2.Transform(new Vector2(-damageDistance, 0), Matrix.CreateRotationZ(MathHelper.ToRadians(i)));
+
+                    Dust.NewDust(npc.Center + vec, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20);
+
+                    if (i % 2 == 0)
+                    {
+                        vec.Normalize();
+                        Dust.NewDust(npc.Center, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20, vec.X * 2, vec.Y * 2);
+                    }
+                }
+
+                Main.PlaySound(SoundID.Item, npc.Center, 14);    //bomb explosion sound
+                Main.PlaySound(SoundID.Item, npc.Center, 21);    //swishy sound
+            }
             npc.ai[0]--;
             for (int i = 0; i < Main.player.Length; i++)
             {

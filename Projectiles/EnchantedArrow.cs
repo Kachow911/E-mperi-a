@@ -98,6 +98,9 @@ namespace Emperia.Projectiles
                     Dust.NewDust(projectile.Center, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20, vec.X * 2, vec.Y * 2);
                 }
             }
+
+            Main.PlaySound(SoundID.Item, projectile.Center, 14);    //bomb explosion sound
+            Main.PlaySound(SoundID.Item, projectile.Center, 21);    //swishy sound
         }
     }
 }

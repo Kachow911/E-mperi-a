@@ -15,7 +15,7 @@ namespace Emperia.Projectiles
     public class ExplodeMushroom : ModProjectile
     {
         private const float explodeRadius = 128;
-        private int rotside { get { return (int)projectile.ai[0]; } set { projectile.ai[0] = value; } }
+        //private int rotside { get { return (int)projectile.ai[0]; } set { projectile.ai[0] = value; } }
         public override void SetDefaults()
         {
             projectile.name = "ExplodeMushroom";
@@ -31,8 +31,6 @@ namespace Emperia.Projectiles
             projectile.ignoreWater = true;
 
             projectile.aiStyle = -1;
-
-            rotside = Main.rand.Next(2) == 0 ? -1 : 1;
         }
 
         public override void AI()
@@ -42,7 +40,7 @@ namespace Emperia.Projectiles
             if (projectile.velocity.Y > 4)
                 projectile.velocity.Y = 4;
 
-            projectile.rotation += 1 * rotside;
+            projectile.rotation += (projectile.velocity.X > 0 ? 1 : -1);
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
@@ -65,6 +63,9 @@ namespace Emperia.Projectiles
                     Dust.NewDust(projectile.Center, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20, vec.X * 2, vec.Y * 2);
                 }
             }
+
+            Main.PlaySound(SoundID.Item, projectile.Center, 14);    //bomb explosion sound
+            Main.PlaySound(SoundID.Item, projectile.Center, 21);    //swishy sound
 
             return true;
         }
