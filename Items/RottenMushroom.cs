@@ -6,6 +6,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
+using Emperia.Bosses.Mushor;
+
 namespace Emperia.Items
 {
     public class RottenMushroom : ModItem
@@ -13,8 +15,8 @@ namespace Emperia.Items
         public override void SetDefaults()
         {
             item.name = "Rotten Mushroom";
-            item.width = 20;
-            item.height = 20;
+            item.width = 36;
+            item.height = 36;
             item.maxStack = 999;
             AddTooltip("Ugh, it smells horrible.");
             item.rare = 3;
@@ -33,7 +35,7 @@ namespace Emperia.Items
 
         public override bool UseItem(Player player)
         {
-            NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType<Bosses.Mushor.Mushor2>());
+            NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType<Mushor>());
             Main.NewText("Fungal spores drift down from above...");
             Main.PlaySound(SoundID.Roar, player.position, 0);
 

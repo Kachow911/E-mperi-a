@@ -44,9 +44,9 @@
     <Compile Include="Bosses\AntBoss.cs" />
     <Compile Include="Bosses\Mushor\MushMinionShootNoExplosionTest1.cs" />
     <Compile Include="Bosses\Mushor\Mushor.cs" />
-    <Compile Include="Bosses\Mushor\Mushor2.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplode.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplodeDummy.cs" />
+    <Compile Include="Bosses\Mushor\MushorMinionShield.cs" />
     <Compile Include="Buffs\Drowning.cs" />
     <Compile Include="Buffs\Enchanted.cs" />
     <Compile Include="Buffs\Spored.cs" />
@@ -120,6 +120,7 @@
     <Compile Include="Weapons\MechaBlade.cs" />
     <Compile Include="Weapons\OceanicBlade.cs" />
     <Compile Include="Weapons\SkyBlade.cs" />
+    <Compile Include="Weapons\TideStaff.cs" />
     <Compile Include="Weapons\TreeSpiritStaff.cs" />
     <Compile Include="Weapons\Enchanted\EnchantedInfo.cs" />
   </ItemGroup>

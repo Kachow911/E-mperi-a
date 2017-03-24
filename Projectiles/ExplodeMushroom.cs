@@ -19,12 +19,13 @@ namespace Emperia.Projectiles
         public override void SetDefaults()
         {
             projectile.name = "ExplodeMushroom";
-            projectile.width = 16;
-            projectile.height = 16;
+            projectile.width = 52;
+            projectile.height = 50;
             projectile.friendly = true;
+            //projectile.hostile = true;
             projectile.melee = true;
             projectile.tileCollide = true;
-            projectile.penetrate = 2;
+            projectile.penetrate = 1;
             projectile.timeLeft = 200;
             projectile.light = 0.75f;
             projectile.extraUpdates = 1;
@@ -40,7 +41,7 @@ namespace Emperia.Projectiles
             if (projectile.velocity.Y > 4)
                 projectile.velocity.Y = 4;
 
-            projectile.rotation += (projectile.velocity.X > 0 ? 1 : -1);
+            projectile.rotation += (projectile.velocity.X > 0 ? .08f : -.08f);
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
@@ -55,10 +56,13 @@ namespace Emperia.Projectiles
             {
                 Vector2 vec = Vector2.Transform(new Vector2(-explodeRadius, 0), Matrix.CreateRotationZ(MathHelper.ToRadians(i)));
 
-                Dust.NewDust(projectile.Center + vec, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20);
+                if (i % 8 == 0)
+                {   //odd
+                    Dust.NewDust(projectile.Center + vec, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20);
+                }
 
-                if (i % 2 == 0)
-                {
+                if (i % 9 == 0)
+                {   //even
                     vec.Normalize();
                     Dust.NewDust(projectile.Center, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20, vec.X * 2, vec.Y * 2);
                 }

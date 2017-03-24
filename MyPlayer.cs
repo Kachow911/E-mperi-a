@@ -41,7 +41,8 @@ namespace Emperia
 
             if (spored)
             {
-                player.velocity.Y = Math.Abs(player.velocity.Y);
+                player.jump = 0;
+                //player.velocity.Y = Math.Abs(player.velocity.Y);
             }
         }
 

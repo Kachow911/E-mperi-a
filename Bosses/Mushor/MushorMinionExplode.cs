@@ -99,7 +99,7 @@ namespace Emperia.Bosses.Mushor
                     SetFocusing();
                 }
 
-                if (npc.Distance(player.Center) < 64 || npc.life <= 0)   //if really close to the enemy or dying
+                if (npc.Distance(player.Center) < 64 || npc.life <= 2)   //if really close to the enemy or dying
                 {
                     SetExploding();
                 }
@@ -111,16 +111,12 @@ namespace Emperia.Bosses.Mushor
                 npc.velocity += Vector2.Normalize((player.Center - npc.Center) * usingSpeedUpFocus);
                 npc.velocity.X = MathHelper.Clamp(npc.velocity.X, -usingSpeedMax, usingSpeedMax);
                 npc.velocity.Y = MathHelper.Clamp(npc.velocity.Y, -usingSpeedMax, usingSpeedMax);
-                if (npc.Distance(player.Center) < 64 || npc.life <= 0 || counter <= 0)   //if really close to the enemy or dying or the counter is 0
+                if (npc.Distance(player.Center) < 64 || npc.life <= 1 || counter <= 0)   //if really close to the enemy or dying or the counter is 0
                 {
                     SetExploding();
                 }
             }
-            else if (phase == Phase.Exploding)
-            {   //this used to do things but not anymore so
-                phase = Phase.Done;
-            }
-            else if (phase == Phase.Done)
+            if (phase == Phase.Done)
             {
                 npc.life = 0;
             }
@@ -135,7 +131,7 @@ namespace Emperia.Bosses.Mushor
         private void SetExploding()
         {
             //counter = 60;
-            phase = Phase.Exploding;
+            phase = Phase.Done;
 
             npc.velocity = npc.velocity *= .15f;
             NPC n = Main.npc[NPC.NewNPC(0, 0, mod.NPCType<MushorMinionExplodeDummy>(), ai0: 20, ai1: npc.velocity.X, ai2: npc.velocity.Y)];
@@ -145,12 +141,14 @@ namespace Emperia.Bosses.Mushor
 
         public override bool CheckDead()
         {
-            if (phase != Phase.Done)
+            if (npc.life <= 0)
             {
-                npc.life = 1;
-                return false;
+                npc.velocity = npc.velocity *= .15f;
+                NPC n = Main.npc[NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType<MushorMinionExplodeDummy>(), ai0: 20, ai1: npc.velocity.X, ai2: npc.velocity.Y)];
+
+                n.Center = npc.Center;
+                n.dontTakeDamage = true;
             }
-            npc.life = 0;
             return true;
         }
     }

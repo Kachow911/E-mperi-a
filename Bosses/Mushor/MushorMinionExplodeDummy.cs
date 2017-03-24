@@ -35,6 +35,9 @@ namespace Emperia.Bosses.Mushor
             npc.DeathSound = SoundID.NPCDeath1;
             npc.buffImmune[24] = true;
 
+            npc.immortal = true;
+            npc.dontTakeDamage = true;
+
             npc.netAlways = true;
         }
 
@@ -44,6 +47,15 @@ namespace Emperia.Bosses.Mushor
 
             if (npc.ai[0] == 0)
             {
+                for (int i = 0; i < Main.player.Length; i++)
+                {
+                    Player player = Main.player[i];
+                    if (npc.Distance(player.Center) < damageDistance)
+                    {
+                        player.Hurt(Terraria.DataStructures.PlayerDeathReason.ByNPC(npc.whoAmI), npc.damage, 0);
+                    }
+                }
+
                 for (int i = 0; i < Main.npc.Length; i++)
                 {
                     if (npc.Distance(Main.npc[i].Center) < damageDistance)
@@ -54,10 +66,13 @@ namespace Emperia.Bosses.Mushor
                 {
                     Vector2 vec = Vector2.Transform(new Vector2(-damageDistance, 0), Matrix.CreateRotationZ(MathHelper.ToRadians(i)));
 
-                    Dust.NewDust(npc.Center + vec, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20);
+                    if (i % 8 == 0)
+                    {   //odd
+                        Dust.NewDust(npc.Center + vec, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20);
+                    }
 
-                    if (i % 2 == 0)
-                    {
+                    if (i % 9 == 0)
+                    {   //even
                         vec.Normalize();
                         Dust.NewDust(npc.Center, Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20, vec.X * 2, vec.Y * 2);
                     }
@@ -67,20 +82,12 @@ namespace Emperia.Bosses.Mushor
                 Main.PlaySound(SoundID.Item, npc.Center, 21);    //swishy sound
             }
             npc.ai[0]--;
-            for (int i = 0; i < Main.player.Length; i++)
-            {
-                Player player = Main.player[i];
-                if (npc.Distance(player.Center) < damageDistance)
-                {
-                    player.Hurt(Terraria.DataStructures.PlayerDeathReason.ByNPC(npc.whoAmI), npc.damage, 0);
-                }
-            }
 
-            float x = Main.rand.NextFloat() * npc.width;
+            /*float x = Main.rand.NextFloat() * npc.width;
             float y = Main.rand.NextFloat() * npc.height;
 
             Vector2 random = new Vector2(-5, 0).RotatedByRandom(MathHelper.ToRadians(360));
-            Dust.NewDust(new Vector2(npc.Hitbox.X + x, npc.Hitbox.Y + y), Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20, random.X, random.Y);
+            Dust.NewDust(new Vector2(npc.Hitbox.X + x, npc.Hitbox.Y + y), Main.rand.Next(1, 7), Main.rand.Next(1, 7), 20, random.X, random.Y);*/
 
             if (npc.ai[0] <= 0)
             {
