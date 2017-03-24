@@ -23,59 +23,30 @@ namespace Emperia
 	*/
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
-        int genIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
-		tasks.Insert(genIndex + 1, new PassLegacy("Clearing Space", delegate (GenerationProgress progress)
-        {
-			for (int j = 0; j < 49; j++) {
-			for (int i = 0; i < 49; i++) {
-					WorldGen.KillTile(Main.spawnTileX - j, Main.spawnTileY - i);
+			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
+			if (ShiniesIndex == -1)
+			{
+				// Shinies pass removed by some other mod.
+				return;
 			}
-			for (int i = 0; i < 49; i++) {
-					WorldGen.KillTile(Main.spawnTileX + j, Main.spawnTileY - i);
-			}
-			}
-			for (int i = 0; i < 14; i++) {
-					WorldGen.KillTile(Main.spawnTileX - 6 + i, Main.spawnTileY);
-					WorldGen.KillTile(Main.spawnTileX - 6 + i, Main.spawnTileY + 1);
-			}
-			for (int i = 0; i < 5; i++) {
-					WorldGen.KillTile(Main.spawnTileX - 7, Main.spawnTileY - i - 1);
-				    WorldGen.KillTile(Main.spawnTileX - 8, Main.spawnTileY - i - 1);
-					WorldGen.KillTile(Main.spawnTileX + 8, Main.spawnTileY - i - 1);
-				    WorldGen.KillTile(Main.spawnTileX + 9, Main.spawnTileY - i - 1);
-				
-			}
-        }));
-        tasks.Insert(genIndex + 2, new PassLegacy("Generating ruined dungeon", delegate (GenerationProgress progress)
-        {
-			for (int i = 0; i < 15; i++) {
-					WorldGen.PlaceTile(Main.spawnTileX, Main.spawnTileY - 22 + i, TileID.GrayBrick);
-					WorldGen.PlaceTile(Main.spawnTileX + 1, Main.spawnTileY - 22 + i, TileID.GrayBrick);
-			}
-					WorldGen.PlaceTile(Main.spawnTileX, Main.spawnTileY - 4, TileID.Platforms);
-					WorldGen.PlaceTile(Main.spawnTileX + 1, Main.spawnTileY - 4, TileID.Platforms);
-			for (int i = 0; i < 3; i++) {
-					WorldGen.PlaceTile(Main.spawnTileX - 1 - i, Main.spawnTileY - 4, TileID.GrayBrick);
-					WorldGen.PlaceTile(Main.spawnTileX + 2 + i, Main.spawnTileY - 4, TileID.GrayBrick);
-				
-			}
-			for (int i = 0; i < 15; i++) {
-					WorldGen.PlaceTile(Main.spawnTileX - 6 + i, Main.spawnTileY, TileID.GrayBrick);
-					WorldGen.PlaceTile(Main.spawnTileX - 6 + i, Main.spawnTileY + 1, TileID.GrayBrick);
-			}
-			for (int i = 0; i < 5; i++) {
-					WorldGen.PlaceTile(Main.spawnTileX - 7, Main.spawnTileY - i - 1, TileID.GrayBrick);
-				    WorldGen.PlaceTile(Main.spawnTileX - 8, Main.spawnTileY - i - 1, TileID.GrayBrick);
-					WorldGen.PlaceTile(Main.spawnTileX + 8, Main.spawnTileY - i - 1, TileID.GrayBrick);
-				    WorldGen.PlaceTile(Main.spawnTileX + 9, Main.spawnTileY - i - 1, TileID.GrayBrick);
+        tasks.Insert(ShiniesIndex +  1, new PassLegacy("CrystalBiomeGen", delegate(GenerationProgress progress)
+			{
+                progress.Message = "Polishing crystals";
+               
+                for (int i = 0; i < (int)Main.maxTilesX / 600; i++)
+				{
+					int Xvalue = Main.spawnTileX;
+					int Yvalue = Main.spawnTileY;
+					int XvalueHigh = Xvalue + 800;
+					int YvalueHigh = Yvalue + 800;
+					int XvalueMid = Xvalue;
+					int YvalueMid = Yvalue;
+	
+					WorldGen.TileRunner(XvalueMid, YvalueMid, (double)WorldGen.genRand.Next(200,200), 1, TileID.Dirt, false, 0f, 0f, true, true); //c = x, d = y
+					WorldGen.digTunnel(Main.spawnTileX, Main.spawnTileY, 0,0, 100, 100, false);
 					
-				
-			}
-			        WorldGen.PlaceTile(Main.spawnTileX - 4, Main.spawnTileY - 4, TileID.Platforms);
-					WorldGen.PlaceTile(Main.spawnTileX + 5, Main.spawnTileY - 4, TileID.Platforms);
-					WorldGen.PlaceChest(Main.spawnTileX, Main.spawnTileY - 23, (ushort)mod.TileType("RuinedChest"), false, 2);
-			
-        }));
+				}
+			}));
 		
         }
 
