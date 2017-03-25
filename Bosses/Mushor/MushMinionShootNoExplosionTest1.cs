@@ -20,7 +20,7 @@ namespace Emperia.Bosses.Mushor
             npc.name = "Angry Mushroom";
             npc.displayName = "Angry Mushroom";
             npc.aiStyle = -1;
-            npc.lifeMax = 150;
+            npc.lifeMax = 30;
             npc.damage = 23;
             npc.defense = 7;
             npc.knockBackResist = 0f;
@@ -97,11 +97,9 @@ namespace Emperia.Bosses.Mushor
 			        {
 				        if ((double)npc.Center.Y > (double)player.Center.Y - 200)
 			            {
-							if (npc.ai[2] == 1)
-							{
-					            npc.ai[2] = 2;
-								timerP2 = 0;
-							}
+							Vector2 direction = Main.player[npc.target].Center - npc.Center;
+					direction.Normalize();
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("MushSpray"), 15, 1, Main.myPlayer, 0, 0);
 							
 						}
 						if ((double)npc.Center.Y > (double)player.Center.Y - 50)
@@ -135,9 +133,7 @@ namespace Emperia.Bosses.Mushor
 				timerthing = 0;
 				if (!shotYet)
 				{
-					Vector2 direction = Main.player[npc.target].Center - npc.Center;
-					direction.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("MushSpray"), 15, 1, Main.myPlayer, 0, 0);
+					
 				}
 				if (timerP2 > 120)
 				{

@@ -10,17 +10,9 @@ namespace Emperia.Bosses.Inquisitor
 {
     public class AgonyMask : ModNPC
     {
-		private enum Move
-        {
-            Chase,
-            Tired,
-        }
-		  private int counter { get { return (int)npc.ai[0]; } set { npc.ai[0] = value; } }
-
-        private Move move { get { return (Move)npc.ai[1]; } set { npc.ai[1] = (int)value; } }
-        private Move prevMove;
+		
         private Vector2 targetPosition;
-
+        private float rotate { get { return npc.ai[1]; } set { npc.ai[1] = value; } }
         public override void SetDefaults()
         {
             npc.name = "Agony";
@@ -54,37 +46,12 @@ namespace Emperia.Bosses.Inquisitor
         public override void AI()
         {
 			npc.TargetClosest(true);
-			
-            if (move == Move.Chase)
-            {
-				counter--;
 			Player player = Main.player[npc.target];
-				targetPosition = player.Center;
-			   npc.velocity += Vector2.Normalize((targetPosition - npc.Center) * .3f);
-			   npc.velocity *= 1.5f;
-               npc.velocity.X = MathHelper.Clamp(npc.velocity.X, -2, 2);
-               npc.velocity.Y = MathHelper.Clamp(npc.velocity.Y, -2, 2);
-			   if (counter <= 0)
-			   {
-				   SetMove(Move.Tired, 30);
-			   }
-			}
-			if (move == Move.Tired)
-            {
-			counter--;
-			npc.velocity *= .5f;
-			   if (counter <= 0)
-			   {
-				   SetMove(Move.Chase, 180);
-			   }
-			}
-        }
-		
-        private void SetMove(Move toMove, int counter)
-        {
-            prevMove = move;
-            move = toMove;
-            this.counter = counter;
+			Vector2 rotatePosition = Vector2.Transform(new Vector2(-1 * 200, 0), Matrix.CreateRotationZ(MathHelper.ToRadians(rotate))) + player.Center;
+            npc.Center = rotatePosition;
+
+            rotate += 3f;
+			
         }
     }
 }

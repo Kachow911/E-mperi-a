@@ -53,7 +53,7 @@ namespace Emperia.Bosses.Mushor
             npc.DeathSound = SoundID.NPCDeath1;
             npc.buffImmune[24] = true;
             Main.npcFrameCount[npc.type] = 2;
-
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/MUSHOR");
             npc.netAlways = true;
         }
 

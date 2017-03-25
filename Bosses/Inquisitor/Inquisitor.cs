@@ -12,18 +12,19 @@ namespace Emperia.Bosses.Inquisitor
     {
         private enum Move
         {
-            Masks,
-            Spores,
-            Adds,
-            Bombing
+            Alpha,
+            Teleport,
+            Shoot,
+            Chase
         }
 
         private int counter { get { return (int)npc.ai[0]; } set { npc.ai[0] = value; } }
-
+        private float rotate { get { return npc.ai[3]; } set { npc.ai[3] = value; } }
         private Move move { get { return (Move)npc.ai[1]; } set { npc.ai[1] = (int)value; } }
         private Move prevMove;
         private Vector2 targetPosition;
-
+		private Vector2 rotatePosition;
+        private bool initialize = false;
         private int side { get { return (int)npc.ai[2]; } set { npc.ai[2] = value; } }
 
         public override void SetDefaults()
@@ -37,6 +38,7 @@ namespace Emperia.Bosses.Inquisitor
             npc.knockBackResist = 0f;
             npc.width = 102;
             npc.height = 66;
+			npc.alpha = 0;
             Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 20, 0, 0);
             npc.npcSlots = 1f;
@@ -64,6 +66,10 @@ namespace Emperia.Bosses.Inquisitor
 
         public override void AI()
         {
+			if (!initialize) {
+				counter = 51;
+				initialize = true;
+			}
             Player player = Main.player[npc.target];
             if (!player.active || player.dead)
             {
@@ -71,10 +77,18 @@ namespace Emperia.Bosses.Inquisitor
                 player = Main.player[npc.target];
             }
 
-            if (move == Move.Masks)
+            if (move == Move.Alpha)
             {
-                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType<AgonyMask>());
-
+			counter--;
+               npc.alpha+=5;
+			   if (counter <= 0) 
+			   {
+			        npc.alpha = 0;
+                    SetMove(Move.Alpha, 45);
+					Vector2 rotatePosition = Vector2.Transform(new Vector2(-1 * 200, 0), Matrix.CreateRotationZ(MathHelper.ToRadians(rotate))) + player.Center;
+					rotate += 45f;
+					npc.Center = rotatePosition;
+			   }
             }
             
         }
