@@ -34,7 +34,7 @@ namespace Emperia.Bosses.Mushor
         public override void SetDefaults()
         {
             npc.name = "Mushor";
-            npc.displayName = "Mushor v2";
+            npc.displayName = "Mushor";
             npc.aiStyle = -1;
             npc.lifeMax = 6500;
             npc.damage = 50;
