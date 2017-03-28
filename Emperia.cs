@@ -4,11 +4,13 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Emperia
 {
 	public class Emperia : Mod
 	{
+        public static BasicEffect basicEffect { get; private set; }
 		public Emperia()
 		{
 			Properties = new ModProperties()
@@ -18,7 +20,20 @@ namespace Emperia
 				AutoloadSounds = true,
                 AutoloadBackgrounds = true
             };
-		}
+
+            GraphicsDevice device = Main.graphics.GraphicsDevice;
+            Texture2D whitePixel = new Texture2D(device, 1, 1);
+            whitePixel.SetData<Color>(new Color[] { Color.White });
+
+            basicEffect = new BasicEffect(Main.graphics.GraphicsDevice);
+            basicEffect.VertexColorEnabled = true;
+            basicEffect.TextureEnabled = true;
+            basicEffect.Projection = Matrix.CreateOrthographicOffCenter
+                (0, Main.graphics.GraphicsDevice.Viewport.Width,     // left, right
+                Main.graphics.GraphicsDevice.Viewport.Height, 0,    // bottom, top
+                0, 1);
+            basicEffect.Texture = whitePixel;  //give it the white pixel texture
+        }
 
         /// <summary>
         /// Gets the entity nearest to the given vector.

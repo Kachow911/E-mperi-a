@@ -42,11 +42,15 @@
     <Compile Include="Armor\MarbleGrieves.cs" />
     <Compile Include="Armor\MarbleHelmet.cs" />
     <Compile Include="Bosses\AntBoss.cs" />
+    <Compile Include="Bosses\Inquisitor\AgonyMask.cs" />
+    <Compile Include="Bosses\Inquisitor\Inquisitor.cs" />
     <Compile Include="Bosses\Mushor\MushMinionShootNoExplosionTest1.cs" />
     <Compile Include="Bosses\Mushor\Mushor.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplode.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplodeDummy.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionShield.cs" />
+    <Compile Include="Bosses\Pandora\PandorasBox.cs" />
+    <Compile Include="Bosses\Pandora\PandorasBoxOpening.cs" />
     <Compile Include="Buffs\Drowning.cs" />
     <Compile Include="Buffs\Enchanted.cs" />
     <Compile Include="Buffs\Spored.cs" />

@@ -26,7 +26,7 @@ namespace Emperia.Bosses.Mushor
 
         private float usingSpeedMax = speedMax, usingSpeedUpFocus = speedUpFocus;
 
-        private const int frameTimer = 3;
+        private const int frameTimer = 4;
 
         private bool created;
 
