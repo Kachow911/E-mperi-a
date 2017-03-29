@@ -21,8 +21,8 @@ namespace Emperia.Bosses.Pandora
             npc.damage = 0;
             npc.defense = 7;
             npc.knockBackResist = 0f;
-            npc.width = 40;
-            npc.height = 40;
+            npc.width = 64;
+            npc.height = 60;
             Main.npcFrameCount[npc.type] = 13;
             npc.lavaImmune = true;
             npc.noGravity = true;
@@ -39,6 +39,25 @@ namespace Emperia.Bosses.Pandora
             Lighting.AddLight(npc.Center + new Vector2(0, -64), 0.094f, 0.816f, 0.863f);
             Lighting.AddLight(npc.Center + new Vector2(64, 0), 0.682f, 0.157f, 0.071f);
             Lighting.AddLight(npc.Center + new Vector2(0, 64), 0.604f, 0, 0.604f);
+
+            //if (Math.Abs((Main.MouseWorld - npc.Center).Length()) <)
+            if (npc.Hitbox.Contains(Main.MouseWorld.ToPoint()))
+            {
+                if (Main.mouseRight)
+                {   //TODO check distance
+                    //if (Main.player[Main.myPlayer].HeldItem.type == mod.ItemType<>()) //TODO make item
+                    {
+                        npc.netUpdate = true;
+                        npc.life = 0;
+
+                        if (Main.netMode != 1)
+                        {
+                            NPC n = Main.npc[NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType<PandorasBoxOpening>())];
+                            n.Center = npc.Center;
+                        }
+                    }
+                }
+            }
         }
 
         public override void FindFrame(int frameHeight)

@@ -11,7 +11,7 @@ namespace Emperia.Bosses.Pandora
 {
     public class PandorasBoxOpening : ModNPC
     {
-        private const int frameTimer = 5;
+        private const int frameTimer = 5, frameTimerSlow = 10;
 
         bool drawBeams = false, drawMain = true;    //since all this stuff is done clientside, as it is visual, I can use bools and not the ai arrays.
         int openTimer;
@@ -98,13 +98,43 @@ namespace Emperia.Bosses.Pandora
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter++;
-            npc.frame.Y = frameHeight * (int)(npc.frameCounter / frameTimer);
+
+            if (npc.frame.Y <= frameHeight * 5)
+            {   //first 6 frames
+                if (npc.frameCounter > frameTimer)
+                {
+                    npc.frame.Y += frameHeight;
+                    npc.frameCounter = 0;
+                }
+            }
+            else if (npc.frame.Y > frameHeight * 5 && npc.frame.Y <= frameHeight * 9)
+            {   //next 4 frames
+                drawBeams = true;
+                if (npc.frameCounter > frameTimerSlow)
+                {
+                    npc.frame.Y += frameHeight;
+                    npc.frameCounter = 0;
+                }
+            }
+            else
+            {
+                if (npc.frameCounter > frameTimer)
+                {
+                    npc.frame.Y += frameHeight;
+                    npc.frameCounter = 0;
+                }
+            }
+
+            if (npc.frame.Y >= 17 * frameHeight)
+                drawMain = false;
+
+            /*npc.frame.Y = frameHeight * (int)(npc.frameCounter / frameTimer);
 
             if (npc.frameCounter >= 6 * frameTimer)
                 drawBeams = true;
 
             if (npc.frameCounter >= 17 * frameTimer)
-                drawMain = false;
+                drawMain = false;*/
         }
 
         public override bool PreDraw(SpriteBatch batch, Color drawColor)

@@ -52,6 +52,5 @@ namespace Emperia.Bosses.Inquisitor
         {
 			
         }
-        p
     }
 }
