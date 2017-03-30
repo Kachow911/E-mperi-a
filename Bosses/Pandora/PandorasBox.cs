@@ -43,12 +43,13 @@ namespace Emperia.Bosses.Pandora
             //if (Math.Abs((Main.MouseWorld - npc.Center).Length()) <)
             if (npc.Hitbox.Contains(Main.MouseWorld.ToPoint()))
             {
-                if (Main.mouseRight)
+                if (Main.mouseRight && npc.active)
                 {   //TODO check distance
                     //if (Main.player[Main.myPlayer].HeldItem.type == mod.ItemType<>()) //TODO make item
                     {
                         npc.netUpdate = true;
                         npc.life = 0;
+                        npc.active = false;
 
                         if (Main.netMode != 1)
                         {

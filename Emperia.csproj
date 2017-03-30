@@ -49,8 +49,12 @@
     <Compile Include="Bosses\Mushor\MushorMinionExplode.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplodeDummy.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionShield.cs" />
+    <Compile Include="Bosses\Pandora\Brood.cs" />
+    <Compile Include="Bosses\Pandora\Helious.cs" />
+    <Compile Include="Bosses\Pandora\Infurion.cs" />
     <Compile Include="Bosses\Pandora\PandorasBox.cs" />
     <Compile Include="Bosses\Pandora\PandorasBoxOpening.cs" />
+    <Compile Include="Bosses\Pandora\Xalaneth.cs" />
     <Compile Include="Buffs\Drowning.cs" />
     <Compile Include="Buffs\Enchanted.cs" />
     <Compile Include="Buffs\Spored.cs" />
@@ -129,6 +133,9 @@
     <Compile Include="Weapons\Enchanted\EnchantedInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="BigText">
+      <HintPath>..\BigText\bin\Debug\BigText.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.dll</HintPath>
