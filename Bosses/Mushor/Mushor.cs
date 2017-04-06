@@ -292,5 +292,42 @@ namespace Emperia.Bosses.Mushor
             move = toMove;
             this.counter = counter;
         }
+		public override void NPCLoot()
+		{
+			if (!EmperialWorld.downedMushor)
+			{
+            			Main.NewText("The guardian of the mushroom biome has fallen...", 0, 75, 161, false);
+				EmperialWorld.downedMushor = true;
+			}
+			if (Main.rand.Next(10) == 0)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MushorTrophy"));
+			}
+			if (Main.expertMode)
+			{
+				npc.DropBossBags();
+			}
+			else
+			{
+				
+				if (Main.rand.Next(3) == 0)
+				{
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Shroomer"));
+				}
+				if (Main.rand.Next(3) == 0)
+				{
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Shroomflask"));
+				}
+				
+				if (Main.rand.Next(7) == 0)
+				{
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MushorMask"));
+				}
+				if (Main.rand.Next(3) == 0)
+				{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Mushdisc"), Main.rand.Next(100, 200));
+				}
+			}
+		}
     }
 }

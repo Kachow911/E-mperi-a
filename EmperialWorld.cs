@@ -21,6 +21,23 @@ namespace Emperia
 	the formatting is bad too
 	pls be careful
 	*/
+			public static bool downedMushor = false;
+		public override void Initialize()
+		{
+			downedMushor = false;
+
+		}
+		public override void NetSend(BinaryWriter writer)
+		{
+			BitsByte flags = new BitsByte();
+			flags[0] = downedMushor;
+			writer.Write(flags);
+		}
+		public override void NetReceive(BinaryReader reader)
+		{
+			BitsByte flags = reader.ReadByte();
+			downedMushor = flags[0];
+		}
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
@@ -29,9 +46,9 @@ namespace Emperia
 				// Shinies pass removed by some other mod.
 				return;
 			}
-        tasks.Insert(ShiniesIndex +  1, new PassLegacy("CrystalBiomeGen", delegate(GenerationProgress progress)
+        tasks.Insert(ShiniesIndex +  1, new PassLegacy("Abyss", delegate(GenerationProgress progress)
 			{
-                progress.Message = "Polishing crystals";
+                progress.Message = "Abyss";
                
                 for (int i = 0; i < (int)Main.maxTilesX / 600; i++)
 				{
