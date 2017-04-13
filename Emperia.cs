@@ -4,27 +4,40 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Emperia
 {
-	public class Emperia : Mod
-	{
-		public static ModHotKey BigJumpHotKey;
-		public Emperia()
-		{
-			Properties = new ModProperties()
-			{
-				Autoload = true,
-				AutoloadGores = true,
-				AutoloadSounds = true,
+    public class Emperia : Mod
+    {
+        public static BasicEffect basicEffect { get; private set; }
+        public static Texture2D whitePixel { get; private set; }
+        public Emperia()
+        {
+            Properties = new ModProperties()
+            {
+                Autoload = true,
+                AutoloadGores = true,
+                AutoloadSounds = true,
                 AutoloadBackgrounds = true
             };
-		}
-        
-		public override void Load()
-		{
-			BigJumpHotKey = RegisterHotKey("TP", "P");
-		}
+
+            GraphicsDevice device = Main.graphics.GraphicsDevice;
+            Texture2D whitePixel = new Texture2D(device, 1, 1);
+            whitePixel.SetData<Color>(new Color[] { Color.White });
+
+            basicEffect = new BasicEffect(Main.graphics.GraphicsDevice);
+            basicEffect.VertexColorEnabled = true;
+            basicEffect.TextureEnabled = true;
+            basicEffect.Projection = Matrix.CreateOrthographicOffCenter
+                (0, Main.graphics.GraphicsDevice.Viewport.Width,     // left, right
+                Main.graphics.GraphicsDevice.Viewport.Height, 0,    // bottom, top
+                0, 1);
+            basicEffect.Texture = whitePixel;  //give it the white pixel texture
+
+            Emperia.whitePixel = whitePixel;
+        }
+
         /// <summary>
         /// Gets the entity nearest to the given vector.
         /// </summary>
@@ -55,15 +68,21 @@ namespace Emperia
 
             return closestEntity;
         }
-		public override void PostSetupContent()
+
+        public override void PostSetupContent()
         {
             Mod bossChecklist = ModLoader.GetMod("BossChecklist");
-            if(bossChecklist != null)
+            if (bossChecklist != null)
             {
                 // AddBoss, bossname, order or value in terms of vanilla bosses, inline method for retrieving downed value.
                 bossChecklist.Call("AddBoss", "Mushor", 5.5f, (Func<bool>)(() => EmperialWorld.downedMushor));
                 //bossChecklist.Call(....
             }
+        }
+
+        public static T CreateProjectile<T>(Mod modReference, Vector2 position, Vector2 velocity, int damage, float knockback, int owner = 255, float ai0 = 0, float ai1 = 0) where T : ModProjectile
+        {
+            return (T)Main.projectile[Projectile.NewProjectile(position, velocity, modReference.ProjectileType<T>(), damage, knockback, Main.myPlayer, ai0, ai1)].modProjectile;
         }
     }
 }
