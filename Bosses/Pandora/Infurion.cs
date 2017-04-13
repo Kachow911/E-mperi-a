@@ -25,7 +25,6 @@ namespace Emperia.Bosses.Pandora
             Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 20, 0, 0);
             npc.npcSlots = 1f;
-            npc.boss = true;
             npc.lavaImmune = true;
             npc.noGravity = true;
             npc.noTileCollide = true;

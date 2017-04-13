@@ -11,7 +11,7 @@ namespace Emperia.Bosses.Pandora
     public class Brood : ModNPC
     {
         public override void SetDefaults()
-        {
+        {   //boss is set to false due to there being 4 of these
             npc.name = "Brood";
             npc.displayName = "Brood";
             npc.aiStyle = -1;
@@ -25,7 +25,6 @@ namespace Emperia.Bosses.Pandora
             Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 20, 0, 0);
             npc.npcSlots = 1f;
-            npc.boss = true;
             npc.lavaImmune = true;
             npc.noGravity = true;
             npc.noTileCollide = true;

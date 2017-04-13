@@ -43,7 +43,11 @@
     <Compile Include="Armor\MarbleHelmet.cs" />
     <Compile Include="Bosses\AntBoss.cs" />
     <Compile Include="Bosses\Inquisitor\AgonyMask.cs" />
+    <Compile Include="Bosses\Inquisitor\DEPuppet.cs" />
+    <Compile Include="Bosses\Inquisitor\DryadPuppet.cs" />
+    <Compile Include="Bosses\Inquisitor\GuidePuppet.cs" />
     <Compile Include="Bosses\Inquisitor\Inquisitor.cs" />
+    <Compile Include="Bosses\Inquisitor\NursePuppet.cs" />
     <Compile Include="Bosses\Mushor\MushMinionShootNoExplosionTest1.cs" />
     <Compile Include="Bosses\Mushor\Mushor.cs" />
     <Compile Include="Bosses\Mushor\MushorMinionExplode.cs" />
@@ -84,11 +88,13 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Projectiles\Cerith.cs" />
+    <Compile Include="Projectiles\DelayedLaser.cs" />
     <Compile Include="Projectiles\EnchantedArrow.cs" />
     <Compile Include="Projectiles\EnchantedBall.cs" />
     <Compile Include="Projectiles\EnchantedBullet.cs" />
     <Compile Include="Projectiles\EnchantedChakram.cs" />
     <Compile Include="Projectiles\ExplodeMushroom.cs" />
+    <Compile Include="Projectiles\FearBolt.cs" />
     <Compile Include="Projectiles\Flame.cs" />
     <Compile Include="Projectiles\FlamingScythe.cs" />
     <Compile Include="Projectiles\GoblinGlaive.cs" />
@@ -108,6 +114,8 @@
     <Compile Include="Tools\MarblePickaxe.cs" />
     <Compile Include="Tools\SkyHamaxe.cs" />
     <Compile Include="Tools\SkyPick.cs" />
+    <Compile Include="Utility\RandomHelper.cs" />
+    <Compile Include="Utility\VectorHelper.cs" />
     <Compile Include="Weapons\AntlionBow.cs" />
     <Compile Include="Weapons\BulbousStaff.cs" />
     <Compile Include="Weapons\CursedThrower.cs" />

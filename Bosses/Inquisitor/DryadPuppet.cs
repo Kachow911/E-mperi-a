@@ -6,28 +6,27 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Emperia.Bosses.Pandora
+namespace Emperia.Bosses.Inquisitor
 {
-    public class Helious : ModNPC
+    public class DryadPuppet : ModNPC
     {
         public override void SetDefaults()
         {
-            npc.name = "Helious";
-            npc.displayName = "Helious";
+            npc.name = "Dryad Puppet";
+            npc.displayName = "Dryad Puppet";
             npc.aiStyle = -1;
-            npc.lifeMax = 90000;
-            npc.damage = 200;
+            npc.lifeMax = 5000;
+            npc.damage = 150;
             npc.defense = 40;
             npc.knockBackResist = 0f;
-            npc.width = 396;
-            npc.height = 306;
+            npc.width = 24;
+            npc.height = 38;
             npc.alpha = 0;
             Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 20, 0, 0);
-            npc.npcSlots = 1f;
             npc.lavaImmune = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
+            npc.noGravity = false;
+            npc.noTileCollide = false;
             npc.HitSound = SoundID.NPCHit1; //57 //20
             npc.DeathSound = SoundID.NPCDeath1;
             npc.buffImmune[24] = true;
