@@ -82,6 +82,13 @@ namespace Emperia.Weapons
 				return false;
 			}
 		}
- 
+     public override void AddRecipes()
+        {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ItemID.Cactus, 15);
+				recipe.AddIngredient(ItemID.DesertFossil, 5);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Emperia.Weapons.Enchanted
         public override void SetDefaults()
         {
             item.name = "Enchanted Bow";
-            item.damage = 25;
+            item.damage = 45;
             item.ranged = true;
             item.width = 64;
             item.height = 64;
@@ -48,6 +48,14 @@ namespace Emperia.Weapons.Enchanted
             p.GetModInfo<EnchantedInfo>(mod).givesEnchanted = true;
             p.owner = player.whoAmI;
             return false;   //return false since we're spawning in manually
+        }
+		 public override void AddRecipes()
+        {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ItemID.CrystalShard, 15);
+				recipe.AddIngredient(ItemID.SoulofLight, 5);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
         }
     }
 }

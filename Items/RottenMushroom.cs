@@ -41,5 +41,13 @@ namespace Emperia.Items
 
             return true;
         }
+		public override void AddRecipes()
+        {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ItemID.GlowingMushroom, 10);
+				recipe.AddIngredient(null, "Fungoo", 12);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+        }
     }
 }

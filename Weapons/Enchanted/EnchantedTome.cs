@@ -30,5 +30,13 @@ namespace Emperia.Weapons.Enchanted   //where is located
             item.autoReuse = false;   //if it's capable of autoswing.
             item.useTurn = true;             //projectile speed                 
         }
+		 public override void AddRecipes()
+        {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ItemID.CrystalShard, 15);
+				recipe.AddIngredient(ItemID.SoulofLight, 5);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+        }
     }
 }

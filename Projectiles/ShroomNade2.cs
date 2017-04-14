@@ -33,13 +33,15 @@ namespace Emperia.Projectiles
             	Dust.NewDust(projectile.position, projectile.width, projectile.height, 41, projectile.velocity.X * 0.15f, projectile.velocity.Y * 0.15f);
                 if (doPull) 
 				{
-					projectile.noGravity = true;
+					projectile.velocity.X = 0;
+					projectile.velocity.Y = 0;
 					for (int i = 0; i < Main.npc.Length; i++)
                     {
 			            if (projectile.Distance(Main.npc[i].Center) < pullRadius)
 						{
 							Vector2 pullVectorThingy = projectile.Center - Main.npc[i].Center;
-							Main.npc[i].velocity = pullVectorThingy * 0.05f;
+							if (Main.npc[i].boss = false)
+								Main.npc[i].velocity = pullVectorThingy * 0.05f;
 			            }
 					}
 				}

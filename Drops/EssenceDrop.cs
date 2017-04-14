@@ -22,6 +22,13 @@ namespace Emperia.Drops
                       Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HellEssence"), 1); 
 				   }
 				}
+				if(npc.type == 257 || npc.type == 258 || npc.type == 259 || npc.type == 260 || npc.type == 261)
+				{
+					 if (Main.rand.Next(4) == 0) 
+					 {
+						 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Fungoo"), Main.rand.Next(1, 5)); 
+					 }
+				}
 
 
         }

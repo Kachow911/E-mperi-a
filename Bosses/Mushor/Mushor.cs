@@ -43,7 +43,7 @@ namespace Emperia.Bosses.Mushor
             npc.width = 128;
             npc.height = 128;
             Main.npcFrameCount[npc.type] = 1;
-            npc.value = Item.buyPrice(1, 50, 0, 0);
+            npc.value = Item.buyPrice(0, 8, 0, 0);
             npc.npcSlots = 1f;
             npc.boss = true;
             npc.lavaImmune = true;
@@ -56,7 +56,13 @@ namespace Emperia.Bosses.Mushor
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/MUSHOR");
             npc.netAlways = true;
         }
-
+         public override void AutoloadHead(ref string headTexture, ref string bossHeadTexture)
+        {
+			 if (p2AnimationDone)
+				bossHeadTexture = "Emperia/Bosses/Mushor/MushorHead2"; 
+			else
+				bossHeadTexture = "Emperia/Bosses/Mushor/MushorHead1"; 
+        }
         public override void FindFrame(int frameHeight)
         {
             if (p2AnimationDone)
@@ -196,8 +202,25 @@ namespace Emperia.Bosses.Mushor
                 targetPosition = player.Center + new Vector2(side == 0 ? -256 : 256, -196);
 
                 SmoothMoveToPosition(player.Center + new Vector2(side == 0 ? -256 : 256, -196), .2f, 4, 64);
-
-                if (counter % 30 == 0)
+				if (p2AnimationDone)
+				{
+					if (counter % 20 == 0)
+					{   //every 16 ticks
+						if (npc.ai[3] > 0)
+						{
+						Vector2 placePosition = npc.Center + new Vector2(0, -400);
+						Vector2 direction = Main.player[npc.target].Center - placePosition;
+						direction.Normalize();
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 400, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("MushShot"), 25, 1, Main.myPlayer, 0, 0);
+						}
+						else if (Main.netMode != 1)
+						{
+                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, Main.rand.Next(4) == 0 ?
+                        mod.NPCType<MushorMinionExplode>() : mod.NPCType<MushMinionShootNoExplosionTest1>());
+						}
+					}
+				}
+                else if (counter % 30 == 0)
                 {   //every 16 ticks
                     if (Main.netMode != 1)
                     {

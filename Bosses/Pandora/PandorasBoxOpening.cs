@@ -6,7 +6,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using BigText;
 
 namespace Emperia.Bosses.Pandora
 {
@@ -91,20 +90,10 @@ namespace Emperia.Bosses.Pandora
 
                     if (doneTimer >= doneTimerMax)
                     {
-                        try
-                        {
-                            BigText.BigText bt = (BigText.BigText)ModLoader.GetMod("BigText");
-                            bt.AddBigText(new Text("You Have Damned Reality...", 90, 150, 
-                                new ColorText(Color.Orange, "You"), 
-                                new ColorText(Color.Green, "Have"), 
-                                new ColorText(Color.Blue, "Damned"), 
-                                new ColorText(Color.Purple, "Reality", false), 
-                                new ColorText(Color.White, "...", false)));
-                        }
-                        catch
-                        {
+                       
+
                             Main.NewText("You Have Damned Reality...");
-                        }
+
                         doneTimer = -1;
                         npc.life = 0;
                     }

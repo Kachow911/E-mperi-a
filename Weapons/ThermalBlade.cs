@@ -29,6 +29,13 @@ namespace Emperia.Weapons  //where is located
             item.autoReuse = true;   //if it's capable of autoswing.
             item.useTurn = true;             //projectile speed                 
         }
-		
+		 public override void AddRecipes()
+        {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ItemID.IceBlade, 1);
+				recipe.AddIngredient(null, "FireBlade", 1);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+        }
     }
 }

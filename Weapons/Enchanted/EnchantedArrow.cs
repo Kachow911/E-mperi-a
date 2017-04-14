@@ -20,7 +20,7 @@ namespace Emperia.Weapons.Enchanted
         public override void SetDefaults()
         {
             item.name = "Enchanted Arrow";
-            item.damage = 12;
+            item.damage = 20;
             item.ranged = true;
             item.width = 8;
             item.height = 8;
@@ -36,11 +36,12 @@ namespace Emperia.Weapons.Enchanted
         }
 
         public override void AddRecipes()
-        {   //Placeholder recipe
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.CrystalShard, 8);
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
+        {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ItemID.CrystalShard, 15);
+				recipe.AddIngredient(ItemID.SoulofLight, 5);
+                recipe.SetResult(this, 200);
+                recipe.AddRecipe();
         }
     }
 }
