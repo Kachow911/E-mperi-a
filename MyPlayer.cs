@@ -17,7 +17,9 @@ namespace Emperia
         public bool wSpirit = false;
         public bool enchanted = false;
         public bool spored = false;
+		public bool isBloom = false;
         public int enchantedStacks;
+		public int points = 0;
 
         public override void ResetEffects()
         {

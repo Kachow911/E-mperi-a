@@ -2,6 +2,9 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.UI;
+using Terraria.DataStructures;
+using Terraria.GameContent.UI;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -84,5 +87,6 @@ namespace Emperia
         {
             return (T)Main.projectile[Projectile.NewProjectile(position, velocity, modReference.ProjectileType<T>(), damage, knockback, Main.myPlayer, ai0, ai1)].modProjectile;
         }
+		
     }
 }

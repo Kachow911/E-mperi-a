@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.World.Generation;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Generation;
+using Emperia.WorldStuff;
 
 namespace Emperia
 {
@@ -46,24 +47,10 @@ namespace Emperia
 				// Shinies pass removed by some other mod.
 				return;
 			}
-        tasks.Insert(ShiniesIndex +  1, new PassLegacy("Abyss", delegate(GenerationProgress progress)
-			{
-                progress.Message = "Abyss";
+        tasks.Insert(ShiniesIndex +  1, new PassLegacy("DynastyBiome", delegate(GenerationProgress progress)
+            {
                
-                for (int i = 0; i < (int)Main.maxTilesX / 600; i++)
-				{
-					int Xvalue = Main.spawnTileX;
-					int Yvalue = Main.spawnTileY;
-					int XvalueHigh = Xvalue + 800;
-					int YvalueHigh = Yvalue + 800;
-					int XvalueMid = Xvalue;
-					int YvalueMid = Yvalue;
-	
-					WorldGen.TileRunner(XvalueMid, YvalueMid, (double)WorldGen.genRand.Next(200,200), 1, TileID.Dirt, false, 0f, 0f, true, true); //c = x, d = y
-					WorldGen.digTunnel(Main.spawnTileX, Main.spawnTileY, 0,0, 100, 100, false);
-					
-				}
-			}));
+            }));
 		
         }
 
