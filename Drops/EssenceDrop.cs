@@ -29,6 +29,12 @@ namespace Emperia.Drops
 						 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Fungoo"), Main.rand.Next(1, 5)); 
 					 }
 				}
+				if(npc.type == 231 || npc.type == 233 || npc.type == 236)
+				{
+					MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+					modPlayer.points += 5;
+					Main.NewText(modPlayer.points + " / 100");
+				}
 
 
         }
