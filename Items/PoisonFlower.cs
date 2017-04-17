@@ -18,7 +18,7 @@ namespace Emperia.Items
             item.width = 36;
             item.height = 36;
             item.maxStack = 999;
-            AddTooltip("Don't eat it");
+            AddTooltip("Summons the bloom");
             item.rare = 3;
             item.useAnimation = 45;
             item.useTime = 45;
@@ -30,17 +30,23 @@ namespace Emperia.Items
         public override bool CanUseItem(Player player)
         {
             //return NPC.downedBoss3;
+            return player.ZoneJungle;
         }
 
         public override bool UseItem(Player player)
         {
             Mod mod = ModLoader.GetMod("Emperia");
-			MyPlayer modPlayer = p.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			if (!modPlayer.isBloom)
+			{
 			modPlayer.isBloom = true;
+			modPlayer.points = 0;
             Main.NewText("Flora not seen for millenia begins to stir...");
             Main.PlaySound(SoundID.Roar, player.position, 0);
 
             return true;
+			}
+			return false;
         }
     }
 }
