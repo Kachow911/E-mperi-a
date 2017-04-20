@@ -23,7 +23,7 @@ public class SeashellChestplate : ModItem
         item.height = 18;
         AddTooltip("+3 increased defsnse when in liquid");
         item.value = 65000;
-        item.rare = 3;
+        item.rare = 1;
         item.defense = 4; //15
     }
 

@@ -19,7 +19,7 @@ namespace Emperia.Items
             item.height = 36;
             item.maxStack = 999;
             AddTooltip("Summons the bloom");
-            item.rare = 3;
+            item.rare = 5;
             item.useAnimation = 45;
             item.useTime = 45;
             item.useStyle = 4;

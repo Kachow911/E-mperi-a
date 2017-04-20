@@ -24,7 +24,7 @@ namespace Emperia.Weapons.Enchanted   //where is located
             item.mana = 17;			//Style is how this item is used, 1 is the style of the sword
             item.knockBack = 5;      //Sword knockback
             item.value = 100;        
-            item.rare = 13;
+            item.rare = 4;
 			item.shoot = mod.ProjectileType("EnchantedCrystal"); // the tornado when its ready
 			item.shootSpeed = 8f;
             item.autoReuse = false;   //if it's capable of autoswing.

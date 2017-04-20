@@ -22,7 +22,7 @@ namespace Emperia.Weapons.Storm  //where is located
             item.useStyle = 1;        //Style is how this item is used, 1 is the style of the sword
             item.knockBack = 7.5f;      //Sword knockback
             item.value = 100;        
-            item.rare = 10;
+            item.rare = 6;
 			item.scale = 1f;
 			item.shoot = mod.ProjectileType("Lightning");
 			item.shootSpeed = 8f;

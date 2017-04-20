@@ -25,7 +25,7 @@ namespace Emperia.Items.Sets.Seashell  //where is located
             item.mana = 17;			//Style is how this item is used, 1 is the style of the sword
             item.knockBack = 5;      //Sword knockback
             item.value = 100;        
-            item.rare = 13;
+            item.rare = 1;
 			item.shoot = mod.ProjectileType("Cerith"); // the tornado when its ready
 			item.shootSpeed = 8f;
             item.autoReuse = false;   //if it's capable of autoswing.

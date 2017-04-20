@@ -29,7 +29,7 @@ namespace Emperia.Weapons.Enchanted
             item.useStyle = 5;
             item.knockBack = 3.5f;
             item.value = 100;
-            item.rare = 3;
+            item.rare = 4;
             item.scale = 1f;
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;

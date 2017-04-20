@@ -22,7 +22,7 @@ namespace Emperia.Weapons   //where is located
             item.useStyle = 1;        //Style is how this item is used, 1 is the style of the sword
             item.knockBack = 5;      //Sword knockback
             item.value = 100;        
-            item.rare = 10;
+            item.rare = 1;
 			item.scale = 1.15f;
             item.autoReuse = true;   //if it's capable of autoswing.
             item.useTurn = true; 

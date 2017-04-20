@@ -25,7 +25,7 @@ public class ShellHamaxe : ModItem
         item.useStyle = 1;
         item.knockBack = 2f;
         item.value = 1770;
-        item.rare = 3;
+        item.rare = 1;
         item.UseSound = SoundID.Item1;
         item.autoReuse = true;
     }

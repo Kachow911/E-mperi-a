@@ -24,6 +24,7 @@ namespace Emperia.Weapons.Color   //where is located
 			item.crit = 12;			//Sword knockback
             item.value = 100;        
             item.rare = 3;
+			item.UseSound = SoundID.Item1;
 			item.scale = 1f;
             item.autoReuse = false;   //if it's capable of autoswing.
             item.useTurn = true;             //projectile speed                 
@@ -40,6 +41,13 @@ namespace Emperia.Weapons.Color   //where is located
             recipe.AddRecipe();
 
         }
+		public override void MeleeEffects(Player player, Rectangle hitbox)
+		{
+			if (Main.rand.Next(5) == 0)
+			{
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 60);
+			}
+		}
 		 public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
 		{
 			player.AddBuff(mod.BuffType("RougeBuff"), Main.rand.Next(180, 480));

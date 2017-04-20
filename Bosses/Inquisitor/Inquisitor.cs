@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using Emperia.Utility;
+
 
 namespace Emperia.Bosses.Inquisitor
 {
@@ -147,7 +147,7 @@ namespace Emperia.Bosses.Inquisitor
 
                 for (int i = 0; i < Main.rand.Next(5, 20); i++)
                 {
-                    Dust.NewDust(npc.Hitbox.RandomPointInside(), 20, 20, 109, Main.rand.Next(-2, 3), 0);
+            
                 }
             }
             if (move == Move.AfterTeleport)
@@ -190,8 +190,7 @@ namespace Emperia.Bosses.Inquisitor
             }
             if (move == Move.LaserStart)
             {
-                Emperia.CreateProjectile<Projectiles.DelayedLaser>(mod, npc.Center, Vector2.Zero, 20, 0, Main.myPlayer, npc.whoAmI, 180 + VectorHelper.GetAngleBetweenPoints(player.Center, npc.Center))
-                    .Create(120, 60, 4, 32, new Color(201, 34, 97), new Color(255, 193, 208), new Color(201, 34, 97));
+             
                 SetMove(Move.LaserDuring, 200, counter2);
                 //counter = 200;
                 //move = Move.LaserDuring;

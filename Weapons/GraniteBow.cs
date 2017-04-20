@@ -25,7 +25,7 @@ namespace Emperia.Weapons
             item.useAmmo = ItemID.WoodenArrow;
             item.knockBack = 1;
             item.value = 1000;
-            item.rare = 5;
+            item.rare = 1;
             item.autoReuse = true;
             item.shootSpeed = 10f;
 

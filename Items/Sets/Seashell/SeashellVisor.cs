@@ -22,7 +22,7 @@ public class SeashellVisor : ModItem
         item.height = 18;
         AddTooltip("4% increased damage when in liquid");
         item.value = 50000;
-        item.rare = 3;
+        item.rare = 1;
         item.defense = 3; //15
     }
 

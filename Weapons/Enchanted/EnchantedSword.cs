@@ -21,7 +21,7 @@ namespace Emperia.Weapons.Enchanted
     { 
         public override void SetDefaults()
         {
-            item.name = "Enchanted Sword";
+            item.name = "Enchanted Blade";
             item.damage = 39;
             //item.melee = true;       
             item.ranged = true;
@@ -33,7 +33,7 @@ namespace Emperia.Weapons.Enchanted
             item.UseSound = SoundID.Item1; 
             item.knockBack = 5f;   
             item.value = 100;
-            item.rare = 3;
+            item.rare = 4;
             item.scale = 1.2f;
             item.autoReuse = true;
             item.useTurn = true;    //turns the player to face mouse direction

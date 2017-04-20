@@ -16,7 +16,7 @@ namespace Emperia.Items
 			item.useTime = 10;
 			item.useStyle = 1;
 			item.consumable = true;			
-			item.rare = 7;
+			item.rare = 4;
 			item.createTile = mod.TileType("EnchantedTable");
 			item.placeStyle = 0;
 		}

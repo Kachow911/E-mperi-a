@@ -24,7 +24,7 @@ public class ShellPick : ModItem
         item.knockBack = 2f;
 		item.scale = 1.25f;
         item.value = 1770;
-        item.rare = 3;
+        item.rare = 1;
         item.UseSound = SoundID.Item1;
         item.autoReuse = true;
     }

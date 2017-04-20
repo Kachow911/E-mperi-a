@@ -25,10 +25,17 @@ namespace Emperia.Weapons.Color   //where is located
             item.value = 100;        
             item.rare = 3;
 			item.scale = 1f;
-            item.autoReuse = false;   //if it's capable of autoswing.
+			item.UseSound = SoundID.Item1;
+            item.autoReuse = true;   //if it's capable of autoswing.
             item.useTurn = true;             //projectile speed                 
         }
-		
+		public override void MeleeEffects(Player player, Rectangle hitbox)
+		{
+			if (Main.rand.Next(5) == 0)
+			{
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 64);
+			}
+		}
         public override void AddRecipes()  //How to craft this sword
         {
             ModRecipe recipe = new ModRecipe(mod);      

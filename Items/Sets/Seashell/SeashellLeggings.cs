@@ -23,7 +23,7 @@ public class SeashellLeggings : ModItem
         item.height = 18;
         AddTooltip("6% increased movement speed when in liquid");
         item.value = 57500;
-        item.rare = 3;
+        item.rare = 1;
         item.defense = 2; //15
     }
 

@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using Emperia.Utility;
 
 namespace Emperia.Projectiles
 {
@@ -35,9 +34,7 @@ namespace Emperia.Projectiles
         public override void AI()
         {
             projectile.velocity.Y += .025f;
-
-            float rot = MathHelper.ToRadians(VectorHelper.GetVectorAngle(projectile.velocity) + 180);
-            projectile.rotation = rot;
+			projectile.rotation = (float)Math.Atan2((double)projectile.velocity.Y, (double)projectile.velocity.X) + 1.57f;
 
             Dust.NewDust(projectile.Center, 2, 2, 58, projectile.velocity.X, projectile.velocity.Y);
         }
