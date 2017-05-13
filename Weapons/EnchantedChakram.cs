@@ -22,7 +22,7 @@ namespace Emperia.Weapons
             item.useStyle = 1;
             item.knockBack = 3;
             item.value = 8;
-            item.rare = 6;
+            item.rare = 4;
             item.shootSpeed = 12f;
             item.shoot = mod.ProjectileType ("EnchantedChakram");
             item.autoReuse = true;

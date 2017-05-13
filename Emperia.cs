@@ -5,7 +5,6 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
