@@ -49,7 +49,8 @@ namespace Emperia.Projectiles
 		
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-        	Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("PumpkinSlash"), 50, 5f, projectile.owner);
+        	int p = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("PumpkinSlash"), 50, 5f, projectile.owner);
+			Main.projectile[p].rotation = Main.rand.Next(360);
         }
     }
 }

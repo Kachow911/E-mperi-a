@@ -38,7 +38,7 @@ namespace Emperia.Mounts
       mountData.flyingFrameStart = 5;
       mountData.inAirFrameCount = 1;
       mountData.inAirFrameDelay = 12;
-      mountData.inAirFrameStart = 5;
+      mountData.inAirFrameStart = 1;
       mountData.idleFrameCount = 1;
       mountData.idleFrameDelay = 12;
       mountData.idleFrameStart = 8;
