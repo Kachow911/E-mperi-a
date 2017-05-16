@@ -34,7 +34,6 @@ namespace Emperia.Weapons.Enchanted
             item.scale = 1f;
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;
-            item.useTurn = true;    //turns the player to face mouse direction
             item.noMelee = true;
 
             item.shoot = 10;
@@ -50,6 +49,12 @@ namespace Emperia.Weapons.Enchanted
             p.owner = player.whoAmI;
             return false;   //return false since we're spawning in manually
         }
+		
+		public override Vector2? HoldoutOffset()
+		{
+			return new Vector2(-4, 0);
+		}
+		
 		 public override void AddRecipes()
         {
                 ModRecipe recipe = new ModRecipe(mod);

@@ -19,6 +19,7 @@ namespace Emperia.Weapons   //where is located
             item.width = 32;              //Sword width
             item.height = 32;             //Sword height
             item.toolTip = "Pretty W-I-P";  //Item Description
+			Item.staff[item.type] = true;
             item.useTime = 32;          //how fast 
             item.useAnimation = 32;     
             item.useStyle = 5;    

@@ -4,6 +4,7 @@ using Terraria.ID;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using Emperia.Projectiles.Info;
 
 namespace Emperia.Weapons
 {
@@ -25,8 +26,8 @@ namespace Emperia.Weapons
             item.shoot = mod.ProjectileType("NappasArrow");
             item.useAmmo = ItemID.WoodenArrow;
             item.knockBack = 1;
-            item.value = 1000;
-            item.rare = 5;
+            item.value = 100000;
+            item.rare = 10;
             item.autoReuse = true;
             item.shootSpeed = 10f;
 
@@ -39,20 +40,21 @@ namespace Emperia.Weapons
 			for (int i = 0; i < numberProjectiles; i++)
 			{
 				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
-				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				int proj = Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X * 4, perturbedSpeed.Y * 4, type, damage, knockBack, player.whoAmI);
+				Main.projectile[proj].GetModInfo<Info>(mod).Stars = true;
 			}
 			return false;
 		}
         public override void AddRecipes()
-    {
-        ModRecipe recipe = new ModRecipe(mod); // LunarBar
-        recipe.AddIngredient(ItemID.FallenStar, 30);
-		recipe.AddIngredient(ItemID.FragmentVortex, 15);
-		recipe.AddIngredient(ItemID.LunarBar, 15);
-		recipe.AddIngredient(ItemID.PineTreeBlock, 40);
-        recipe.AddTile(TileID.Anvils);
-        recipe.SetResult(this);
-        recipe.AddRecipe();
-    }
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.FallenStar, 30);
+			recipe.AddIngredient(ItemID.FragmentVortex, 15);
+			recipe.AddIngredient(ItemID.LunarBar, 15);
+			recipe.AddIngredient(ItemID.PineTreeBlock, 40);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
     }
 }

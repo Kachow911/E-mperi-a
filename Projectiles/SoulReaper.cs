@@ -38,8 +38,15 @@ namespace Emperia.Projectiles
 				direction.Normalize();
 				projectile.velocity = direction * 10f;
 			}
+			
+			if (projectile.position.X > player.position.X - 20 && projectile.position.X < player.position.X + 20 && projectile.position.Y > player.position.Y - 20 && projectile.position.Y < player.position.Y + 20 && counter > 120)
+			{
+				projectile.Kill();
+			}
+			
             projectile.rotation += 0.25f;
         }
+		
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
         	Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("PumpkinSlash"), 50, 5f, projectile.owner);
