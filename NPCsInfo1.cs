@@ -6,5 +6,7 @@ namespace Emperia
     {
         public bool customdebuff = false;
 		public bool customdebuff2 = false;
+		public bool ConsumeDark = false;
+		public bool Plague = false;
     }
 }

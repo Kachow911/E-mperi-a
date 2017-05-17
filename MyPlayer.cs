@@ -16,7 +16,9 @@ namespace Emperia
     {
         public bool wSpirit = false;
         public bool enchanted = false;
+		public bool ShadowDrone = false;
         public bool spored = false;
+		public bool longerInvince = false;
 		public bool isBloom = false;
         public int enchantedStacks;
 		public int points = 0;
@@ -26,6 +28,8 @@ namespace Emperia
         {
             wSpirit = false;
             enchanted = false;
+			longerInvince = false;
+			ShadowDrone = false;
             enchantedStacks = 0;
 			rofIncrease = 0;
             spored = false;
@@ -74,5 +78,13 @@ namespace Emperia
                 player.lifeRegen -= 4;
             }
         }
+		
+		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+		{
+			if (longerInvince == true)
+			{
+				player.immuneTime = (int)(player.immuneTime * 1.3);
+			}
+		}
     }
 }
