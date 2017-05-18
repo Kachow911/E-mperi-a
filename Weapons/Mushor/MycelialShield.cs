@@ -26,7 +26,6 @@ public class MycelialShield : ModItem
 	{
 		MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 		modPlayer.sporeFriend = true;
-        player.statDefense+=6;
 		player.lifeRegen += 2;
 		
 	}

@@ -14,7 +14,7 @@ namespace Emperia.Items
     {
         public override void SetDefaults()
         {
-            item.name = "Magnificent Mushroom";
+            item.name = "Mystical Mushroom";
             item.width = 36;
             item.height = 36;
             item.maxStack = 999;
