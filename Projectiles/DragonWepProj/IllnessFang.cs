@@ -28,9 +28,13 @@ namespace Emperia.Projectiles.DragonWepProj
 		
 		public override void AI()
 		{
-			int dust;
-			dust = Dust.NewDust(projectile.Center + projectile.velocity, 0, 0, 178, 0f, 0f);
-			Main.dust[dust].scale = 0.25f;
+			
+			if (Main.rand.Next(5) == 0)
+			{
+				int dust;
+				dust = Dust.NewDust(projectile.Center + projectile.velocity, 0, 0, 178, 0f, 0f);
+				Main.dust[dust].scale = 0.5f;
+			}
 			projectile.rotation = (float)Math.Atan2((double)projectile.velocity.Y, (double)projectile.velocity.X);
 			
 						
