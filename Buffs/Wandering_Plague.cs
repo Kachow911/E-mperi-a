@@ -31,12 +31,26 @@ namespace Emperia.Buffs
             Main.dust[num1].velocity *= 3f; 
             Main.dust[num1].noGravity = true;
 			
-			for (int i = 0; i < Main.npc.Length; i++)
-			{
-				if (npc.Distance(Main.npc[i].Center) < 400 && !Main.npc[i].friendly)
+			float maxHomeDistance = 400f;
+			int buffTime = npc.buffTime[buffIndex];
+			for (int npcFinder = 0; npcFinder < 200; ++npcFinder)
 				{
-					Main.npc[i].AddBuff(mod.BuffType("WanderingPlague"), 180, false);
+					float num12 = Main.npc[npcFinder].position.X + (float)(Main.npc[npcFinder].width / 2);
+					float num22 = Main.npc[npcFinder].position.Y + (float)(Main.npc[npcFinder].height / 2);
+					float num32 = Math.Abs(npc.position.X + (float)(npc.width / 2) - num12) + Math.Abs(npc.position.Y + (float)(npc.height / 2) - num22);
+					if (num32 < maxHomeDistance)
+					{
+						maxHomeDistance = num32;
+
+						Main.npc[npcFinder].AddBuff(mod.BuffType("Wandering_Plague"), buffTime);
+					}
+				   
 				}
+					
+			}
+			 public virtual bool ReApply(int type, NPC npc, int time, int buffIndex)
+			{
+				return false;
 			}
         }
     }
