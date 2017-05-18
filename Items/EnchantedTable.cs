@@ -17,7 +17,7 @@ namespace Emperia.Items
 			item.useStyle = 1;
 			item.consumable = true;			
 			item.rare = 4;
-			item.createTile = mod.TileType("EnchantedTable");
+			item.createTile = mod.TileType("TwilightFlora");
 			item.placeStyle = 0;
 		}
 	}

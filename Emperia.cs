@@ -1,13 +1,18 @@
 using System;
 using Terraria;
+using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Emperia.WorldStuff;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.UI;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
 namespace Emperia
 {
     public class Emperia : Mod
@@ -39,7 +44,15 @@ namespace Emperia
 
             Emperia.whitePixel = whitePixel;
         }
+		public override void Load()
+		{
+			if (!Main.dedServ)
+			{
+				Filters.Scene["Emperia:Bloom"] = new Filter(new BloomScreenShaderData("FilterMiniTower").UseColor(0.12f, 1f, 0.4f).UseOpacity(0.2f), EffectPriority.VeryHigh);
+				//SkyManager.Instance["Emperia:Bloom"] = new PuritySpiritSky();
 
+			}
+		}
         /// <summary>
         /// Gets the entity nearest to the given vector.
         /// </summary>

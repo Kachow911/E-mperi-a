@@ -1,4 +1,5 @@
 using System.IO;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -40,19 +41,28 @@ namespace Emperia
 			downedMushor = flags[0];
 		}
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
-        {
-			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
-			if (ShiniesIndex == -1)
+		{
+			int genIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
+			tasks.Insert(genIndex + 1, new PassLegacy("Twilight Forest", delegate (GenerationProgress progress)
 			{
-				// Shinies pass removed by some other mod.
-				return;
-			}
-        tasks.Insert(ShiniesIndex +  1, new PassLegacy("DynastyBiome", delegate(GenerationProgress progress)
-            {
-               
-            }));
-		
-        }
+				int XTILE = WorldGen.genRand.Next(300, Main.maxTilesX - 1000);
+                int yAxis = Main.maxTilesY / 10;
+			    for (int xAxis = XTILE; xAxis < XTILE + 200; xAxis++)
+			    {
+				    int Slope2 = Math.Abs(Main.rand.Next(52,74) - Math.Abs((xAxis - XTILE) - Main.rand.Next(52,74))) / 3;
+				    string SlopeText = Slope2.ToString();
+				    for (int I = 0; I < Slope2; I++)
+				    {
+					    WorldGen.TileRunner(xAxis, yAxis + I, (double)20, 1, mod.TileType("TwilightGrass"), true, 0f, 0f, true, true);
+				    }
+				    WorldGen.TileRunner(xAxis, yAxis, (double)20, 1, mod.TileType("TwilightGrass"), true, 0f, 0f, true, true);
+				    if (Main.rand.Next(30) == 0)
+				    {
+					    WorldGen.TileRunner(xAxis, yAxis - 5, (double)20, 1, mod.TileType("TwilightGrass"), true, 0f, 0f, true, true);
+				    }
+			    }
+			}));
+		}
 
         public override void PostWorldGen()
         {   //mostly copied from examplemod

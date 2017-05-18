@@ -16,6 +16,8 @@ namespace Emperia
     {
         public bool wSpirit = false;
         public bool enchanted = false;
+		public bool canSpore = true;
+		public bool sporeFriend = false;
         public bool spored = false;
 		public bool isBloom = false;
         public int enchantedStacks;
@@ -26,6 +28,7 @@ namespace Emperia
         {
             wSpirit = false;
             enchanted = false;
+			sporeFriend = false;
             enchantedStacks = 0;
 			rofIncrease = 0;
             spored = false;
@@ -49,7 +52,11 @@ namespace Emperia
                 //player.velocity.Y = Math.Abs(player.velocity.Y);
             }
         }
+		public override void UpdateBiomeVisuals()
+		{
 
+			player.ManageSpecialBiomeVisuals("Emperia:Bloom", true, player.Center);
+		}
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
             EnchantedInfo info = proj.GetModInfo<EnchantedInfo>(mod);
@@ -74,5 +81,28 @@ namespace Emperia
                 player.lifeRegen -= 4;
             }
         }
+		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+		{
+			canSpore = true;
+            for (int i = 0; i < Main.projectile.Length; i++)
+            {
+				if (Main.projectile[i].type == mod.ProjectileType("Spore"))
+				{
+					canSpore = true;
+				}
+			}
+			if (sporeFriend) {
+                    if(canSpore)
+					{
+						if(Main.rand.Next(5) == 0)
+						{
+			            for (int i = 0; i < 10; i++)
+                        {
+							Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("Spore"), 14, 0, player.whoAmI, ai1: 36 * i);
+                        }
+						}
+					}
+			}
+		}
     }
 }
