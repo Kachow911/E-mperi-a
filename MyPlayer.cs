@@ -18,7 +18,9 @@ namespace Emperia
         public bool enchanted = false;
 		public bool canSpore = true;
 		public bool sporeFriend = false;
+		public bool ShadowDrone = false;
         public bool spored = false;
+		public bool longerInvince = false;
 		public bool isBloom = false;
         public int enchantedStacks;
 		public int points = 0;
@@ -29,6 +31,8 @@ namespace Emperia
             wSpirit = false;
             enchanted = false;
 			sporeFriend = false;
+			longerInvince = false;
+			ShadowDrone = false;
             enchantedStacks = 0;
 			rofIncrease = 0;
             spored = false;
@@ -103,6 +107,12 @@ namespace Emperia
 						}
 					}
 			}
+			if (longerInvince == true)
+			{
+				player.immuneTime = (int)(player.immuneTime * 1.3);
+			}
 		}
+		
+	
     }
 }

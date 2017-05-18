@@ -12,6 +12,8 @@ namespace Emperia
         {
             npc.GetModInfo<NPCsINFO1>(mod).customdebuff = false;
 			npc.GetModInfo<NPCsINFO1>(mod).customdebuff2 = false;
+			npc.GetModInfo<NPCsINFO1>(mod).ConsumeDark = false;
+			npc.GetModInfo<NPCsINFO1>(mod).Plague = false;
         }
 
         public override void UpdateLifeRegen(NPC npc, ref int damage)
@@ -30,6 +32,25 @@ namespace Emperia
 
                     damage = 1;  // this is the damage dealt when the npc lose health
       
+            }
+			
+			if (npc.GetModInfo<NPCsINFO1>(mod).ConsumeDark)
+            {
+                npc.lifeRegen -= 25;
+				if (damage < 2)
+                {
+                    damage = 5;
+				}
+				npc.damage = (int)(npc.damage * 0.9);
+            }
+			
+			if (npc.GetModInfo<NPCsINFO1>(mod).Plague)
+            {
+                npc.lifeRegen -= 25;
+				if (damage < 2)
+                {
+                    damage = 5;
+				}
             }
         }
     }
