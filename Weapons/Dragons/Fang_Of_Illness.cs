@@ -18,9 +18,10 @@ namespace Emperia.Weapons.Dragons
 			item.toolTip = "Fires a spread of homing blades";
 			item.useAnimation = 8;
 			item.useTime = 8;
-			item.useStyle = 5;
+			item.useStyle = 1;
+			item.noUseGraphic = true;
 			item.noMelee = true;
-			item.knockBack = 4.5f;
+			item.knockBack = 1f;
 			item.value = 1000000;
 			item.rare = 11;
 			item.UseSound = SoundID.Item11;
