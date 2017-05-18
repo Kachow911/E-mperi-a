@@ -22,9 +22,11 @@ namespace Emperia
         public bool spored = false;
 		public bool longerInvince = false;
 		public bool isBloom = false;
+		public bool Scourge = false;
         public int enchantedStacks;
 		public int points = 0;
 		public int rofIncrease = 0;
+		int counter = 0;
 
         public override void ResetEffects()
         {
@@ -32,6 +34,7 @@ namespace Emperia
             enchanted = false;
 			sporeFriend = false;
 			longerInvince = false;
+			Scourge = false;
 			ShadowDrone = false;
             enchantedStacks = 0;
 			rofIncrease = 0;
@@ -56,11 +59,26 @@ namespace Emperia
                 //player.velocity.Y = Math.Abs(player.velocity.Y);
             }
         }
+
 		public override void UpdateBiomeVisuals()
 		{
-
 			player.ManageSpecialBiomeVisuals("Emperia:Bloom", true, player.Center);
 		}
+		
+		public override void PreUpdate()
+		{
+			if (Scourge)
+			{
+				for (int i = 0; i < Main.npc.Length; i++)
+				{
+					if (Main.npc[i].lifeRegen <= 0)
+					{
+						Main.npc[i].lifeRegen = (int)(Main.npc[i].lifeRegen * 1.5);
+					}
+				}
+			}
+		}
+		
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
             EnchantedInfo info = proj.GetModInfo<EnchantedInfo>(mod);
