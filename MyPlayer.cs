@@ -18,7 +18,9 @@ namespace Emperia
         public bool enchanted = false;
 		public bool canSpore = true;
 		public bool sporeFriend = false;
+		public bool ShadowDrone = false;
         public bool spored = false;
+		public bool longerInvince = false;
 		public bool isBloom = false;
         public int enchantedStacks;
 		public int points = 0;
@@ -29,6 +31,8 @@ namespace Emperia
             wSpirit = false;
             enchanted = false;
 			sporeFriend = false;
+			longerInvince = false;
+			ShadowDrone = false;
             enchantedStacks = 0;
 			rofIncrease = 0;
             spored = false;
@@ -83,17 +87,9 @@ namespace Emperia
         }
 		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
-			canSpore = true;
-            for (int i = 0; i < Main.projectile.Length; i++)
-            {
-				if (Main.projectile[i].type == mod.ProjectileType("Spore"))
-				{
-					canSpore = true;
-				}
-			}
+			
 			if (sporeFriend) {
-                    if(canSpore)
-					{
+ 
 						if(Main.rand.Next(5) == 0)
 						{
 			            for (int i = 0; i < 10; i++)
@@ -101,8 +97,14 @@ namespace Emperia
 							Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("Spore"), 14, 0, player.whoAmI, ai1: 36 * i);
                         }
 						}
-					}
+			
+			}
+			if (longerInvince == true)
+			{
+				player.immuneTime = (int)(player.immuneTime * 1.3);
 			}
 		}
+		
+	
     }
 }
