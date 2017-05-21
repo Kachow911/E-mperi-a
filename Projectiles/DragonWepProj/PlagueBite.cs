@@ -20,6 +20,7 @@ namespace Emperia.Projectiles.DragonWepProj
 			projectile.hostile = false;
 			projectile.tileCollide = true;
 			projectile.penetrate = 3;
+			projectile.extraUpdates = 1;
 			projectile.thrown = true;
 			projectile.light = 0.5f;
 		}
