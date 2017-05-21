@@ -24,7 +24,7 @@ namespace Emperia.Weapons.Dragons
 			item.knockBack = 1f;
 			item.value = 1000000;
 			item.rare = 11;
-			item.UseSound = SoundID.Item11;
+			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("IllnessFang");
 			item.shootSpeed = 12f;

@@ -14,6 +14,7 @@ namespace Emperia
 			npc.GetModInfo<NPCsINFO1>(mod).customdebuff2 = false;
 			npc.GetModInfo<NPCsINFO1>(mod).ConsumeDark = false;
 			npc.GetModInfo<NPCsINFO1>(mod).Plague = false;
+			npc.GetModInfo<NPCsINFO1>(mod).Immolate = false;
         }
 
         public override void UpdateLifeRegen(NPC npc, ref int damage)
@@ -41,7 +42,11 @@ namespace Emperia
                 {
                     damage = 5;
 				}
-				npc.damage = (int)(npc.damage * 0.9);
+				
+				if (npc.boss == false)
+				{
+					npc.velocity *= 0.75f;
+				}
             }
 			
 			if (npc.GetModInfo<NPCsINFO1>(mod).Plague)
@@ -51,6 +56,16 @@ namespace Emperia
                 {
                     damage = 5;
 				}
+            }
+			
+			if (npc.GetModInfo<NPCsINFO1>(mod).Immolate)
+            {
+                npc.lifeRegen -= 25;
+				if (damage < 2)
+                {
+                    damage = 5;
+				}
+				npc.defense = (int)(npc.defense * 0.75);
             }
         }
     }

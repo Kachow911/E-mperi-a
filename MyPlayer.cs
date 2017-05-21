@@ -105,9 +105,6 @@ namespace Emperia
         }
 		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
-<<<<<<< HEAD
-			
-=======
 			canSpore = true;
             for (int i = 0; i < Main.projectile.Length; i++)
             {
@@ -116,9 +113,9 @@ namespace Emperia
 					canSpore = true;
 				}
 			}
->>>>>>> origin/master
 			if (sporeFriend) {
- 
+                    if(canSpore)
+					{
 						if(Main.rand.Next(5) == 0)
 						{
 			            for (int i = 0; i < 10; i++)
@@ -126,18 +123,12 @@ namespace Emperia
 							Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("Spore"), 14, 0, player.whoAmI, ai1: 36 * i);
                         }
 						}
-<<<<<<< HEAD
-			
-=======
 					}
->>>>>>> origin/master
 			}
 			if (longerInvince == true)
 			{
 				player.immuneTime = (int)(player.immuneTime * 1.3);
 			}
 		}
-		
-	
     }
 }

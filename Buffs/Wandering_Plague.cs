@@ -48,10 +48,9 @@ namespace Emperia.Buffs
 				}
 					
 			}
-			 public virtual bool ReApply(int type, NPC npc, int time, int buffIndex)
-			{
-				return false;
-			}
-        }
+		public virtual bool ReApply(int type, NPC npc, int time, int buffIndex)
+		{
+			return false;
+		}
     }
 }
