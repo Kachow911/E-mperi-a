@@ -13,8 +13,8 @@ namespace Emperia.Projectiles.DragonWepProj
 		public override void SetDefaults()
 		{
 			projectile.name = "Void Spike";
-			projectile.width = 19;
-			projectile.height = 7;
+			projectile.width = 38;
+			projectile.height = 14;
 			projectile.aiStyle = -1;
 			projectile.friendly = true;
 			projectile.hostile = false;

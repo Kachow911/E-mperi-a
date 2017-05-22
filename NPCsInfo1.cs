@@ -8,6 +8,7 @@ namespace Emperia
 		public bool customdebuff2 = false;
 		public bool ConsumeDark = false;
 		public bool Plague = false;
-		public bool Immolate = true;
+		public bool Immolate = false;
+		public bool StormCharge = false;
     }
 }

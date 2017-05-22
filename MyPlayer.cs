@@ -18,11 +18,13 @@ namespace Emperia
         public bool enchanted = false;
 		public bool canSpore = true;
 		public bool sporeFriend = false;
+		public bool Fortress = false;
 		public bool ShadowDrone = false;
         public bool spored = false;
 		public bool longerInvince = false;
 		public bool isBloom = false;
 		public bool Scourge = false;
+		public bool Storm = false;
         public int enchantedStacks;
 		public int points = 0;
 		public int rofIncrease = 0;
@@ -32,6 +34,8 @@ namespace Emperia
         {
             wSpirit = false;
             enchanted = false;
+			Fortress = false;
+			Storm = false;
 			sporeFriend = false;
 			longerInvince = false;
 			Scourge = false;
@@ -128,6 +132,11 @@ namespace Emperia
 			if (longerInvince == true)
 			{
 				player.immuneTime = (int)(player.immuneTime * 1.3);
+			}
+			
+			if (Fortress == true)
+			{
+				player.AddBuff(mod.BuffType("Slag_Skin"), 240, false);
 			}
 		}
     }

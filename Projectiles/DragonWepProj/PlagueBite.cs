@@ -23,6 +23,8 @@ namespace Emperia.Projectiles.DragonWepProj
 			projectile.extraUpdates = 1;
 			projectile.thrown = true;
 			projectile.light = 0.5f;
+			projectile.usesLocalNPCImmunity = true;
+			projectile.localNPCHitCooldown = 5;
 		}
 		
 		public override void AI()

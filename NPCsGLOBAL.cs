@@ -15,6 +15,7 @@ namespace Emperia
 			npc.GetModInfo<NPCsINFO1>(mod).ConsumeDark = false;
 			npc.GetModInfo<NPCsINFO1>(mod).Plague = false;
 			npc.GetModInfo<NPCsINFO1>(mod).Immolate = false;
+			npc.GetModInfo<NPCsINFO1>(mod).StormCharge = false;
         }
 
         public override void UpdateLifeRegen(NPC npc, ref int damage)
@@ -55,6 +56,27 @@ namespace Emperia
 				if (damage < 2)
                 {
                     damage = 5;
+				}
+            }
+			
+			if (npc.GetModInfo<NPCsINFO1>(mod).StormCharge)
+            {
+				if (npc.velocity.X != 0 || npc.velocity.Y != 0)
+				{
+					npc.lifeRegen -= 50;
+					if (damage < 2)
+					{
+						damage = 10;
+					}
+				}
+				
+				else
+				{
+					npc.lifeRegen -= 25;
+					if (damage < 2)
+					{
+						damage = 5;
+					}
 				}
             }
 			
