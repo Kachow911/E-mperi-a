@@ -30,7 +30,7 @@ namespace Emperia.Weapons
             item.useStyle = 5;
             item.knockBack = 3.5f;
             item.value = 100000;
-            item.rare = 10;
+            item.rare = 5;
             item.scale = 1f;
             item.UseSound = SoundID.Item12;
             item.autoReuse = true;
