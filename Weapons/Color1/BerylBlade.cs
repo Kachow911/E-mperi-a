@@ -6,27 +6,27 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Emperia.Weapons.Color   //where is located
+namespace Emperia.Weapons.Color1   //where is located
 {
-    public class CeruleanClaymore : ModItem
+    public class BerylBlade : ModItem
     {
         public override void SetDefaults()
         {
-            item.name = "Cerulean Claymore";     //Sword name
-            item.damage = 32;            //Sword damage
+            item.name = "Beryl Blade";     //Sword name
+            item.damage = 43;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 32;              //Sword width
             item.height = 32;             //Sword height
-            item.useTime = 28;          //how fast 
-            item.useAnimation = 28;     
+            item.useTime = 36;          //how fast 
+            item.useAnimation = 36;     
             item.useStyle = 1;        //Style is how this item is used, 1 is the style of the sword
-            item.knockBack = 3.5f;  
-			item.crit = 4;			//Sword knockback
+            item.knockBack = 4f;  
+			item.crit = 8;			//Sword knockback
             item.value = 100;        
             item.rare = 3;
-			item.UseSound = SoundID.Item1;
 			item.scale = 1f;
-            item.autoReuse = false;   //if it's capable of autoswing.
+            item.autoReuse = true;
+			item.UseSound = SoundID.Item1;   //if it's capable of autoswing.
             item.useTurn = true;             //projectile speed                 
         }
 		
@@ -34,23 +34,23 @@ namespace Emperia.Weapons.Color   //where is located
         {
             ModRecipe recipe = new ModRecipe(mod);      
             recipe.AddIngredient(null, "Prism", 1); 
-			recipe.AddIngredient(ItemID.Sapphire, 8); 
-			recipe.AddIngredient(ItemID.BlueBerries, 1); 
+			recipe.AddIngredient(ItemID.Emerald, 8); 
+			recipe.AddIngredient(ItemID.LimeKelp, 1); 
             recipe.AddTile(TileID.Anvils); 			//you need 1 DirtBlock  //at work bench
             recipe.SetResult(this);
             recipe.AddRecipe();
 
         }
-		public override void MeleeEffects(Player player, Rectangle hitbox)
+		 public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
 			if (Main.rand.Next(5) == 0)
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 59);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 61);
 			}
 		}
 		 public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
 		{
-			player.AddBuff(mod.BuffType("CeruleanBuff"), Main.rand.Next(300, 720));
+			player.AddBuff(mod.BuffType("BerylBuff"), Main.rand.Next(300, 780));
 		}
     }
 }

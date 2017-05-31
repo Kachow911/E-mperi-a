@@ -6,7 +6,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Emperia.Weapons.Color   //where is located
+namespace Emperia.Weapons.Color1   //where is located
 {
     public class TitanTalwar : ModItem
     {
