@@ -13,10 +13,13 @@ namespace Emperia.Bosses.Inquisitor
 		
         private Vector2 targetPosition;
         private float rotate { get { return npc.ai[1]; } set { npc.ai[1] = value; } }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Agony");
+			Main.npcFrameCount[npc.type] = 1;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Agony";
-            npc.displayName = "Agony";
             npc.aiStyle = -1;
             npc.lifeMax = 3500;
             npc.damage = 23;
@@ -24,7 +27,6 @@ namespace Emperia.Bosses.Inquisitor
             npc.knockBackResist = 0f;
             npc.width = 102;
             npc.height = 66;
-            Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 0, 0, 0);
             npc.npcSlots = 0f;
             npc.boss = false;

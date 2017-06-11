@@ -9,9 +9,12 @@ namespace Emperia.Projectiles
 {
     public class EnchantedCrystal : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Crystal";
             projectile.width = 8;
             projectile.height = 8;
             projectile.friendly = true;

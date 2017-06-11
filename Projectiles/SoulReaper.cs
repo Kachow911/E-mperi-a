@@ -11,9 +11,12 @@ namespace Emperia.Projectiles
     {
 		public int counter = 0;
 		private Vector2 direction;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Reaper's Scythe");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Reaper's Scythe";
             projectile.width = 50;
             projectile.height = 50;
             projectile.friendly = true;

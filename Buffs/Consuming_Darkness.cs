@@ -15,8 +15,7 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Consuming Darkness"; 
-            Main.buffTip[Type] = "Rapidly losing life, reduced damage.";          
+			DisplayName.SetDefault("Consuming Darkness");         
             Main.debuff[Type] = true;  
             Main.pvpBuff[Type] = true;  
             Main.buffNoSave[Type] = true;
@@ -25,7 +24,8 @@ namespace Emperia.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetModInfo<NPCsINFO1>(mod).ConsumeDark = true;    
+			
+            npc.GetGlobalNPC<NPCsGlobal>(mod).ConsumeDark = true;    
             int num1 = Dust.NewDust(npc.position, npc.width, npc.height, 173);    
             Main.dust[num1].scale = 2.5f; 
             Main.dust[num1].velocity *= 3f; 

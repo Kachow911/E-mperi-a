@@ -34,10 +34,13 @@ namespace Emperia.Bosses.Inquisitor
 
         private bool phaseStart;
         private bool phaseEnd;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Inquisitor");
+			Main.npcFrameCount[npc.type] = 1;
+		}
         public override void SetDefaults()
         {
-            npc.name = "The Inquisitor";
-            npc.displayName = "The Inquisitor";
             npc.aiStyle = -1;
             npc.lifeMax = 10000;
             npc.damage = 150;
@@ -46,7 +49,6 @@ namespace Emperia.Bosses.Inquisitor
             npc.width = 94;
             npc.height = 100;
 			npc.alpha = 0;
-            Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 20, 0, 0);
             npc.npcSlots = 1f;
             npc.boss = true;

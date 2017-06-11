@@ -9,9 +9,12 @@ using Terraria.ModLoader;
 namespace Emperia.Tools {
 public class GraniteHamaxe : ModItem
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Hamaxe");
+		}
     public override void SetDefaults()
     {
-        item.name = "Granite Hamaxe";
         item.damage = 9;
         item.melee = true;
         item.width = 46;

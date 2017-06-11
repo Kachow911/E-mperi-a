@@ -16,9 +16,12 @@ namespace Emperia.Projectiles
     {
         private const float explodeRadius = 128;
         //private int rotside { get { return (int)projectile.ai[0]; } set { projectile.ai[0] = value; } }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Exploding Mushroom");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "ExplodeMushroom";
             projectile.width = 52;
             projectile.height = 50;
             projectile.friendly = true;

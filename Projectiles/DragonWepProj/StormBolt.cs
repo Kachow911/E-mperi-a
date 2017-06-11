@@ -10,9 +10,12 @@ namespace Emperia.Projectiles.DragonWepProj
 {
 	public class StormBolt : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Storm Bolt");
+		}
 		public override void SetDefaults()
 		{
-			projectile.name = "Storm Bolt";
 			projectile.width = 58;
 			projectile.height = 8;
 			projectile.aiStyle = -1;

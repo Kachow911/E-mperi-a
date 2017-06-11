@@ -15,8 +15,7 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Immolate"; 
-            Main.buffTip[Type] = "Rapidly losing life, reduced defense.";          
+			DisplayName.SetDefault("Immolate");        
             Main.debuff[Type] = true;  
             Main.pvpBuff[Type] = true;  
             Main.buffNoSave[Type] = true;
@@ -25,7 +24,7 @@ namespace Emperia.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetModInfo<NPCsINFO1>(mod).Immolate = true;    
+            npc.GetGlobalNPC<NPCsGlobal>(mod).Immolate = true;    
             int num1 = Dust.NewDust(npc.position, npc.width, npc.height, 158);    
             Main.dust[num1].scale = 2.5f; 
             Main.dust[num1].velocity *= 3f; 

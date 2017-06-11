@@ -10,9 +10,12 @@ namespace Emperia.Projectiles.DragonWepProj
 {
 	public class PlagueBite : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Plague Bite");
+		}
 		public override void SetDefaults()
 		{
-			projectile.name = "Plague Bite";
 			projectile.width = 24;
 			projectile.height = 13;
 			projectile.aiStyle = -1;

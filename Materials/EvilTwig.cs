@@ -5,9 +5,12 @@ namespace Emperia.Materials
 {
 	public class EvilTwig : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Evil Twig");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Evil Twig";
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 999;

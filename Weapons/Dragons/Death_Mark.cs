@@ -8,14 +8,16 @@ namespace Emperia.Weapons.Dragons
 {
 	public class Death_Mark : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Death Mark");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Death Mark";
 			item.damage = 145;
 			item.ranged = true;
 			item.width = 58;
 			item.height = 36;
-			item.toolTip = "Fires a homing void spike";
 			item.useAnimation = 17;
 			item.useTime = 17;
 			item.useStyle = 5;

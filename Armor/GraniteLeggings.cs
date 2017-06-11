@@ -8,20 +8,19 @@ using Terraria.ModLoader;
 
 
 namespace Emperia.Armor {
+	[AutoloadEquip(EquipType.Legs)]
 public class GraniteLeggings : ModItem
 {
-    public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-    {
-    	equips.Add(EquipType.Legs);
-        return true;
-    }
     
+    public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Greaves");
+			Tooltip.SetDefault("+6% movement speed");
+		}
     public override void SetDefaults()
     {
-        item.name = "Granite Greaves";
         item.width = 18;
         item.height = 18;
-        AddTooltip("6% increased movement speed");
         item.value = 57500;
         item.rare = 3;
         item.defense = 5; //15

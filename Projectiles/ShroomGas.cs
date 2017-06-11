@@ -7,10 +7,13 @@ using Terraria.ID;
 namespace Emperia.Projectiles {
 public class ShroomGas : ModProjectile
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shroom Gas");
+		}
 	public override void SetDefaults()
 	{
 		projectile.CloneDefaults(ProjectileID.ToxicCloud);
-		projectile.name = "Shroom Gas";
 		
 	}
 	 public override void AI()           //this make that the projectile will face the corect way

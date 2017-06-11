@@ -13,10 +13,13 @@ namespace Emperia.NPCs
 		public int phase = 1;
 		public int counter = 120;
 		private const float explodeRadius = 264;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ebonfire Eruptor");
+			Main.npcFrameCount[npc.type] = 4;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Ebonfire Eruptor";
-            npc.displayName = "Ebonfire Eruptor";
             npc.aiStyle = -1;
             npc.lifeMax = 6500;
             npc.damage = 32;
@@ -33,7 +36,6 @@ namespace Emperia.NPCs
             npc.HitSound = SoundID.NPCHit1; //57 //20
             npc.DeathSound = SoundID.NPCDeath1;
             npc.buffImmune[24] = true;
-			Main.npcFrameCount[npc.type] = 4;
             npc.netAlways = true;
         }
 		 public override void FindFrame(int frameHeight)

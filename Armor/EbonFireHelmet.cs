@@ -7,20 +7,20 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Emperia.Armor {
+	[AutoloadEquip(EquipType.Head)]
 public class EbonFireHelmet : ModItem
 {
-    public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-    {
-    	equips.Add(EquipType.Head);
-        return true;
-    }
-
+   
+	 public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ebonfire Mask");
+			Tooltip.SetDefault("8% increased ranged damage and crit, 6% increased rate of fire");
+		}
     public override void SetDefaults()
     {
-        item.name = "Ebonfire Mask";
+ 
         item.width = 18;
         item.height = 18;
-        AddTooltip("8% increased ranged damage and crit, 6% increased rate of fire");
         item.value = 50000;
         item.rare = 3;
         item.defense = 10; //15

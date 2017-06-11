@@ -16,8 +16,8 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Titan Tyranny";
-            Main.buffTip[Type] = "+8 defense ";
+			DisplayName.SetDefault("Titan Tyranny");
+			Description.SetDefault("Your skin hardens - +8 defense");
             Main.buffNoSave[Type] = true;
             //Main.buffNoTimeDisplay[Type] = true;
 

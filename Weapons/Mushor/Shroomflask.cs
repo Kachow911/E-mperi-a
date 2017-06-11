@@ -10,17 +10,18 @@ namespace Emperia.Weapons.Mushor
 {
 public class Shroomflask : ModItem
 {
- 
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shroomy Flask");
+		}
 	public override void SetDefaults()
 	{
-		item.name = "Shroomy Flask";
 		item.width = 28;  //The width of the .png file in pixels divided by 2.
 		item.damage = 22;  
 		item.mana = 15;//Keep this reasonable please.
 		item.magic = true;  //Dictates whether this is a melee-class weapon.
 		item.noMelee = true;
 		item.noUseGraphic = true;
-		item.toolTip = "Full of mushroom gas\nMore dangerous than it sounds";
 		item.useAnimation = 23;
 		item.useStyle = 1;
 		item.useTime = 23;

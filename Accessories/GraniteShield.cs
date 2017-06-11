@@ -4,17 +4,16 @@ using Terraria.ModLoader;
 
 namespace Emperia.Accessories
 {
+	[AutoloadEquip(EquipType.Shield)]
 	public class GraniteShield : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Shield);
-			return true;
+			DisplayName.SetDefault("Granite Shield");
+			Tooltip.SetDefault("Made of real rock");
 		}
-
 		public override void SetDefaults()
 		{
-			item.name = "Granite Shield";
 			item.width = 24;
 			item.height = 28;
 			item.value = 1000;

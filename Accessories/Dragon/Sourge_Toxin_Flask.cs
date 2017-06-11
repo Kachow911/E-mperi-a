@@ -6,15 +6,17 @@ namespace Emperia.Accessories.Dragon
 {
 	public class Sourge_Toxin_Flask : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Scourge Toxin Flask");
+			Tooltip.SetDefault("Increases throwing damage and velocity by 8%\nDamage over time debuffs are more effective");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Scourge Toxin Flask";
 			item.width = 30;
 			item.height = 48;
 			item.value = 1000000;
 			item.rare = 11;
-			item.toolTip = "Increases throwing damage and velocity by 8%";
-			item.toolTip2 = "Damage over time debuffs are more effective";
 			item.accessory = true;
 		}
 		

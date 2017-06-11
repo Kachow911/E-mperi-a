@@ -15,9 +15,12 @@ namespace Emperia.Projectiles
 {
     public class FearBolt : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fear Bolt");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Fear Bolt";
             projectile.width = 16;
             projectile.height = 16;
             projectile.friendly = false;

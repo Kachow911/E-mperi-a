@@ -16,8 +16,8 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Indigo Inertia";
-            Main.buffTip[Type] = "Increased regen";
+			DisplayName.SetDefault("Indigo Inertia");
+			Description.SetDefault("Better regeneration");
             Main.buffNoSave[Type] = true;
             //Main.buffNoTimeDisplay[Type] = true;
 
@@ -26,7 +26,7 @@ namespace Emperia.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.lifeRegen += 1;
+            player.lifeRegen += 2;
         }
     }
 }

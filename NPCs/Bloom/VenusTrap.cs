@@ -11,10 +11,14 @@ namespace Emperia.NPCs.Bloom
     public class VenusTrap : ModNPC
     {
 		private int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Venus Fly Trap");
+			Main.npcFrameCount[npc.type] = 3;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Venus Fly Trap";
-            npc.displayName = "Venus Fly Trap";
+
             npc.aiStyle = -1;
             npc.lifeMax = 100;
             npc.damage = 20;
@@ -31,7 +35,6 @@ namespace Emperia.NPCs.Bloom
             npc.HitSound = SoundID.NPCHit1; //57 //20
             npc.DeathSound = SoundID.NPCDeath1;
             npc.buffImmune[24] = true;
-			Main.npcFrameCount[npc.type] = 3;
             npc.netAlways = true;
 			
         }

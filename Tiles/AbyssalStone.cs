@@ -14,7 +14,7 @@ namespace Emperia.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			drop = mod.ItemType("AbyssalStone");
-			AddMapEntry(new Color(73, 64, 64), "Abyss Rock");
+			AddMapEntry(new Color(73, 64, 64));
 			mineResist = 5f;
 			minPick = 209;
 			soundType = 21;

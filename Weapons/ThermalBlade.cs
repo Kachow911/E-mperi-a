@@ -10,9 +10,12 @@ namespace Emperia.Weapons  //where is located
 {
     public class ThermalBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Thermal Blade");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Thermal Blade";     //Sword name
+        {    //Sword name
             item.damage = 43;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 200;              //Sword width

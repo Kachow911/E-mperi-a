@@ -10,9 +10,12 @@ namespace Emperia.Weapons.Color1  //where is located
 {
     public class SaffronSaber : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Saffron Saber");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Saffron Saber";     //Sword name
+        {     //Sword name
             item.damage = 22;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 32;              //Sword width

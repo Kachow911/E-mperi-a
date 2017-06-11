@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 
 namespace Emperia.Bosses.Mushor
 {
+	[AutoloadBossHead]
     public class Mushor : ModNPC
     {
         private enum Move
@@ -31,10 +32,13 @@ namespace Emperia.Bosses.Mushor
         private bool p2AnimationStart = false, p2AnimationDone = false;
 
         private int p2AnimationPhaseLength = 300;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mushor");
+			Main.npcFrameCount[npc.type] = 2;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Mushor";
-            npc.displayName = "Mushor";
             npc.aiStyle = -1;
             npc.lifeMax = 6500;
             npc.damage = 50;
@@ -42,7 +46,6 @@ namespace Emperia.Bosses.Mushor
             npc.knockBackResist = 0f;
             npc.width = 128;
             npc.height = 128;
-            Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 8, 0, 0);
             npc.npcSlots = 1f;
             npc.boss = true;
@@ -56,13 +59,7 @@ namespace Emperia.Bosses.Mushor
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/MUSHOR");
             npc.netAlways = true;
         }
-         public override void AutoloadHead(ref string headTexture, ref string bossHeadTexture)
-        {
-			 if (p2AnimationDone)
-				bossHeadTexture = "Emperia/Bosses/Mushor/MushorHead2"; 
-			else
-				bossHeadTexture = "Emperia/Bosses/Mushor/MushorHead1"; 
-        }
+      
         public override void FindFrame(int frameHeight)
         {
             if (p2AnimationDone)

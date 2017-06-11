@@ -11,9 +11,12 @@ namespace Emperia.Weapons  //where is located
     public class Exodus : ModItem
     {
 		 private const float explodeRadius = 64;
+		 public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Exodus");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Exodus";     //Sword name
+        {    //Sword name
             item.damage = 347;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 200;              //Sword width

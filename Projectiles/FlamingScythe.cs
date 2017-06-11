@@ -9,11 +9,13 @@ namespace Emperia.Projectiles
 	public class FlamingScythe : ModProjectile
 	{
 		
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Flaming Scythe");
+		}
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.FlamingScythe);
-			projectile.name = "Flaming Scythe";
 			projectile.penetrate = 3;
 			projectile.friendly = true;
 			projectile.hostile = false;

@@ -12,9 +12,12 @@ namespace Emperia.Projectiles
     {
     	private const float explodeRadius = 64;
 		private int thing = 5;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shroomnade");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Shroomnade";
             projectile.width = 25;
             projectile.height = 25;
             projectile.friendly = true;

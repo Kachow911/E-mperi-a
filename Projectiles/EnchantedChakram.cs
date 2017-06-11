@@ -12,9 +12,12 @@ namespace Emperia.Projectiles
     	bool returnTo = false;
 		int timerLeft = 0;
 		private Vector2 direction;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Chakram");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Enchanted Chakram";
             projectile.width = 8;
             projectile.height = 8;
             projectile.friendly = true;

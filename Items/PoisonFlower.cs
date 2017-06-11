@@ -12,13 +12,16 @@ namespace Emperia.Items
 {
     public class PoisonFlower : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Poisonous Flower");
+			Tooltip.SetDefault("Summons the bloom");
+		}
         public override void SetDefaults()
         {
-            item.name = "Poisonous Flower";
             item.width = 36;
             item.height = 36;
             item.maxStack = 999;
-            AddTooltip("Summons the bloom");
             item.rare = 5;
             item.useAnimation = 45;
             item.useTime = 45;

@@ -10,10 +10,13 @@ namespace Emperia.Bosses.Pandora
 {
     public class Helious : ModNPC
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Helious");
+			Main.npcFrameCount[npc.type] = 1;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Helious";
-            npc.displayName = "Helious";
             npc.aiStyle = -1;
             npc.lifeMax = 90000;
             npc.damage = 200;
@@ -22,7 +25,6 @@ namespace Emperia.Bosses.Pandora
             npc.width = 396;
             npc.height = 306;
             npc.alpha = 0;
-            Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 20, 0, 0);
             npc.npcSlots = 1f;
             npc.lavaImmune = true;

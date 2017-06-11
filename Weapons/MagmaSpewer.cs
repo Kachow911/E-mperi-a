@@ -10,15 +10,17 @@ namespace Emperia.Weapons
 {
     public class MagmaSpewer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magma Spewer");
+			Tooltip.SetDefault("The flames are made of pure lava \n Inflicts a more potent form on On Fire!\n50% chance to not consume gel");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Magma Spewer";   
+        { 
             item.damage = 66;  
             item.ranged = true;    
             item.width = 42; 
-            item.height = 16;    
-            item.toolTip = "The flames are made of pure lava \n Inflicts a more potent form on On Fire!";  
-            item.toolTip2 = "50% chance to not consume gel";   
+            item.height = 16;     
             item.useTime = 6;   
             item.useAnimation = 20;     
             item.useStyle = 5;  

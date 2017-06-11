@@ -8,20 +8,19 @@ using Terraria.ModLoader;
 
 
 namespace Emperia.Items.Sets.Seashell {
+	[AutoloadEquip(EquipType.Body)]
 public class SeashellChestplate : ModItem
 {
-    public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-    {
-        equips.Add(EquipType.Body);
-        return true;
-    }
-
+    
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seashell Breastplate");
+			Tooltip.SetDefault("+3 increased defsnse when in liquid");
+		}
     public override void SetDefaults()
     {
-        item.name = "Seashell Breastplate";
         item.width = 18;
         item.height = 18;
-        AddTooltip("+3 increased defsnse when in liquid");
         item.value = 65000;
         item.rare = 1;
         item.defense = 4; //15

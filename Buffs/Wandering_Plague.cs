@@ -15,8 +15,8 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Wandering Plague"; 
-            Main.buffTip[Type] = "Rapidly losing life, spreads to nearby enemies.";          
+			DisplayName.SetDefault("Wander");
+			Description.SetDefault("Losing life");       
             Main.debuff[Type] = true;  
             Main.pvpBuff[Type] = true;  
             Main.buffNoSave[Type] = true;
@@ -25,7 +25,7 @@ namespace Emperia.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetModInfo<NPCsINFO1>(mod).Plague = true;    
+            npc.GetGlobalNPC<NPCsGlobal>(mod).Plague = true;    
             int num1 = Dust.NewDust(npc.position, npc.width, npc.height, 178);    
             Main.dust[num1].scale = 2.5f; 
             Main.dust[num1].velocity *= 3f; 

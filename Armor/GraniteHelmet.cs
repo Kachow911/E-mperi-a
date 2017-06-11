@@ -7,20 +7,19 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Emperia.Armor {
+	[AutoloadEquip(EquipType.Head)]
 public class GraniteHelmet : ModItem
 {
-    public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-    {
-    	equips.Add(EquipType.Head);
-        return true;
-    }
-
+    
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Helmet");
+			Tooltip.SetDefault("+2% damage");
+		}
     public override void SetDefaults()
     {
-        item.name = "Granite Helmet";
         item.width = 18;
         item.height = 18;
-        AddTooltip("2% increased damage");
         item.value = 50000;
         item.rare = 3;
         item.defense = 4; //15

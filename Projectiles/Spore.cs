@@ -16,9 +16,12 @@ namespace Emperia.Projectiles
     {
         private const float explodeRadius = 32;
         private float rotate { get { return projectile.ai[1]; } set { projectile.ai[1] = value; } }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Explosive Spore");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Explosive Spore";
             projectile.width = 52;
             projectile.height = 50;
             projectile.friendly = true;

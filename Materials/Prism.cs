@@ -5,9 +5,12 @@ namespace Emperia.Materials
 {
 	public class Prism : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prism");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Prism";
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 999;

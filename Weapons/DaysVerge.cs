@@ -12,9 +12,12 @@ namespace Emperia.Weapons //where is located
     public class DaysVerge : ModItem
     {
 		private Vector2 SpawnPoint;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Day's Verge");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Day's Verge";     //Sword name
+        {    //Sword name
             item.damage = 35;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 200;              //Sword width

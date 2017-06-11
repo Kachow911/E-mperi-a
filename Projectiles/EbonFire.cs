@@ -9,9 +9,12 @@ namespace Emperia.Projectiles       //We need projectile to basically indicate t
 {
     public class EbonFire : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ebonflames");
+		}
         public override void SetDefaults()
-        {
-            projectile.name = "Ebonflames"; //Name of the projectile, only shows projectile if you get killed by it
+        { //Name of the projectile, only shows projectile if you get killed by it
             projectile.width = 12;  //Set the hitbox width
             projectile.height = 12; //Set the hitbox height
             projectile.friendly = false; 

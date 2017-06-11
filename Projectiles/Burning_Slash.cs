@@ -8,9 +8,12 @@ namespace Emperia.Projectiles
 {
 	public class Burning_Slash : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Burning Slash");
+		}
 		public override void SetDefaults()
 		{
-			projectile.name = "Burning Slash";
 			projectile.width = 42;
 			projectile.height = 64;
 			//drawOffsetX = 40; 

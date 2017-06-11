@@ -10,15 +10,17 @@ namespace Emperia.Weapons
 {
     public class CursedThrower : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ebonflamer");
+			Tooltip.SetDefault("Fires cursed flames\n 75% chance to not consume gel");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Ebonflamer";   
+        {  
             item.damage = 50;  
             item.ranged = true;    
             item.width = 42; 
             item.height = 16;    
-            item.toolTip = "Fires cursed flames";  
-            item.toolTip2 = "75% chance to not consume gel";   
             item.useTime = 6;   
             item.useAnimation = 20;     
             item.useStyle = 5;  

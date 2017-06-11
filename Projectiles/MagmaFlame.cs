@@ -9,9 +9,12 @@ namespace Emperia.Projectiles       //We need this to basically indicate the fol
 {
     public class MagmaFlame : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magma Flame");
+		}
         public override void SetDefaults()
-        {
-            projectile.name = "Magmatic Flames"; //Name of the projectile, only shows this if you get killed by it
+        { //Name of the projectile, only shows this if you get killed by it
             projectile.width = 12;  //Set the hitbox width
             projectile.height = 12; //Set the hitbox height
             projectile.friendly = true;  //Tells the game whether it is friendly to players/friendly npcs or not

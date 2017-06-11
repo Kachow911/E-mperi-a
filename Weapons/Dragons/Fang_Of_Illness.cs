@@ -8,14 +8,16 @@ namespace Emperia.Weapons.Dragons
 {
 	public class Fang_Of_Illness : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fangs of Illness");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Fangs Of Illness";
 			item.damage = 91;
 			item.thrown = true;
 			item.width = 58;
 			item.height = 36;
-			item.toolTip = "Fires a spread of homing blades";
 			item.useAnimation = 8;
 			item.useTime = 8;
 			item.useStyle = 1;

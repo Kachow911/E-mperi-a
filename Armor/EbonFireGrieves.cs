@@ -8,20 +8,19 @@ using Terraria.ModLoader;
 
 
 namespace Emperia.Armor {
+	[AutoloadEquip(EquipType.Legs)]
 public class EbonFireGrieves : ModItem
 {
-    public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-    {
-    	equips.Add(EquipType.Legs);
-        return true;
-    }
-    
+  
+    public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ebonfire Greaves");
+			Tooltip.SetDefault("8% increased movement speed and rate of fire, 4% increased ranged damage");
+		}
     public override void SetDefaults()
     {
-        item.name = "Ebonfire Greaves";
         item.width = 18;
         item.height = 18;
-        AddTooltip("8% increased movement speed and rate of fire, 4% increased ranged damage,");
         item.value = 57500;
         item.rare = 3;
         item.defense = 14; //15

@@ -5,21 +5,33 @@ using Terraria.ModLoader;
 
 namespace Emperia.Town
 {
+	
 	public class Weaponsmith : ModNPC
 	{
-		
-		public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
+		public override string Texture
+		{
+			get
+			{
+				return "Emperia/Town/Weaponsmith";
+			}
+		}
+
+
+		public override bool Autoload(ref string name)
 		{
 			name = "Weaponsmith";
-			altTextures = new string[] { "Emperia/Town/Weaponsmith"};
 			return mod.Properties.Autoload;
 		}
+
 		public bool QuestActive = false;
 		public int currentQuest = 0;
-		public bool[] possibleQuests = new bool[15];
+		public bool[] possibleQuests = new bool[15];public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Weaponsmith");
+			Main.npcFrameCount[npc.type] = 25;
+		}
 		public override void SetDefaults()
 		{
-			npc.name = "Weaponsmith";
 			npc.townNPC = true;
 			npc.friendly = true;
 			npc.width = 18;
@@ -31,7 +43,6 @@ namespace Emperia.Town
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.knockBackResist = 0.5f;
-			Main.npcFrameCount[npc.type] = 25;
 			NPCID.Sets.ExtraFramesCount[npc.type] = 25;
 			NPCID.Sets.AttackFrameCount[npc.type] = 2;
 			NPCID.Sets.DangerDetectRange[npc.type] = 500;

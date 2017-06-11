@@ -9,9 +9,12 @@ using Terraria.ModLoader;
 namespace Emperia.Items.Sets.Seashell {
 public class ShellPick : ModItem
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seashell Pickaxe");
+		}
     public override void SetDefaults()
     {
-        item.name = "Seashell Pickaxe";
         item.damage = 5;
         item.melee = true;
         item.width = 46;

@@ -8,9 +8,12 @@ namespace Emperia.Projectiles
 {
 	public class PumpkinSlash : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slash");
+		}
 		public override void SetDefaults()
 		{
-			projectile.name = "Slash";
 			projectile.width = 98;
 			projectile.height = 98;
 			projectile.aiStyle = -1;

@@ -4,9 +4,12 @@ namespace Emperia.Items
 {
 	public class EnchantedTable : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanter's Table");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Enchanter's Table";
 			item.width = 30;
 			item.height = 30;
 			item.maxStack = 99;

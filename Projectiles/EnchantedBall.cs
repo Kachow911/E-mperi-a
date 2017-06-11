@@ -10,16 +10,18 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using Emperia.Weapons.Enchanted;
 
 namespace Emperia.Projectiles
 {
     public class EnchantedBall : ModProjectile
     {
         private Point tileCoordPos { get { return new Point((int)(projectile.position.X / 16), (int)(projectile.position.Y / 16)); } }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Ball");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Enchanted Ball";
             projectile.width = 16;
             projectile.height = 16;
             projectile.friendly = true;
@@ -28,17 +30,12 @@ namespace Emperia.Projectiles
             projectile.penetrate = 2;
             projectile.timeLeft = 200;
             projectile.light = 0.75f;
+			projectile.alpha = 255;
             projectile.extraUpdates = 1;
             projectile.ignoreWater = true;
-
-            projectile.GetModInfo<EnchantedInfo>(mod).givesEnchanted = true;
         }
 
-        public override bool Autoload(ref string name, ref string texture)
-        {   //so I don't have to give a texture
-            texture = "Terraria/MagicPixel";
-            return true;
-        }
+   
 
         public override bool PreKill(int timeLeft)
         {   //make dusts when dying

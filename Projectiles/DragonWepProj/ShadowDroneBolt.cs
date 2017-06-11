@@ -10,9 +10,12 @@ namespace Emperia.Projectiles.DragonWepProj
 {
 	public class ShadowDroneBolt : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Laser");
+		}
 		public override void SetDefaults()
 		{
-			projectile.name = "Laser";
 			projectile.width = 8;
 			projectile.height = 3;
 			projectile.aiStyle = -1;

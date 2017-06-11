@@ -8,14 +8,17 @@ namespace Emperia.Weapons
 {
     public class EnchantedChakram : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Chakram");
+			Tooltip.SetDefault("Shimmer with crystal light");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Enchanted Chakram";          
+        {       
             item.melee = true;
             item.width = 30;
 			item.damage = 50;
             item.height = 30;
-            item.toolTip = "Shimmers with crystal light";
             item.useTime = 25;
             item.useAnimation = 25;
             item.noUseGraphic = true;

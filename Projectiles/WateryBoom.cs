@@ -8,9 +8,12 @@ namespace Emperia.Projectiles
 {
 	public class WateryBoom : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Watery Explosion");
+		}
 		public override void SetDefaults()
 		{
-			projectile.name = "Watery Explosion";
 			projectile.width = 98;
 			projectile.height = 98;
 			projectile.aiStyle = -1;

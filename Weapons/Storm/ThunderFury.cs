@@ -10,9 +10,12 @@ namespace Emperia.Weapons.Storm  //where is located
 {
     public class ThunderFury : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Thunder's Fury");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Thunder's Fury";     //Sword name
+        {    //Sword name
             item.damage = 73;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 200;              //Sword width

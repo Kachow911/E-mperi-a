@@ -7,10 +7,13 @@ using Terraria.ID;
 namespace Emperia.Projectiles {
 public class fireIceBolt : ModProjectile
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Thermal Bolt");
+		}
 	public override void SetDefaults()
 	{
 		projectile.CloneDefaults(ProjectileID.IceBolt);
-		projectile.name = "Thermal Bolt";
 		projectile.alpha = 255;
 		
 	}

@@ -13,9 +13,12 @@ namespace Emperia.Projectiles
 		private NPC parent { get { return Main.npc[(int)projectile.ai[0]]; } set { projectile.ai[0] = value.whoAmI; } }
         private float rotate { get { return projectile.ai[1]; } set { projectile.ai[1] = value; } }
 		private Vector2 direction;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cursed Fireball");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Cursed Fireball";
             projectile.width = 25;
             projectile.height = 25;
             projectile.friendly = true;

@@ -10,14 +10,16 @@ namespace Emperia.Weapons
 {
     public class NappasGift : ModItem
     {
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Nappas Gift");
+			Tooltip.SetDefault("Shoots a spread of 4 or 5 arrows, which rain stars down from the sky on enemy hits");
+		}
         public override void SetDefaults()
         {
-            item.name = "Nappas Gift";
             item.damage = 95;
             item.noMelee = true;
             item.ranged = true;
-			item.toolTip = "Shoots a spread of 4 or 5 arrows, which rain stars down from the sky on enemy hits";
             item.width = 69;
             item.height = 40;
             item.useTime = 20;
@@ -41,7 +43,6 @@ namespace Emperia.Weapons
 			{
 				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
 				int proj = Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X * 4, perturbedSpeed.Y * 4, type, damage, knockBack, player.whoAmI);
-				Main.projectile[proj].GetModInfo<Info>(mod).Stars = true;
 			}
 			return false;
 		}

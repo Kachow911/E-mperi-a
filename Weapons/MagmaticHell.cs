@@ -9,13 +9,16 @@ using Terraria.ModLoader;
 namespace Emperia.Weapons {
 public class MagmaticHell : ModItem
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magmatic Hell");
+			Tooltip.SetDefault("Fires blobs of magma at nearby enemies");
+		}
     public override void SetDefaults()
     {
     	item.CloneDefaults(ItemID.Kraken);
-        item.name = "Magmatic Hell";
         item.damage = 107;
         item.useTime = 25;
-        item.toolTip = "Fires blobs of magma at nearby enemies";
         item.useAnimation = 25;
         item.useStyle = 5;
         item.channel = true;

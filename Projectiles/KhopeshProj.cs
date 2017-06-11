@@ -9,9 +9,12 @@ namespace Emperia.Projectiles
 {
     public class KhopeshProj : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Desert Khopesh");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Desert Khopesh";
             projectile.width = 30;
             projectile.height = 30;
             projectile.aiStyle = 3;

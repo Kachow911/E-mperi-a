@@ -10,9 +10,12 @@ namespace Emperia.Weapons   //where is located
 {
     public class MarbleSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Marble Sword");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Marble Sword";     //Sword name
+        {    //Sword name
             item.damage = 14;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 16;              //Sword width

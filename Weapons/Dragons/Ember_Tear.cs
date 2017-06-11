@@ -7,14 +7,16 @@ namespace Emperia.Weapons.Dragons
 {
 	public class Ember_Tear : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ember Shred");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Ember Shred";
 			item.damage = 83;
 			item.melee = true;
 			item.width = 68;
 			item.height = 72;
-			item.toolTip = "Creates a burning slash on hit";
 			item.useTime = 8;
 			item.useAnimation = 8;
 			item.useStyle = 1;

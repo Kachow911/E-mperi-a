@@ -7,20 +7,18 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Emperia.Items.Sets.Seashell {
+	[AutoloadEquip(EquipType.Head)]
 public class SeashellVisor : ModItem
 {
-    public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-    {
-    	equips.Add(EquipType.Head);
-        return true;
-    }
-
+	 public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seashell Visor");
+			Tooltip.SetDefault("4% increased damage when in liquid");
+		}
     public override void SetDefaults()
     {
-        item.name = "Seashell Visor";
         item.width = 18;
         item.height = 18;
-        AddTooltip("4% increased damage when in liquid");
         item.value = 50000;
         item.rare = 1;
         item.defense = 3; //15

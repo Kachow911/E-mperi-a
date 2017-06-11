@@ -9,9 +9,12 @@ namespace Emperia.Projectiles       //We need this to basically indicate the fol
 {
     public class MushSpray : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mush Spray");
+		}
         public override void SetDefaults()
-        {
-            projectile.name = "Mushroom spray"; //Name of the projectile, only shows this if you get killed by it
+        {//Name of the projectile, only shows this if you get killed by it
             projectile.width = 12;  //Set the hitbox width
             projectile.height = 12; //Set the hitbox height
             projectile.friendly = false; 

@@ -9,10 +9,12 @@ namespace Emperia.Projectiles
 {
     public class ShroomFlask : ModProjectile
     {
-    	
+    	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shroomy Flask");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Shroomy Flask";
             projectile.width = 25;
             projectile.height = 25;
             projectile.friendly = true;

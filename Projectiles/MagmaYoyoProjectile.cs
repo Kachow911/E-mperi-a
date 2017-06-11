@@ -9,11 +9,13 @@ namespace Emperia.Projectiles
 {
     public class MagmaYoyoProjectile : ModProjectile
     {
-    	
+    	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magmatic Hell");
+		}
         public override void SetDefaults()
         {
         	projectile.CloneDefaults(ProjectileID.Kraken);
-            projectile.name = "Magmatic Hell";
             projectile.width = 16;
             projectile.scale = 0.9f;
             projectile.height = 16;

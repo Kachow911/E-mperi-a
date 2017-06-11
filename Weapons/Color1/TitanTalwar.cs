@@ -10,9 +10,12 @@ namespace Emperia.Weapons.Color1   //where is located
 {
     public class TitanTalwar : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titan Talwar");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Titan Talwar";     //Sword name
+        {   //Sword name
             item.damage = 38;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 32;              //Sword width

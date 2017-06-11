@@ -10,9 +10,12 @@ namespace Emperia.Weapons.Color1   //where is located
 {
     public class BerylBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Beryl Blade");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Beryl Blade";     //Sword name
+        {    //Sword name
             item.damage = 43;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 32;              //Sword width

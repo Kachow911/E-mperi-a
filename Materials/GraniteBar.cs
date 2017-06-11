@@ -5,9 +5,12 @@ namespace Emperia.Materials
 {
 	public class GraniteBar : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Bar");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Granite Bar";
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 999;

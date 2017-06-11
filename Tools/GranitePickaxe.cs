@@ -9,9 +9,12 @@ using Terraria.ModLoader;
 namespace Emperia.Tools {
 public class GranitePickaxe : ModItem
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Pickaxe");
+		}
     public override void SetDefaults()
     {
-        item.name = "Granite Pickaxe";
         item.damage = 7;
         item.melee = true;
         item.width = 46;

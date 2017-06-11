@@ -10,9 +10,12 @@ namespace Emperia.Items.Sets.Seashell  //where is located
 {
     public class SeashellBlade : ModItem
     {
+		 public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seashell Blade");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Seashell Blade";     //Sword name
+        {   //Sword name
             item.damage = 12;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 16;              //Sword width

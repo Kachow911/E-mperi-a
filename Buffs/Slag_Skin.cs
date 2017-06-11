@@ -16,8 +16,8 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Slag Skin";
-            Main.buffTip[Type] = "+25% movement speed and damage resistance";
+			DisplayName.SetDefault("Slag Skin");
+			Description.SetDefault("+25% movement speed and damage resistance");
             Main.buffNoSave[Type] = true;
 
             canBeCleared = true;

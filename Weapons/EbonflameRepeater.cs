@@ -8,15 +8,17 @@ namespace Emperia.Weapons
 {
 	public class EbonflameRepeater : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ebonflame Repeater");
+			Tooltip.SetDefault("30% chance to not consume ammo & transforms musket balls into cursed bullets");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Ebonflame Repeater";
 			item.damage = 20;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
-			item.toolTip = "Pelts your enemies with bullets";
-			item.toolTip2 = "30% chance to not consume ammo & transforms musket balls into cursed bullets"; 
 			item.useAnimation = 16;
 			item.useTime = 4;
 			item.reuseDelay = 20;

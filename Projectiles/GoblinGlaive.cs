@@ -9,10 +9,12 @@ namespace Emperia.Projectiles
 {
     public class GoblinGlaive : ModProjectile
     {
-    	
+    	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Goblin Glaive");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Goblin Glaive";
 			projectile.width = 56;  //The width of the .png file in pixels divided by 2.
 			projectile.aiStyle = 19;
 			projectile.melee = true;  //Dictates whether this is a melee-class weapon.

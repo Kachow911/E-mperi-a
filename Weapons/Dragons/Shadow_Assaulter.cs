@@ -8,15 +8,16 @@ namespace Emperia.Weapons.Dragons
 {
 	public class Shadow_Assaulter : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadow Assaulter");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Shadow Assaulter";
 			item.damage = 77;
 			item.ranged = true;
 			item.width = 58;
 			item.height = 36;
-			item.toolTip = "Fires 5 bullets in rapid succession";
-			item.toolTip2 = "Creates an orbiting drone while held"; 
 			item.useAnimation = 12;
 			item.useTime = 12;
 			item.useStyle = 5;

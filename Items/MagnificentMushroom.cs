@@ -10,15 +10,19 @@ using Emperia.Bosses.Mushor;
 
 namespace Emperia.Items
 {
+	
     public class MagnificentMushroom : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mystical Mushroom");
+			Tooltip.SetDefault("These forest shrooms may only heal you for 5, but they don't have a reset.");
+		}
         public override void SetDefaults()
         {
-            item.name = "Mystical Mushroom";
             item.width = 36;
             item.height = 36;
             item.maxStack = 999;
-            AddTooltip("These forest shrooms may only heal you for 5, but they don't have a reset. Can only be used in the twilight forest ( not implemented yet )");
             item.rare = 5;
             item.useAnimation = 45;
             item.useTime = 45;

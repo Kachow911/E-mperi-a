@@ -9,10 +9,12 @@ namespace Emperia.Weapons
 {
     public class FleshRenderer : ModItem
     {
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Flesh Renderer");
+		}
         public override void SetDefaults()
         {
-            item.name = "Flesh Renderer";
             item.damage = 44;
             item.melee = true;
             item.width = 40;

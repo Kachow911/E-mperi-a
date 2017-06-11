@@ -8,14 +8,16 @@ namespace Emperia.Weapons.Dragons
 {
 	public class Plauge_Bite : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Plague Bite");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Plague Bite";
 			item.damage = 103;
 			item.thrown = true;
 			item.width = 58;
 			item.height = 36;
-			item.toolTip = "Ricochets between enemies, gaining damage with each hit";
 			item.useAnimation = 12;
 			item.useTime = 12;
 			item.useStyle = 1;

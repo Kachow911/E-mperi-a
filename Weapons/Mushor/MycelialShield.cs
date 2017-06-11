@@ -9,11 +9,12 @@ using Terraria.ModLoader;
 namespace Emperia.Weapons.Mushor {
 public class MycelialShield : ModItem
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mycelial Shield");
+		}
 	public override void SetDefaults()
 	{
-		item.name = "Mycelial Shield";
-		AddTooltip("Upon taking damage you will occasionally be gifted with spores");
-		AddTooltip2("+5 defense and increased life regen");
 		item.width = 38;
 		item.height = 44;
 		item.value = 50000;

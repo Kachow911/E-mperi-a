@@ -11,11 +11,13 @@ namespace Emperia.Bosses.Pandora
     public class PandorasBox : ModNPC
     {
         private const int frameTimer = 5;
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pandora's Box");
+			Main.npcFrameCount[npc.type] = 13;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Pandoras Box";
-            npc.displayName = "Pandora's Box";
             npc.aiStyle = -1;
             npc.lifeMax = 250;
             npc.damage = 0;
@@ -23,7 +25,6 @@ namespace Emperia.Bosses.Pandora
             npc.knockBackResist = 0f;
             npc.width = 64;
             npc.height = 60;
-            Main.npcFrameCount[npc.type] = 13;
             npc.lavaImmune = true;
             npc.noGravity = true;
             npc.noTileCollide = true;

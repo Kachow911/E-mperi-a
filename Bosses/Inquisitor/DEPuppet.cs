@@ -14,10 +14,13 @@ namespace Emperia.Bosses.Inquisitor
 		private Vector2 travelToPosition;
 		private int counter = 120;
 		private Vector2 shootToPosition;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Demolitions Expert Puppet");
+			Main.npcFrameCount[npc.type] = 1;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Demolitions Expert Puppet";
-            npc.displayName = "Demolitions Expert Puppet";
             npc.aiStyle = -1;
             npc.lifeMax = 5000;
             npc.damage = 20;
@@ -26,7 +29,6 @@ namespace Emperia.Bosses.Inquisitor
             npc.width = 24;
             npc.height = 38;
             npc.alpha = 0;
-            Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 20, 0, 0);
             npc.lavaImmune = true;
             npc.noGravity = false;

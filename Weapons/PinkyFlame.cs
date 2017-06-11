@@ -10,15 +10,17 @@ namespace Emperia.Weapons
 {
     public class PinkyFlame : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pinky's Revenge");
+			Tooltip.SetDefault("Fires pink flames\n 10% chance not to consume gel");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Pinky's Revenge";   
+        {  
             item.damage = 14;  
             item.ranged = true;    
             item.width = 42; 
             item.height = 16;    
-            item.toolTip = "Fires pink flames";  
-            item.toolTip2 = "10% chance to not consume gel";   
             item.useTime = 6;   
             item.useAnimation = 20;     
             item.useStyle = 5;  

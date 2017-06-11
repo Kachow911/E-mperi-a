@@ -16,8 +16,8 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Spred";
-            Main.buffTip[Type] = "Eww, they're all over you...";
+			DisplayName.SetDefault("Spored");
+			Description.SetDefault("Eww, they're all over you");
             Main.buffNoSave[Type] = true;
             //Main.buffNoTimeDisplay[Type] = true;
 

@@ -14,11 +14,14 @@ namespace Emperia.Projectiles
 {
     public class MagmaBlob : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magma Blob");
+		}
         private const float explodeRadius = 90;
         //private int rotside { get { return (int)projectile.ai[0]; } set { projectile.ai[0] = value; } }
         public override void SetDefaults()
         {
-            projectile.name = "MagmaBlob";
             projectile.width = 16;
             projectile.height = 16;
             projectile.friendly = true;

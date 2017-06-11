@@ -9,10 +9,12 @@ namespace Emperia.Items.Sets.Seashell
 {
     public class ShellBow : ModItem
     {
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seashell Bow");
+		}
         public override void SetDefaults()
         {
-            item.name = "Shell Bow";
             item.damage = 7;
             item.noMelee = true;
             item.ranged = true;

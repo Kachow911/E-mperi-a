@@ -9,16 +9,18 @@ namespace Emperia.Weapons
 {
     public class AntlionBow : ModItem
     {
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Antlion Bow");
+			Tooltip.SetDefault("Occasionally shoots a ball of sand along with regular arrows");
+		}
         public override void SetDefaults()
         {
-            item.name = "Antlion Bow";
             item.damage = 11;
             item.noMelee = true;
             item.ranged = true;
             item.width = 69;
             item.height = 40;
-            item.toolTip = "Occasionally shoots a ball of sand along with regular arrows";
             item.useTime = 35;
             item.useAnimation = 35;
             item.useStyle = 5;

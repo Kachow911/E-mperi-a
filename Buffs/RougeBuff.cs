@@ -16,8 +16,8 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Rogue Rage";
-            Main.buffTip[Type] = "Increased crit damage";
+			DisplayName.SetDefault("Rogue Rage");
+			Description.SetDefault("Attacks are more likely to crit");
             Main.buffNoSave[Type] = true;
             //Main.buffNoTimeDisplay[Type] = true;
 

@@ -13,10 +13,12 @@ namespace Emperia.Weapons.Mushor
 {
     public class Shroomer : ModItem
     {
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Shroomer");
+		}
         public override void SetDefaults()
         {
-            item.name = "The Shroomer";
             item.damage = 32; 
             item.ranged = true;
             item.width = 64;

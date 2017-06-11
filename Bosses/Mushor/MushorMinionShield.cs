@@ -12,10 +12,13 @@ namespace Emperia.Bosses.Mushor
     {
         private NPC parent { get { return Main.npc[(int)npc.ai[0]]; } set { npc.ai[0] = value.whoAmI; } }
         private float rotate { get { return npc.ai[1]; } set { npc.ai[1] = value; } }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Angy Unshroom");
+			Main.npcFrameCount[npc.type] = 1;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Angy Unshroom";
-            npc.displayName = "Angy Unshroom";
             npc.aiStyle = -1;
             npc.lifeMax = 250;
             npc.damage = 23;

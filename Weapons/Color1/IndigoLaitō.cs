@@ -10,9 +10,12 @@ namespace Emperia.Weapons.Color1   //where is located
 {
     public class IndigoLaitō : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Indigo Laitō");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Indigo Laitō";     //Sword name
+        {    //Sword name
             item.damage = 26;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 32;              //Sword width

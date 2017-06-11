@@ -10,9 +10,12 @@ namespace Emperia.Weapons.Color1   //where is located
 {
     public class RougeRapier : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rogue Rapier");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Rogue Rapier";     //Sword name
+        {    //Sword name
             item.damage = 25;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 16;              //Sword width

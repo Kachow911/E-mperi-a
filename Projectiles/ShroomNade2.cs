@@ -14,9 +14,12 @@ namespace Emperia.Projectiles
 		private const float pullRadius = 256;
 		private int thing = 5;
 		private bool doPull = false;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shroomnade");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Shroomnade";
             projectile.width = 25;
             projectile.height = 25;
             projectile.friendly = true;

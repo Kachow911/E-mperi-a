@@ -6,14 +6,17 @@ namespace Emperia.Accessories.Dragon
 {
 	public class Storm_Rune : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Storm Rune");
+			Tooltip.SetDefault("Increases summon damage and magic damage by 11% \nIncreases mana by 20 \nMagic weapons and minions have a chance to fire a lightning bolt");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Storm Rune";
 			item.width = 30;
 			item.height = 48;
 			item.value = 1000000;
 			item.rare = 11;
-			item.toolTip = "Increases summon damage and magic damage by 11% \nIncreases mana by 20 \nMagic weapons and minions have a chance to fire a lightning bolt";
 			item.accessory = true;
 		}
 		

@@ -10,15 +10,18 @@ namespace Emperia.Items.Sets.Seashell  //where is located
 {
     public class SeashellTome : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seashell Tome");
+			Tooltip.SetDefault("Shoots a cerith shell");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Seashell Tome";     //Sword name
+        {    //Sword name
             item.damage = 13;            //Sword damage
             item.magic = true;
             item.noMelee = true;          //if it's melee
             item.width = 32;              //Sword width
-            item.height = 32;             //Sword height
-            item.toolTip = "Shoots a cerith shell";  //Item Description
+            item.height = 32;             //Sword height  //Item Description
             item.useTime = 32;          //how fast 
             item.useAnimation = 32;     
             item.useStyle = 5;    

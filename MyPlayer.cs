@@ -7,7 +7,6 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Emperia.Weapons.Enchanted;
 using Emperia.Projectiles;
 
 namespace Emperia
@@ -83,17 +82,7 @@ namespace Emperia
 			}
 		}
 		
-        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
-        {
-            EnchantedInfo info = proj.GetModInfo<EnchantedInfo>(mod);
-            if (info.givesEnchanted || info.givesMinorEnchanted)
-            {
-                if (target.life <= 0)   //if we kill the target
-                {   //if minor enchanted, 1 sec of enchanted buff added. otherwise full 4 secs
-                    player.AddBuff(mod.BuffType<Buffs.Enchanted>(), info.givesMinorEnchanted ? Buffs.Enchanted.minorStackDuration : Buffs.Enchanted.stackDuration);
-                }
-            }
-        }
+       
 
         public override void UpdateBadLifeRegen()
         {

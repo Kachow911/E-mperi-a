@@ -14,11 +14,13 @@ namespace Emperia.Bosses.Mushor
 		public int timerP2 = 0;
 		public bool shotYet = false;
 		public int timerthing = 0;
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Angry Mushroom");
+			Main.npcFrameCount[npc.type] = 15;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Angry Mushroom";
-            npc.displayName = "Angry Mushroom";
             npc.aiStyle = -1;
             npc.lifeMax = 30;
             npc.damage = 23;
@@ -26,7 +28,6 @@ namespace Emperia.Bosses.Mushor
             npc.knockBackResist = 0f;
             npc.width = 102;
             npc.height = 66;
-            Main.npcFrameCount[npc.type] = 15;
             npc.value = Item.buyPrice(0, 0, 0, 0);
             npc.npcSlots = 0f;
             npc.boss = false;

@@ -13,10 +13,12 @@ namespace Emperia.Weapons.Mushor
 {
     public class Mushdisc : ModItem
     {
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mush-Disc");
+		}
         public override void SetDefaults()
         {
-            item.name = "Mush - Disc";
             item.damage = 42; 
             item.thrown = true;
             item.width = 64;

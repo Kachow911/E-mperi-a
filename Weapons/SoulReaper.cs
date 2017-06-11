@@ -8,14 +8,17 @@ namespace Emperia.Weapons
 {
     public class SoulReaper: ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Reaper of Souls");
+			Tooltip.SetDefault("The legends say...");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Reaper of Souls";          
+        {         
             item.thrown = true;
             item.width = 30;
 			item.damage = 87;
             item.height = 30;
-            item.toolTip = "This is a miningdiamonds";
             item.useTime = 25;
             item.useAnimation = 25;
             item.noUseGraphic = true;

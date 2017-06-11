@@ -17,10 +17,12 @@ namespace Emperia.Weapons
 {
     public class Space_Machinegun : ModItem
     {
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Space Machinegun");
+		}
         public override void SetDefaults()
         {
-            item.name = "Space Machinegun";
             item.damage = 35; 
             item.magic = true;
             item.width = 54;

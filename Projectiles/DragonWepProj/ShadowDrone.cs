@@ -6,10 +6,13 @@ namespace Emperia.Projectiles.DragonWepProj
 {
 	public class ShadowDrone : HoverShooter
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadow Drone");
+		}
 		public override void SetDefaults()
 		{
 			projectile.netImportant = true;
-			projectile.name = "Shadow Drone";
 			projectile.width = 9;
 			projectile.height = 8;
 			projectile.friendly = true;

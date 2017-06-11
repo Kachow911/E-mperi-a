@@ -7,9 +7,12 @@ using Terraria.ID;
 namespace Emperia.Projectiles {
 public class Seed3 : ModProjectile
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seed");
+		}
 	public override void SetDefaults()
 	{
-		projectile.name = "Seed";
 		projectile.width = 14;
 		projectile.height = 14;
 		projectile.aiStyle = 14;

@@ -14,10 +14,12 @@ namespace Emperia.Projectiles
 {
     public class NappasArrow : ModProjectile
     {
-    
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Nappas Arrow");
+		}
         public override void SetDefaults()
         {
-            projectile.name = "Nappas Arrow";
             projectile.width = 18;
             projectile.height = 38;
             projectile.aiStyle = 3;

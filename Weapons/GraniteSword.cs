@@ -10,9 +10,12 @@ namespace Emperia.Weapons   //where is located
 {
     public class GraniteSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Sword");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Granite Sword";     //Sword name
+        {    //Sword name
             item.damage = 16;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 16;              //Sword width

@@ -11,15 +11,17 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 
-using Emperia.Weapons.Enchanted;
 
 namespace Emperia.Projectiles
 {
     public class LaserPurple : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Purple Laser");
+		}
         public override void SetDefaults()
         {
-			projectile.name = "Purple Laser";
             projectile.width = 5;
 			projectile.height = 5;
 			projectile.aiStyle = -1;

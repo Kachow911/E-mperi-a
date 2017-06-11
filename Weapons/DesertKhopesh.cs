@@ -7,15 +7,17 @@ namespace Emperia.Weapons
 {
     public class DesertKhopesh : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Desert Khopesh");
+			Tooltip.SetDefault("Rumor has it that you can throw it");
+		}
         public override void SetDefaults()
         {
-            item.name = "Desert Khopesh";
             item.damage = 13;
             item.melee = true;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "Rumor has it that you can throw it...";
-            item.toolTip2 = "Right click to use like a boomerang";
             item.useTime = 20;
             item.useAnimation = 20;
             item.useStyle = 1;

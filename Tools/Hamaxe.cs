@@ -9,9 +9,12 @@ using Terraria.ModLoader;
 namespace Emperia.Tools {
 public class Hamaxe : ModItem
 {
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seashell Hamaxe");
+		}
     public override void SetDefaults()
     {
-        item.name = "Seashell Hamaxe";
         item.damage = 7;
         item.melee = true;
         item.width = 46;

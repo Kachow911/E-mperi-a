@@ -10,15 +10,17 @@ namespace Emperia.Weapons   //where is located
 {
     public class BulbousStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bulbous Staff");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Bulbous Staff";     //Sword name
+        {    //Sword name
             item.damage = 50;            //Sword damage
             item.magic = true;
             item.noMelee = true;          //if it's melee
             item.width = 32;              //Sword width
-            item.height = 32;             //Sword height
-            item.toolTip = "Pretty W-I-P";  //Item Description
+            item.height = 32;             //Sword height  //Item Description
 			Item.staff[item.type] = true;
             item.useTime = 32;          //how fast 
             item.useAnimation = 32;     

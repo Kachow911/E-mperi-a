@@ -10,9 +10,12 @@ namespace Emperia.Projectiles.DragonWepProj
 {
 	public class IllnessFang : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Illness Fang");
+		}
 		public override void SetDefaults()
 		{
-			projectile.name = "Illness Fang";
 			projectile.width = 19;
 			projectile.height = 7;
 			projectile.aiStyle = -1;

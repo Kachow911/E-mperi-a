@@ -46,7 +46,7 @@ namespace Emperia
 			tasks.Insert(genIndex + 1, new PassLegacy("Twilight Forest", delegate (GenerationProgress progress)
 			{
 				int XTILE = WorldGen.genRand.Next(300, Main.maxTilesX - 1000);
-                int yAxis = Main.maxTilesY / 10;
+                int yAxis = Main.maxTilesY / 9;
 			    for (int xAxis = XTILE; xAxis < XTILE + 200; xAxis++)
 			    {
 				    int Slope2 = Math.Abs(Main.rand.Next(52,74) - Math.Abs((xAxis - XTILE) - Main.rand.Next(52,74))) / 3;

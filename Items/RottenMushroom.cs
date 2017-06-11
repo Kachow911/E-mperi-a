@@ -12,13 +12,16 @@ namespace Emperia.Items
 {
     public class RottenMushroom : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rotten Mushroom");
+			Tooltip.SetDefault("Ugh, it smells horrible.");
+		}
         public override void SetDefaults()
         {
-            item.name = "Rotten Mushroom";
             item.width = 36;
             item.height = 36;
             item.maxStack = 999;
-            AddTooltip("Ugh, it smells horrible.");
             item.rare = 3;
             item.useAnimation = 45;
             item.useTime = 45;

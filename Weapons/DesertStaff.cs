@@ -9,16 +9,19 @@ using Terraria.ModLoader;
 namespace Emperia.Weapons   //where is located
 {
     public class DesertStaff : ModItem
+	
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sandstorm Staff");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Sandstorm Staff";     //Sword name
+        {   //Sword name
             item.damage = 23;            //Sword damage
             item.magic = true;
             item.noMelee = true;          //if it's melee
             item.width = 32;              //Sword width
-            item.height = 32;             //Sword height
-            item.toolTip = "Shoots a tornado that will explode into sand balls";  //Item Description
+            item.height = 32;             //Sword height //Item Description
             item.useTime = 32;          //how fast 
             item.useAnimation = 32;     
             item.useStyle = 1;        //Style is how this item is used, 1 is the style of the sword

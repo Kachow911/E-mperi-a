@@ -16,8 +16,8 @@ namespace Emperia.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Beryl Brutalism";
-            Main.buffTip[Type] = "+30% melee speed";
+			DisplayName.SetDefault("Beryl Brutalism");
+			Description.SetDefault("30% increased melee Speed");
             Main.buffNoSave[Type] = true;
             //Main.buffNoTimeDisplay[Type] = true;
 

@@ -10,9 +10,12 @@ namespace Emperia.Projectiles
 
     public class Lightning : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lightning");
+		}
         public override void SetDefaults()
-        {
-            projectile.name = "Lightning";  //projectile name
+        {  //projectile name
             projectile.width = 20;       //projectile width
             projectile.height = 28;  //projectile height
             projectile.friendly = true;      //make that the projectile will not damage you

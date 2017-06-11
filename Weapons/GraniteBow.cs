@@ -9,10 +9,12 @@ namespace Emperia.Weapons
 {
     public class GraniteBow : ModItem
     {
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Bow");
+		}
         public override void SetDefaults()
         {
-            item.name = "Granite Bow";
             item.damage = 9;
             item.noMelee = true;
             item.ranged = true;

@@ -4,17 +4,17 @@ using Terraria.ModLoader;
 
 namespace Emperia.Accessories
 {
+	[AutoloadEquip(EquipType.Shield)]
 	public class MarbleShield : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+	
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Shield);
-			return true;
+			DisplayName.SetDefault("Marble Shield");
+			Tooltip.SetDefault("Polished and Strong");
 		}
-
 		public override void SetDefaults()
 		{
-			item.name = "Marble Shield";
 			item.width = 24;
 			item.height = 28;
 			item.value = 1000;

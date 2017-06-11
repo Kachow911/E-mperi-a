@@ -5,9 +5,12 @@ namespace Emperia.Materials
 {
 	public class MarbleBar : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Marble Bar");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Marble Bar";
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 999;

@@ -10,9 +10,12 @@ namespace Emperia.Projectiles.DragonWepProj
 {
 	public class VoidSpike : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Void Spike");
+		}
 		public override void SetDefaults()
 		{
-			projectile.name = "Void Spike";
 			projectile.width = 38;
 			projectile.height = 14;
 			projectile.aiStyle = -1;

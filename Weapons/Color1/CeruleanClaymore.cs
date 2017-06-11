@@ -10,9 +10,12 @@ namespace Emperia.Weapons.Color1   //where is located
 {
     public class CeruleanClaymore : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cerulean Claymore");
+		}
         public override void SetDefaults()
-        {
-            item.name = "Cerulean Claymore";     //Sword name
+        {     //Sword name
             item.damage = 32;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 32;              //Sword width

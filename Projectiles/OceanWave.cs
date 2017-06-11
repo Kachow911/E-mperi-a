@@ -10,9 +10,12 @@ namespace Emperia.Projectiles
 
     public class OceanWave : ModProjectile
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Oceanic Wave");
+		}
         public override void SetDefaults()
-        {
-            projectile.name = "Oceanic Wave";  //projectile name
+        {  //projectile name
             projectile.width = 20;       //projectile width
             projectile.height = 28;  //projectile height
             projectile.friendly = true;      //make that the projectile will not damage you

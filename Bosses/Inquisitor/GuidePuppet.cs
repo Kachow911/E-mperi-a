@@ -10,10 +10,13 @@ namespace Emperia.Bosses.Inquisitor
 {
     public class GuidePuppet : ModNPC
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Guide Puppet");
+			Main.npcFrameCount[npc.type] = 1;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Guide Puppet";
-            npc.displayName = "Guide Puppet";
             npc.aiStyle = -1;
             npc.lifeMax = 5000;
             npc.damage = 150;
@@ -22,7 +25,6 @@ namespace Emperia.Bosses.Inquisitor
             npc.width = 24;
             npc.height = 38;
             npc.alpha = 0;
-            Main.npcFrameCount[npc.type] = 1;
             npc.value = Item.buyPrice(0, 20, 0, 0);
             npc.lavaImmune = true;
             npc.noGravity = false;

@@ -16,7 +16,7 @@ namespace Emperia.Tiles
             Main.tileTable[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
-            AddMapEntry(new Color(255, 35, 233), "Enchanter's Table");
+            AddMapEntry(new Color(255, 35, 233));
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
             disableSmartCursor = true;
             TileObjectData.addTile(Type);

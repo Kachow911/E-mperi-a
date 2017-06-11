@@ -8,20 +8,18 @@ using Terraria.ModLoader;
 
 
 namespace Emperia.Items.Sets.Seashell {
+	[AutoloadEquip(EquipType.Legs)]
 public class SeashellLeggings : ModItem
 {
-    public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-    {
-    	equips.Add(EquipType.Legs);
-        return true;
-    }
-    
+    public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seashell Greaves");
+			Tooltip.SetDefault("6% increased movement speed when in liquid");
+		}
     public override void SetDefaults()
     {
-        item.name = "Seashell Greaves";
         item.width = 18;
         item.height = 18;
-        AddTooltip("6% increased movement speed when in liquid");
         item.value = 57500;
         item.rare = 1;
         item.defense = 2; //15

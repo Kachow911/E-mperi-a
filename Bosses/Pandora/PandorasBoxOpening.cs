@@ -50,11 +50,13 @@ namespace Emperia.Bosses.Pandora
             B = 154
         };
         #endregion
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pandora's Box");
+			Main.npcFrameCount[npc.type] = 18;
+		}
         public override void SetDefaults()
         {
-            npc.name = "Pandoras Box Openinng";
-            npc.displayName = "Pandora's Box";
             npc.aiStyle = -1;
             npc.lifeMax = 250;
             npc.damage = 0;
@@ -62,7 +64,6 @@ namespace Emperia.Bosses.Pandora
             npc.knockBackResist = 0f;
             npc.width = 104;
             npc.height = 88;
-            Main.npcFrameCount[npc.type] = 18;
             npc.lavaImmune = true;
             npc.noGravity = true;
             npc.noTileCollide = true;

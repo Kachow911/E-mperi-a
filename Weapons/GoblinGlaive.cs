@@ -10,10 +10,12 @@ namespace Emperia.Weapons {
 public class GoblinGlaive : ModItem
 {
 
-
+	public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Goblin Glaive");
+		}
 	public override void SetDefaults()
 	{
-		item.name = "Goblin's Glaive";
 		item.width = 56;  //The width of the .png file in pixels divided by 2.
 		item.damage = 17;  //Keep this reasonable please.
 		item.melee = true;  //Dictates whether this is a melee-class weapon.
