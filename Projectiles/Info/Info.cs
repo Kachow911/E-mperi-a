@@ -20,5 +20,7 @@ namespace Emperia.Projectiles.Info
 				Projectile.NewProjectile(projectile.position.X, projectile.position.Y - 500, sX, 15, 12, (int)(damage / 3), 5f, projectile.owner);
 			}
 		}
+		
+		public override bool InstancePerEntity {get{return true;}}
 	}
 }
