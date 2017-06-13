@@ -65,7 +65,7 @@ namespace Emperia
 
 		public override void UpdateBiomeVisuals()
 		{
-			player.ManageSpecialBiomeVisuals("Emperia:Bloom", true, player.Center);
+			//player.ManageSpecialBiomeVisuals("Emperia:Bloom", true, player.Center);
 		}
 		
 		public override void PreUpdate()
