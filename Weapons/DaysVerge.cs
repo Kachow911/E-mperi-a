@@ -18,12 +18,12 @@ namespace Emperia.Weapons //where is located
 		}
         public override void SetDefaults()
         {    //Sword name
-            item.damage = 35;            //Sword damage
+            item.damage = 27;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 200;              //Sword width
             item.height = 200;             //Sword height
-            item.useTime = 34;          //how fast 
-            item.useAnimation = 40;     
+            item.useTime = 38;          //how fast 
+            item.useAnimation = 38;     
             item.useStyle = 1;        //Style is how this item is used, 1 is the style of the sword
             item.knockBack = 7.5f;      //Sword knockback
             item.value = 100;        

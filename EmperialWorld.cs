@@ -23,7 +23,8 @@ namespace Emperia
 	the formatting is bad too
 	pls be careful
 	*/
-			public static bool downedMushor = false;
+		public static bool downedMushor = false;
+		public static int twilightTiles = 0;
 		public override void Initialize()
 		{
 			downedMushor = false;
@@ -39,6 +40,15 @@ namespace Emperia
 		{
 			BitsByte flags = reader.ReadByte();
 			downedMushor = flags[0];
+		}
+		public override void ResetNearbyTileEffects()
+		{
+			MyPlayer modPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>(mod);
+			twilightTiles = 0;
+		}
+		public override void TileCountsAvailable(int[] tileCounts)
+		{
+			twilightTiles = tileCounts[mod.TileType("TwilightGrass")];
 		}
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{

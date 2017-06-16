@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Emperia;
 using Emperia.Projectiles;
 
 namespace Emperia
@@ -25,6 +26,8 @@ namespace Emperia
 		public bool Scourge = false;
 		public bool Storm = false;
         public int enchantedStacks;
+		public bool ZoneTwilight = false;
+		public bool doubleCrit = false;
 		public int points = 0;
 		public int rofIncrease = 0;
 		int counter = 0;
@@ -42,6 +45,7 @@ namespace Emperia
             enchantedStacks = 0;
 			rofIncrease = 0;
             spored = false;
+			doubleCrit = false;
         }
 
         public override void PostUpdate()
@@ -62,10 +66,14 @@ namespace Emperia
                 //player.velocity.Y = Math.Abs(player.velocity.Y);
             }
         }
-
+		public override void UpdateBiomes()
+		{
+			ZoneTwilight = (EmperialWorld.twilightTiles > 50);
+		}
 		public override void UpdateBiomeVisuals()
 		{
-			//player.ManageSpecialBiomeVisuals("Emperia:Bloom", true, player.Center);
+			if (ZoneTwilight)
+				player.ManageSpecialBiomeVisuals("Emperia:Twilight", true, player.Center);
 		}
 		
 		public override void PreUpdate()
@@ -126,6 +134,20 @@ namespace Emperia
 			if (Fortress == true)
 			{
 				player.AddBuff(mod.BuffType("Slag_Skin"), 240, false);
+			}
+		}
+		public override void ModifyHitNPC (Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
+		{
+			if (crit == true && doubleCrit == true)
+			{	
+				damage *= 2;
+			}
+		}
+		public override void ModifyHitNPCWithProj (Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+		{
+			if (crit == true && doubleCrit == true)
+			{	
+				damage *= 2;
 			}
 		}
     }
