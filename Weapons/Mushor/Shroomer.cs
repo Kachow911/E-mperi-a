@@ -19,7 +19,7 @@ namespace Emperia.Weapons.Mushor
 		}
         public override void SetDefaults()
         {
-            item.damage = 32; 
+            item.damage = 36; 
             item.ranged = true;
             item.width = 64;
             item.height = 64;

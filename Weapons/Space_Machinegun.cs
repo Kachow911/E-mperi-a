@@ -45,7 +45,7 @@ namespace Emperia.Weapons
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            Vector2 vector2 = new Vector2(speedX, speedY).RotatedBy(MathHelper.ToRadians(Main.rand.Next(-15, 15)));
+            Vector2 vector2 = new Vector2(speedX, speedY).RotatedBy(MathHelper.ToRadians(Main.rand.Next(-10, 10)));
 			
 			switch (Main.rand.Next(2))
 			{
