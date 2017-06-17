@@ -74,6 +74,8 @@ namespace Emperia
 		{
 			if (ZoneTwilight)
 				player.ManageSpecialBiomeVisuals("Emperia:Twilight", true, player.Center);
+			else
+				player.ManageSpecialBiomeVisuals("Emperia:Twilight", false, player.Center);
 		}
 		
 		public override void PreUpdate()
