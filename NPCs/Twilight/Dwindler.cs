@@ -12,6 +12,7 @@ namespace Emperia.NPCs.Twilight
     {
 		public int StealthTimer = 120;
 		public bool Jump = false;
+		int mult;
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dwindler");
@@ -34,38 +35,88 @@ namespace Emperia.NPCs.Twilight
             npc.DeathSound = SoundID.NPCDeath1;
             npc.buffImmune[24] = true;
             npc.netAlways = true;
+			aiType = 31;
         }
 		
 		 public override void AI()
         {
+			npc.TargetClosest(true);
 			//Stealth Effects
 			StealthTimer--;
 			if (StealthTimer <= 0)
 			{
-				if (npc.alpha < 200)
+				if (npc.alpha < 150)
 					npc.alpha++;
 			}
 			//Done
 			
 			//Teleport
-			if (npc.alpha == 200 && Main.rand.Next(10) == 0)
+			if (npc.alpha == 150 && Main.rand.Next(10) == 0)
 			{
-				npc.alpha = 0;
-				if (Main.rand.Next(2) == 0)
-					npc.position.Y -= Main.rand.Next(50, 250);
+				switch (Main.rand.Next(2))
+				{
+					case 0: 
+						mult = 1;
+						break;
+					case 1:
+						mult = -1;
+						break;
+				}
+				
+				if (Main.rand.Next(6) == 0)
+				{
+					for (int m = 0; m <= 10; m++)
+					{
+						int dust = Dust.NewDust(npc.position, npc.width, npc.height, 60, 0f, 0f, 0, new Color(), 1.5f);
+						Main.dust[dust].noGravity = true;
+					}
+					npc.position.X = (Main.player[npc.target].position.X + (Main.rand.Next(90, 150) * mult));
+					npc.position.Y = Main.player[npc.target].position.Y - Main.rand.Next(50, 250);
+					for (int m = 0; m <= 10; m++)
+					{
+						int dust = Dust.NewDust(npc.position, npc.width, npc.height, 60, 0f, 0f, 0, new Color(), 1.5f);
+						Main.dust[dust].noGravity = true;
+					}
+				}
 
 			}
 			// Done
+			
+			//jump
 			if (npc.velocity.Y < 0 && Jump)
 			{
-				npc.velocity.Y *= 2;
+				npc.velocity.Y *= 1.5f;
+				npc.velocity.X *= 1.25f;
 				Jump = false;
 			}
 			if (npc.velocity.Y >= 0)
 			{
 				Jump = true;
 			}
+			//done
+			
+			//fix sprite direction and make it faster over time
+			if (npc.position.X > Main.player[npc.target].position.X)
+			{
+				npc.spriteDirection = -1;
+				
+				if (npc.velocity.X > -6)
+					npc.velocity.X -= 0.25f;
+			}
+			else
+			{
+				npc.spriteDirection = 1;
+				
+				if (npc.velocity.X < 6 && npc.position.X != Main.player[npc.target].position.X)
+					npc.velocity.X += 0.25f;
+			}
+			//done
+		}
+		
+		public override void HitEffect(int hitDirection, double Damage)
+		{
+			StealthTimer = 120;
+			npc.alpha = 0;
 		}
     }
-    
 }
