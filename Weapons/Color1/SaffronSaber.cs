@@ -16,7 +16,7 @@ namespace Emperia.Weapons.Color1  //where is located
 		}
         public override void SetDefaults()
         {     //Sword name
-            item.damage = 22;            //Sword damage
+            item.damage = 19;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 32;              //Sword width
             item.height = 32;             //Sword height

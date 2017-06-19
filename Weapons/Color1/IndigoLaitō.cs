@@ -12,16 +12,16 @@ namespace Emperia.Weapons.Color1   //where is located
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Indigo Laitō");
+			DisplayName.SetDefault("Indigo Iaitō");
 		}
         public override void SetDefaults()
         {    //Sword name
-            item.damage = 26;            //Sword damage
+            item.damage = 23;            //Sword damage
             item.melee = true;            //if it's melee
             item.width = 32;              //Sword width
             item.height = 32;             //Sword height
-            item.useTime = 14;          //how fast 
-            item.useAnimation = 14;     
+            item.useTime = 22;          //how fast 
+            item.useAnimation = 22;     
             item.useStyle = 1;        //Style is how this item is used, 1 is the style of the sword
             item.knockBack = 2f;  
 			item.crit = 8;			//Sword knockback

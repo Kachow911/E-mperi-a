@@ -81,11 +81,17 @@ namespace Emperia.Bosses.Mushor
             else npc.dontTakeDamage = false;
 
             Player player = Main.player[npc.target];
-            if (!player.active || player.dead)
-            {
-                npc.TargetClosest(false);
-                player = Main.player[npc.target];
-            }
+            
+			if (!player.active || player.dead)
+			{
+				npc.TargetClosest(false);
+				npc.velocity.Y = -20;
+				
+				if (npc.timeLeft > 10)
+					{
+						npc.timeLeft = 10;
+					}
+			}
 
             if (IsBelowPhaseTwoThreshhold() && !p2AnimationStart)
             {
