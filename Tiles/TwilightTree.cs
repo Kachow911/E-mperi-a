@@ -32,7 +32,8 @@ namespace Emperia.Tiles
 		{
 			frameWidth=160;
 			frameHeight=113;
-			frame = 1;
+			frame = 0;
+			xOffsetLeft = 75;
 			return mod.GetTexture("Tiles/TwilightTree_Top");
 		}
 

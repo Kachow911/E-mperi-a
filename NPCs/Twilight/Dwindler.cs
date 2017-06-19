@@ -12,6 +12,7 @@ namespace Emperia.NPCs.Twilight
     {
 		public int StealthTimer = 120;
 		public bool Jump = false;
+		public int timerJump = 0;
 		int mult;
 		public override void SetStaticDefaults()
 		{
@@ -83,15 +84,18 @@ namespace Emperia.NPCs.Twilight
 			// Done
 			
 			//jump
-			if (npc.velocity.Y < 0 && Jump)
+			timerJump++;
+			if (timerJump > 30 && npc.velocity.Y == 0)
 			{
+				Jump = true;
+				timerJump = 0;
+			}
+			if (Jump)
+			{
+				npc.velocity.Y = -3f;
 				npc.velocity.Y *= 1.5f;
 				npc.velocity.X *= 1.25f;
 				Jump = false;
-			}
-			if (npc.velocity.Y >= 0)
-			{
-				Jump = true;
 			}
 			//done
 			
