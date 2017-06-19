@@ -20,7 +20,7 @@ namespace Emperia.Tiles
 			Main.tileBrick[Type] = true;
             drop = ItemID.DirtBlock;
             Main.tileMergeDirt[Type] = true;
-      
+			SetModTree(new TwilightTree());
 			dustType = 72;
       
 			minPick = 100;
@@ -32,7 +32,11 @@ namespace Emperia.Tiles
 			
 			
         }
-		
+		public override int SaplingGrowthType(ref int style)
+        {
+            style = 0;
+            return mod.TileType("TwilightTreeSap");       
+        }
 		public override bool CanExplode(int i, int j)
 		{
 			return true;
