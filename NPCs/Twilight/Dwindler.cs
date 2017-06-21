@@ -122,5 +122,13 @@ namespace Emperia.NPCs.Twilight
 			StealthTimer = 120;
 			npc.alpha = 0;
 		}
+		
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		{
+			int x = spawnInfo.spawnTileX;
+			int y = spawnInfo.spawnTileY;
+			int tile = (int)Main.tile[x, y].type;
+			return (tile == mod.TileType("TwilightGrass")) ? 0.2f : 0f;
+		}
     }
 }
