@@ -118,5 +118,11 @@ namespace Emperia.NPCs.Twilight
 			StealthTimer = 120;
 			npc.alpha = 0;
 		}
+		
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		{
+			
+			return ((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).ZoneTwilight ? 0.2f : 0f;
+		}
     }
 }
