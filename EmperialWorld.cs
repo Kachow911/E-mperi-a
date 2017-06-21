@@ -57,19 +57,26 @@ namespace Emperia
 			{
 				int XTILE = WorldGen.genRand.Next(300, Main.maxTilesX - 1000);
                 int yAxis = Main.maxTilesY / 9;
-			    for (int xAxis = XTILE; xAxis < XTILE + 200; xAxis++)
+			    for (int xAxis = XTILE; xAxis < XTILE + 350; xAxis++)
 			    {
-				    int Slope2 = Math.Abs(Main.rand.Next(52,74) - Math.Abs((xAxis - XTILE) - Main.rand.Next(52,74))) / 3;
-				    string SlopeText = Slope2.ToString();
-				    for (int I = 0; I < Slope2; I++)
-				    {
-					    WorldGen.TileRunner(xAxis, yAxis + I, (double)20, 1, mod.TileType("TwilightGrass"), true, 0f, 0f, true, true);
-				    }
+				   // int Slope2 = Math.Abs(Main.rand.Next(52,74) - Math.Abs((xAxis - XTILE) - Main.rand.Next(52,74))) / 3;
+				   // string SlopeText = Slope2.ToString();
+				   // for (int I = 0; I < Slope2; I++)
+				    //{
+					 //   WorldGen.TileRunner(xAxis, yAxis + I, (double)20, 1, mod.TileType("TwilightGrass"), true, 0f, 0f, true, true);
+				    //}
 				    WorldGen.TileRunner(xAxis, yAxis, (double)20, 1, mod.TileType("TwilightGrass"), true, 0f, 0f, true, true);
-				    if (Main.rand.Next(30) == 0)
+				    if (Main.rand.Next(25) == 0)
 				    {
 					    WorldGen.TileRunner(xAxis, yAxis - 5, (double)20, 1, mod.TileType("TwilightGrass"), true, 0f, 0f, true, true);
 				    }
+					if (Main.rand.Next(5) == 0)
+				    {
+					    WorldGen.TileRunner(xAxis, yAxis + 7, (double)20, 1, mod.TileType("TwilightGrass"), true, 0f, 0f, true, true);
+				    }
+					//WorldGen.digTunnel(XTILE + 320, yAxis + 15, 0,0, WorldGen.genRand.Next(12, 15), WorldGen.genRand.Next(12, 15), false);
+					//WorldGen.digTunnel(XTILE + 225, yAxis + 10, 0,0, WorldGen.genRand.Next(6, 8), WorldGen.genRand.Next(7, 9), false);
+					//WorldGen.digTunnel(XTILE + 175, yAxis + 9, 0,0, WorldGen.genRand.Next(6, 8), WorldGen.genRand.Next(6, 8), false);
 			    }
 			}));
 		}

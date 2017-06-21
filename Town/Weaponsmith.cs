@@ -58,7 +58,21 @@ namespace Emperia.Town
            // {
             //    return true;
             //}
-            return false;
+            for (int k = 0; k < 255; k++)
+			{
+				Player player = Main.player[k];
+				if (player.active)
+				{
+					for (int j = 0; j < player.inventory.Length; j++)
+					{
+						if (player.inventory[j].type == ItemID.Shuriken)
+						{
+							return true;
+						}
+					}
+				}
+			}
+			return true;
 		}
 
 

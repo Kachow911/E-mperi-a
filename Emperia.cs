@@ -49,7 +49,7 @@ namespace Emperia
 			if (!Main.dedServ)
 			{
 				Filters.Scene["Emperia:Bloom"] = new Filter(new BloomScreenShaderData("FilterMiniTower").UseColor(0.12f, 1f, 0.4f).UseOpacity(0.2f), EffectPriority.VeryHigh);
-				Filters.Scene["Emperia:Twilight"] = new Filter(new TwilightScreenShaderData("FilterMiniTower").UseColor(1f, 0.5f, 1f).UseOpacity(0.6f), EffectPriority.VeryHigh);
+				Filters.Scene["Emperia:Twilight"] = new Filter(new TwilightScreenShaderData("FilterMiniTower").UseColor(1f, 0.5f, 1f).UseOpacity(0.4f), EffectPriority.VeryHigh);
 				//SkyManager.Instance["Emperia:Bloom"] = new PuritySpiritSky();
 
 			}

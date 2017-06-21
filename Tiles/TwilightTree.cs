@@ -20,9 +20,12 @@ namespace Emperia.Tiles
 		}
 		public override int GrowthFXGore()
 		{
-			return mod.GetGoreSlot("Gores/ExampleTreeFX");
+			return mod.GetGoreSlot("Gores/ExampleTreeFX"); //Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OctopusHead"), 1f);
 		}
-
+		//public override void RandomUpdate(int i, int j)
+        //{
+			//Gore.NewGore(new Vector2(i, j), 0, mod.GetGoreSlot("Gores/OctopusHead"), 1f);
+		//}
 		public override Texture2D GetTexture()
 		{
 			return mod.GetTexture("Tiles/TwilightTree");

@@ -12,14 +12,12 @@ namespace Emperia.Tiles
 			//AddToArray(ref TileID.Sets.Conversion.Grass);
 			//TileID.Sets.Conversion.Grass[Type]=true;
             Main.tileSolid[Type] = true;
-            Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
             AddMapEntry(new Color(117, 241, 255));
 			mineResist = 3f;
 			Main.tileBrick[Type] = true;
             drop = ItemID.DirtBlock;
-            Main.tileMergeDirt[Type] = true;
 			SetModTree(new TwilightTree());
 			dustType = 72;
       
@@ -60,8 +58,17 @@ namespace Emperia.Tiles
             if(Framing.GetTileSafely(i,j-1).type==0&&Framing.GetTileSafely(i,j-2).type==0)
             {
                 
-                       
-                           switch(Main.rand.Next(6)) 
+				if(Main.rand.Next(4)==0)
+                {		
+                    if(Framing.GetTileSafely(i,j-1).type==0&&Framing.GetTileSafely(i,j-2).type==0)
+					{		
+                    WorldGen.PlaceObject(i,j-1,mod.TileType("TwilightTreeSap"));
+                    NetMessage.SendObjectPlacment(-1,i,j-1,mod.TileType("TwilightTreeSap"),0,0,-1,-1);
+					}       
+				}
+				else
+                {
+					switch(Main.rand.Next(6)) 
 						   {
 								case 0: 
 								    WorldGen.PlaceObject(i-1,j-1,mod.TileType("TwilightFlora1"));
@@ -88,6 +95,8 @@ namespace Emperia.Tiles
 									NetMessage.SendObjectPlacment(-1,i-1,j-1,mod.TileType("TwilightFlora5"),0,0,-1,-1);
 								break;
 						   }
+					 
+               }
                 
             }
         }
