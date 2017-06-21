@@ -121,8 +121,10 @@ namespace Emperia.NPCs.Twilight
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			
-			return ((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).ZoneTwilight ? 0.2f : 0f;
+			int x = spawnInfo.spawnTileX;
+			int y = spawnInfo.spawnTileY;
+			int tile = (int)Main.tile[x, y].type;
+			return (tile == mod.TileType("TwilightGrass")) ? 0.2f : 0f;
 		}
     }
 }
