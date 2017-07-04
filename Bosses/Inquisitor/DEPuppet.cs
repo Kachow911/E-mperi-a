@@ -21,8 +21,8 @@ namespace Emperia.Bosses.Inquisitor
 		}
         public override void SetDefaults()
         {
-            npc.aiStyle = -1;
-            npc.lifeMax = 5000;
+            npc.aiStyle = 3;
+            npc.lifeMax = 1000;
             npc.damage = 20;
             npc.defense = 40;
             npc.knockBackResist = 0f;
@@ -36,59 +36,39 @@ namespace Emperia.Bosses.Inquisitor
             npc.HitSound = SoundID.NPCHit1; //57 //20
             npc.DeathSound = SoundID.NPCDeath1;
             npc.buffImmune[24] = true;
-
+			aiType = 31;
             npc.netAlways = true;
         }
 		public override void AI()
         {
 			Player player = Main.player[npc.target];
 			npc.TargetClosest(true);
-			if (!hasSpawned)
-            {
-                npc.ai[2] = 1;
-                hasSpawned = true;
-            }
-			if (npc.ai[2] == 1)
-			{
-				npc.noTileCollide = true;
-				SmoothMoveToPosition(player.Center + new Vector2(Main.rand.Next(-100, 100), 0), .3f, 4);
 
 				counter--;
 				if (counter <= 0)
 				{
 					npc.ai[2] = 2;
-					counter = 30;
+					counter = 60;
 					Vector2 position = Main.player[npc.target].Center - npc.Center;
 					position.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, position.X * 10f, position.Y * 10f, 102, 20, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, position.X * 10f, position.Y * 10f, 102, 12, 1, Main.myPlayer, 0, 0);
 				}
-			}
-			else if (npc.ai[2] == 2)
+				if (npc.position.X > Main.player[npc.target].position.X)
 			{
-				counter--;
-				if (counter <= 0)
-				{
-					npc.ai[2] = 1;
-					counter = 120;
-				}
+				npc.spriteDirection = 1;
+				
+				if (npc.velocity.X > -6)
+					npc.velocity.X -= 0.25f;
 			}
-		}
-		private void SmoothMoveToPosition(Vector2 toPosition, float addSpeed, float maxSpeed, float slowRange = 64, float slowBy = .95f)
-        {
-            if (Math.Abs((toPosition - npc.Center).Length()) >= slowRange)
-            {
-                npc.velocity += Vector2.Normalize((toPosition - npc.Center) * addSpeed);
-                npc.velocity.X = MathHelper.Clamp(npc.velocity.X, -maxSpeed, maxSpeed);
-                npc.velocity.Y = MathHelper.Clamp(npc.velocity.Y, -maxSpeed, maxSpeed);
-            }
-            else
-            {
-                npc.velocity *= slowBy;
-            }
-        }
-		private void ShootAtPosition(Vector2 position, float speed, int type, int damage)
-		{
-			Projectile.NewProjectile(npc.Center.X, npc.Center.Y, position.X * speed, position.Y * speed, type, damage, 1, Main.myPlayer, 0, 0);
+			else
+			{
+				npc.spriteDirection = -1;
+				
+				if (npc.velocity.X < 6 && npc.position.X != Main.player[npc.target].position.X)
+					npc.velocity.X += 0.25f;
+			}
+			//npc.AddBuff(mod.BuffType("speedBoost"), 120);
+			
 		}
     }
 }

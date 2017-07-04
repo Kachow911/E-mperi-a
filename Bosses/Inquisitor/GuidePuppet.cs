@@ -17,7 +17,8 @@ namespace Emperia.Bosses.Inquisitor
 		}
         public override void SetDefaults()
         {
-            npc.aiStyle = -1;
+            npc.aiStyle = 3;
+			aiType = 31;
             npc.lifeMax = 5000;
             npc.damage = 150;
             npc.defense = 40;
