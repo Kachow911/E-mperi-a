@@ -6,6 +6,10 @@ namespace Emperia.Drops
 {
 	public class EssenceDrop : GlobalNPC
 	{
+		public int UpdatePoints(int points)
+		{
+			return (points+=5);
+		}
 		 public override void NPCLoot(NPC npc)  
         {
 			//ZoneUnderworldHeight
@@ -32,8 +36,8 @@ namespace Emperia.Drops
 				if(npc.type == 231 || npc.type == 233 || npc.type == 236)
 				{
 					MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-					modPlayer.points += 5;
-					Main.NewText(modPlayer.points + " / 100");
+					player.GetModPlayer<MyPlayer>(mod).points +=5;
+					Main.NewText(player.GetModPlayer<MyPlayer>(mod).points + " / 100");
 				}
 				if(npc.type == 84)
 				{

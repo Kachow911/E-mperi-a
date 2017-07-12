@@ -21,7 +21,7 @@ namespace Emperia.WorldStuff
 			MyPlayer modPlayer = p.GetModPlayer<MyPlayer>(mod);
 
 			
-			if (!bloom && Main.dayTime && modPlayer.isBloom)
+			if (!bloom && Main.dayTime /*&& modPlayer.isBloom*/)
 			{
 				bloom = true;
 				Main.NewText("Dangerous things bloom from the jungle", 0, 255, 0);
